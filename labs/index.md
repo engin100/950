@@ -41,13 +41,13 @@ Creating a voltage regulating circuit to handle the power from the battery, and 
 
 [Link to lab 4](/labs/lab-4)
 
-<!--
 ## Lab 5: Adding GPS
 
 Adding a digital GPS component to our Arduino breadboard circuit.
 
 [Link to lab 5](/labs/lab-5)
 
+<!--
 ## Lab 6: Altium
 
 Moving away from the breadboards and creating a custom PCB (Printed Circuit Board) using Altium software.
