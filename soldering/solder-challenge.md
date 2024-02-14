@@ -138,9 +138,9 @@ READ ALL OF THESE ITEMS CAREFULLY. DO NOT SKIP ANY OF THESE ITEMS.
 
 The following sequence should be observed:
 
-1. knight rider (9 LEDs turning off and on back and forth) twice - this tests LED connections and digital pins on Arduino
+1. knight rider (9 LEDs turning off and on back and forth) twice - this tests LED connections (D1 - D9, R1 - R9) and digital pins on Arduino (D2 - D10)
 
-2. The number of voltage divered circuits that are within tolerance (should be 5 lights and internal LED blinking 5 times) - this tests analog connections as well as some resistors
+2. The number of voltage divider circuits that are within tolerance (should be 5 lights and internal LED blinking 5 times) - this tests analog connections (A0 - A4) as well as some resistors
 
 3. 9 lights on
 
