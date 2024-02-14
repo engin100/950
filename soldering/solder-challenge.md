@@ -133,3 +133,41 @@ READ ALL OF THESE ITEMS CAREFULLY. DO NOT SKIP ANY OF THESE ITEMS.
 ## Submission
 
 - You will receive points (out of 20) based on how the board functions and if the code runs correctly on your board.
+
+## Grading
+
+The following sequence should be observed:
+
+1. knight rider (9 LEDs turning off and on back and forth) twice - this tests LED connections and digital pins on Arduino
+
+2. The number of voltage divered circuits that are within tolerance (should be 5 lights and internal LED blinking 5 times) - this tests analog connections as well as some resistors
+
+3. 9 lights on
+
+4. 9 lights blink 5 times
+
+5. 9 lights on - battery voltage
+
+6. 9 lights blink 1 time
+
+7. 7 or 8 lights on - first voltage divider
+
+8. 9 lights blink 3 times
+
+8. 5 lights on - 5.0V line on Arduino
+
+9. 9 lights blink 3 times
+
+10. 7 lights on - 3.3V line on Arduino
+
+11. repeat sequence
+
+Points:
+- 1 point for each surface mount component - 10 total
+- 1 point for each thru-hole resistor (8) and LED (5) - 13 total
+- 1 point for the battery connection - 2 total
+- 1 point for each header pin - 30 total
+- 5 points for general quality of soldering (subjective)
+
+Grand total is 60 points.  Divide by 3 to get points out of 20.
+
