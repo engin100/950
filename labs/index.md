@@ -47,6 +47,12 @@ Adding a digital GPS component to our Arduino breadboard circuit.
 
 [Link to lab 5](/labs/lab-5)
 
+### Lab 6 Prelab: Altium Schematic to PCB
+
+Finishing up postlab 1b to turn the schematic into a finished PCB.
+
+[Link to Lab 6 Prelab](/labs/lab-6-prelab.md)
+
 <!--
 ## Lab 6: Altium
 

@@ -170,4 +170,3 @@ Points:
 - 5 points for general quality of soldering (subjective)
 
 Grand total is 60 points.  Divide by 3 to get points out of 20.
-
