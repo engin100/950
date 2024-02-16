@@ -53,12 +53,13 @@ Finishing up postlab 1b to turn the schematic into a finished PCB.
 
 [Link to Lab 6 Prelab](/labs/lab-6-prelab)
 
-<!--
 ## Lab 6: Altium
 
 Moving away from the breadboards and creating a custom PCB (Printed Circuit Board) using Altium software.
 
 [Link to lab 6](/labs/lab-6)
+
+<!--
 
 ** Lab 7: Structures
 
