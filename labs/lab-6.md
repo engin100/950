@@ -93,35 +93,41 @@ Additionally, we decided that turning on and off your board would be nice, so ad
 LEDs are also useful when diagnosing software bugs without a computer, telling you if the board is on or off, and also making cool light patterns. Please wire pins D4-D9 to their own LED with a 1K resistor on each LED. This way, you have 6 LEDs to diagnose problems and play with.
 
 In summary, your schematic (and the PCB) must have:
-1. An Arduino Nano (voltage input should be through the 5V connector and nothing should be connected to the Vin pin)
-2. Two TMP36s (internal and external)
-3. Humidity sensor
-4. Pressure sensor
-5. Accelerometer
-6. GPS
-7. Level shifter
-8. SD Card writer
-9. LEDs with surface mount resistors from 3.3V, 5.0V, and battery voltage lines to ground
-10. Your extra sensor
-11. The power daughter board (which includes battery connection, RBF pin, LDOs, capacitors, and charging port)
-12. Surface mount capacitors from the input voltage line on the GPS to ground, the SD card input voltage to ground, and the Arduino 5V pin to ground.
+- [ ] An Arduino Nano (voltage input should be through the 5V connector and nothing should be connected to the Vin pin)
+- [ ] Two TMP36s (internal and external)
+- [ ] Humidity sensor
+- [ ] Pressure sensor
+- [ ] Accelerometer
+- [ ] GPS
+- [ ] Level shifter
+- [ ] SD Card writer
+- [ ] LEDs with surface mount resistors from 3.3V, 5.0V, and battery voltage lines to ground
+- [ ] Your extra sensor
+- [ ] The power daughter board (which includes battery connection, RBF pin, LDOs, capacitors, and charging port)
+- [ ] Surface mount capacitors from the input voltage line on the GPS to ground, the SD card input voltage to ground, and the Arduino 5V pin to ground.
 
 If your extra sensor uses I2C communication protocols, you must connect it to the analog pins pre-set for I2C communications. In the Arduino Nano, these are A4 (SDA pin) and A5 (SCL pin). See more on connecting I2C devices (google search "connecting I2C devices to an Arduino nano") Be sure you read through your extra sensor’s documentation and/or hookup guide to understand whether it is I2C and if you will need the A4 and A5 I2C hookup pins. You can google search for the extra sensor datasheet.
 
 #### Procedure: Starting Your Design and Creating A Schematic
 
 1. Download the resources provided in the Canvas Files section for the Altium lab. There should be a folder called 'Altium Libraries' for you to download.
+
 2. Open Altium Designer on a CAEN computer. Navigate to File -> New -> Project...
+
 3. Choose the PCB project type.
+
 4. The "Folder" field allows you to choose where this folder is created. You can save it to your "Documents" folder (**not "Public Documents"!!!**) for it to sync across all CAEN instances or, you can navigate to "This PC" -> "U-M Google Drive (I:)" as shown in Fig. 5 and save it in a folder here so that you can share it with teammates. **Do not save the project in your Downloads folder or in the Public Documents folder. On CAEN machines, these locations can be wiped every 24 hours.**
     ![Fig. 4](/labs/media/lab-7_figures/fig5.jpg)
     
     _Figure 4: CAEN File Explorer_
+
 5. Name your project with your team number and appropriate name (e.g., Team05_Project_PCB_V1.0), and click "OK". See Fig. 6 for an example Project Creation.
     ![Fig. 5](/labs/media/lab-7_figures/fig6createWiz.jpg)
     
     _Figure 5: Project Creation Wizard popup_
+
 6. Now you should add two libraries we have given you. To do this, you can drag and drop the libraries into the project.  They may show up in "Free Documents".  If they do, then you will need to drag them up to the project and drop them in there.  Once they are added, save the project.
+
 7. Look at the Projects Tab on the left side of the screen. Right click your project name in bold and click Add New to Project -> Schematic. A blank piece of paper should appear on the screen. This is where you are to lay out your schematic drawing. A few instructions for laying out a schematic:
 
     * Go to Place -> Part to place a component. Navigate to the library you would like to use with the dropdown menu. A keyboard shortcut is to simply press "P" twice in a row.  If you select on the drop down menu in the upper right of the screen after choosing to place a part, the libraries in the last step should show up here.  If they don't, verify that the libraries are in the project, and everything (including the schematic) is saved.
