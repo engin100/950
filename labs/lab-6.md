@@ -46,7 +46,7 @@ Altium as a software can be very complex, and as such, we have given you some to
 Broadly, the workflow in Altium is divided up into three steps: Schematic, PCB, and Design Rule Check. The Schematic step is where you lay out the electrical schematic of your board. Using all the components, you define how they connect to each other, ground, and power. The PCB step is where you make the physical layout of those components on the board. The electrical connections you set up in the schematic are shown for your reference, and you lay them down on your PCB physically as traces. That is, each trace you set corresponds to an electrical connection you outlined in your Schematic. The Design Rule Check step is when the software looks over your work and makes sure you aren't committing any errors or contradictions. This is inevitably the most frustrating part of using Altium, because you think you've done everything right, and the software is here to tell you that you haven't. It is important to note that design rule checks do not check whether you laid out your board the way you wanted, they will not notice if you accidentally connected your temperature sensor to your pressure sensor instead of the Arduino. You must double check this yourself. The design rule checks only check if your design rules are violating the physical and electrical laws associated with making a PCB.
 
 To get started:
-- Downloaded the new e100_libraries zip file
+- Downloaded the new e100_libraries zip file. [Here is the library.](https://drive.google.com/file/d/13q4CNdzr3JQKjOwI74BpWaEOPLYcpaI_/view?usp=drive_link)
 - Uncompress it.
 - In altium, select new project. Choose a place in Documents (**not public documents...**)  The name should make sense!  Include team number in name!
 - Drag and drop the 4 library files from the extracted file folder into your project. It may ask about extracting libraries.  Extract them.
@@ -72,7 +72,7 @@ For additional reference, here is the schematic you made following Lab 1:
 
 _Figure 3: The schematic completed in the Postlab 1 assignment_
 
-Note that each component is defined with its own individual symbol. Capacitors, resistors, and transistors (Q1 and Q2), and some connectors (P1) are standardized and thus have pre-loaded symbols in the software, but for most of our components, that is not the case. We have additional libraries custom made by ENGR100 staff with our components pre-loaded, so as we will discuss in the procedure, you can simply drag and drop them into place.
+Note that each component is defined with its own individual symbol. Capacitors, resistors, and transistors (Q1 and Q2), and some connectors (P1) are standardized and thus have pre-loaded symbols in the software, but for most of our components, that is not the case. We have additional libraries custom made by ENGR100 staff with our components pre-loaded, so as we will discuss in the procedure, you can simply drag and drop them into place.  See link above.
 
 
 ### Your Schematic Contents
@@ -108,6 +108,10 @@ In summary, your schematic (and the PCB) must have:
 If your extra sensor uses I2C communication protocols, you must connect it to the analog pins pre-set for I2C communications. In the Arduino Nano, these are A4 (SDA pin) and A5 (SCL pin). See more on connecting I2C devices (google search "connecting I2C devices to an Arduino nano") Be sure you read through your extra sensor’s documentation and/or hookup guide to understand whether it is I2C and if you will need the A4 and A5 I2C hookup pins. You can google search for the extra sensor datasheet.
 
 - For the GUVA sensor, use the Humidity sensor in the ENGR100 library, and relabel the pins (and labels) to be the appropriate type (you need to swap the GND and 5V pins).
+
+- For the heater, we will use a generic MOSFET, using the [wiring diagram here.](https://adam-meyer.com/arduino/images/2012/03/rfp30n06le-arduino-solenoid.png)  In this diagram, the MOSFET has pins 1 - G; 2 - D; 3 - S.  You can use a generic resistor to represent the heater, since it will just be soldered into place.
+
+- For the photo-cells, you can use generic resistors, since these will be soldered with wires, so the connection type doesn't really matter much.  A photo-cell acts as a resistor, so you will be creating a voltage divider circuit, with a resistor in series with the photo-cell, with the analog line coming off the wire in-between the resistor and photo-cell.
 
 #### Procedure: Starting Your Design and Creating A Schematic
 
@@ -173,22 +177,22 @@ _Pressing 1 on your keyboard takes you to the board design view. Pressing 2 take
 - Navigate to Design -> Edit Board Shape.
 - The board should be no bigger than 4 inches by 4 inches. You can toggle between Imperial and Metric units by pressing Q. [This shows you how to do that.](https://resources.altium.com/p/layout-guide-changing-board-sizes-altium-designer)
 
-5. We will add some design rules. Press 2 on your keyboard to ensure that you are on the component layout screen. Navigate to Design -> Rules. A PCB rules window should pop up. Set the following design rules:
-    * Electrical -> Clearance = 6 mil
+5. Make sure to press "2" to get back into the mode where you can move stuff around.
+
+6. We will add some design rules. Press 2 on your keyboard to ensure that you are on the component layout screen. Navigate to Design -> Rules. A PCB rules window should pop up. Set the following design rules:
+    * Electrical -> Clearance = 10 mil
     * Routing -> Width
         - Minimum Width = 6 mil
         - Preferred Width = 15 mil
         - Maximum Width = 30 mil
-    * Manufacturing -> MinimumAnnularRing = 7 mil
-    * Manufacturing -> HoleSize = 13 mil (min) and 125 mil (max)
-
-6. Make sure to press "2" to get back into the mode where you can move stuff around.
+    * Manufacturing -> Hole Size = 13 mil (min) and 125 mil (max)
+    * Manufacturing -> Minimum Annular Ring = 7 mil
 
 7. Layout your components neatly on the board. Be sure to place your Arduino and Data Logger in such a way that you do not obstruct the port for the uploading cable or the SD Card opening.
 
 8. To connect traces to your different components, choose Place -> Trace. When you are placing a trace press 3 to toggle between your min, preferred, and max trace width as set in the design rules (the vast majority should be your preferred, so you don't have to change this very often).
 
-9. When routing, all traces should default to 15mil if you implemented the Design Rules correctly. However, you should manually thicken the traces from the power connections to the GPS, Arduino, and SD Card reader to 20mil in order to compensate for the increased current flow through them. 
+9. When routing, all traces should default to 15mil if you implemented the Design Rules correctly. However, you should manually thicken the traces from the power connections to the GPS, Arduino, and SD Card reader to 20mil in order to compensate for the increased current flow through them. For the heater, use 30mil traces!
 
 10. Recall from lecture that your board contains two copper layers. These layers are referred to as the top and bottom layers, and are colored red and blue. You can route traces on either side of the board.  You need to escape out of placing traces, then switch layers (by clicking on the layer that you want), the go back to placing traces.
 
