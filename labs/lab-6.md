@@ -40,6 +40,8 @@ Some random notes:
   - Connect 3.3V
   
 
+- For the GUVA sensor, use the Humidity sensor in the ENGR100 library, and relabel the pins to be the appropriate type (you need to swap the GND and 5V pins).
+
 
 ## Introduction
 
@@ -130,6 +132,8 @@ If your extra sensor uses I2C communication protocols, you must connect it to th
 
 7. Look at the Projects Tab on the left side of the screen. Right click your project name in bold and click Add New to Project -> Schematic. A blank piece of paper should appear on the screen. This is where you are to lay out your schematic drawing. A few instructions for laying out a schematic:
 
+    * To resize the schematic (which will give you more room to lay things out), click on the "panels" button in the lower right corner of Altium.  Then click on "Properties".  This should bring up the Properties panel, which has a "Sheet Size" drop down menu.  You can select different paper sizes.  A4 is large enough to draw this schematic.
+
     * Go to Place -> Part to place a component. Navigate to the library you would like to use with the dropdown menu. A keyboard shortcut is to simply press "P" twice in a row.  If you select on the drop down menu in the upper right of the screen after choosing to place a part, the libraries in the last step should show up here.  If they don't, verify that the libraries are in the project, and everything (including the schematic) is saved.
 
     * You can either connect everything together with wires or use "nets". Nets are a convenient way to connect two pins without explicitly drawing a wire between them. You can place a net using Place -> Net Label. This is a great way to make sure things don't get too messy. One issue with nets is that it may be hard to see what is connected to what. The most common net is ground - it is so common that there is a special button for it. You can click on the ground (GND) button and attach this to all of the ground pins on all of your components.  This tells Altium that they are all connected together to a ground pin.
@@ -148,7 +152,7 @@ That's a lot to keep in mind! The path to success involves moving slowing and me
 
 The PCB is designed as a separate document with the extension **.PcbDoc.** We can create a new PCB document and correlate it to our schematic. This will import all the components to the PCB document. Then, just as in the schematic document, we can manually place each footprint. As before, the footprints will be provided via a custom library we have prepared for you.
 
-Note the white lines that connect each of the footprints in Figure 3. These represent what pins on each part that should be connected via traces. This should be done manually, similar to how wires were drawn in the schematic. One notable difference is that physical traces should never be drawn at right angles - instead, they should be at obtuse angles. This is to minimize field leakage and reflection at corners.  It is important to note: all 1 kOhm resistors must use a 1206 footprint. If your resistors do not use this footprint by default, switch the footprint to the 'C1206' footprint in the miscellaneous devices library using the properties window.
+Note the white lines that connect each of the footprints in Figure 3. These represent what pins on each part that should be connected via traces. This should be done manually, similar to how wires were drawn in the schematic. One notable difference is that physical traces should never be drawn at right angles - instead, they should be at obtuse angles. This is to minimize field leakage and reflection at corners.  
 
 ![Fig. 3](/labs/media/lab-7_figures/fig3.jpg)
 
@@ -159,9 +163,18 @@ _Figure 3: The PCB Layout in Altium_
 _Pressing 1 on your keyboard takes you to the board design view. Pressing 2 takes you to the component layout screen. Pressing 3 takes you to the cartoon mockup screen. You should do your layout work (e.g. most of the work) in mode 2._
 
 1. To create a new PCB file, right click your project name under your Projects tab, click New -> Add New to Project -> PCB.
-2. Import your schematic components. Go to Design -> Import Changes from Project name. Validate your changes, make sure you see only green check marks next to each change. Then execute them. By zooming in and out on your board (by pressing the mouse scroll button and moving around), you should see a big red box containing all of the components. You can drag and drop them onto the board, which is the black rectangle. If you want to rotate a component, click and hold on it and then press the spacebar. Another option is to click it  and press M, which will bring up a menu for moving components. One of these menu options is the 'rotate selection' feature. This is better if you want to rotate it a specific amount and not in increments of 90 degrees.
-3. Now we should adjust the size of our board. To do this, press 1 on your keyboard. Navigate to Design -> Edit Board Shape. The board should be no bigger than 4 inches by 4 inches. You can toggle between Imperial and Metric units by pressing Q. [This shows you how to do that.](https://resources.altium.com/p/layout-guide-changing-board-sizes-altium-designer)
-4. We will add some design rules. Press 2 on your keyboard to ensure that you are on the component layout screen. Navigate to Design -> Rules. A PCB rules window should pop up. Set the following design rules:
+
+2. Import your schematic components. Go to Design -> Import Changes from Project name (or Design -> Update PCB Document). Validate your changes, make sure you see only green check marks next to each change. Then execute them.
+
+3. By zooming in and out on your board (by pressing the mouse scroll button and moving around), you should see a big red box containing all of the components. You can drag and drop them onto the board, which is the black rectangle. If you want to rotate a component, click and hold on it and then press the spacebar. Another option is to click it and press M, which will bring up a menu for moving components. One of these menu options is the 'rotate selection' feature. This is better if you want to rotate it a specific amount and not in increments of 90 degrees.
+
+4. Now we should adjust the size of our board.
+- Edit -> Origin -> Set, then select the lower left corner of your board.
+- Press "1" to go into board planning mode
+- Navigate to Design -> Edit Board Shape.
+- The board should be no bigger than 4 inches by 4 inches. You can toggle between Imperial and Metric units by pressing Q. [This shows you how to do that.](https://resources.altium.com/p/layout-guide-changing-board-sizes-altium-designer)
+
+5. We will add some design rules. Press 2 on your keyboard to ensure that you are on the component layout screen. Navigate to Design -> Rules. A PCB rules window should pop up. Set the following design rules:
     * Electrical -> Clearance = 6 mil
     * Routing -> Width
         - Minimum Width = 6 mil
@@ -169,12 +182,28 @@ _Pressing 1 on your keyboard takes you to the board design view. Pressing 2 take
         - Maximum Width = 30 mil
     * Manufacturing -> MinimumAnnularRing = 7 mil
     * Manufacturing -> HoleSize = 13 mil (min) and 125 mil (max)
-5. Layout your components neatly on the board. Be sure to place your Arduino and Data Logger in such a way that you do not obstruct the port for the uploading cable or the SD Card opening.
-6. To connect traces to your different components, navigate to Route -> Interactive Routing. When you are placing a trace press 3 to toggle between your min, preferred, and max trace width as set in the design rules. Recall from lecture that your board will contain two copper layers. These layers are referred to as the top and bottom layers, and are colored red and blue. Route all traces except the ground traces. We will route those later to our polygon pour ground plane, which we make last.
-7. You can place labels on your PCB to help you remember things. Because LEDs are directional, you may want to indicate which sides are positive by adding a "+" label near the high voltage side. Labels are good.
-8. When routing, all traces should default to 15mil if you implemented the Design Rules correctly. However, you should manually the trace from the +9V connection to the VIN pin on the Arduino thicker, to compensate for the increased current flow through it.
-9. Pour a ground plane. Using the menu at the bottom of the PCB, select the bottom layer and cover it with a grounded polygon pour. You can now connect all your ground connections directly to this by using vias (no traces involved).
 
+6. Make sure to press "2" to get back into the mode where you can move stuff around.
+
+7. Layout your components neatly on the board. Be sure to place your Arduino and Data Logger in such a way that you do not obstruct the port for the uploading cable or the SD Card opening.
+
+8. To connect traces to your different components, choose Place -> Trace. When you are placing a trace press 3 to toggle between your min, preferred, and max trace width as set in the design rules (the vast majority should be your preferred, so you don't have to change this very often).
+
+9. When routing, all traces should default to 15mil if you implemented the Design Rules correctly. However, you should manually thicken the traces from the power connections to the GPS, Arduino, and SD Card reader to 20mil in order to compensate for the increased current flow through them. 
+
+10. Recall from lecture that your board contains two copper layers. These layers are referred to as the top and bottom layers, and are colored red and blue. You can route traces on either side of the board.  You need to escape out of placing traces, then switch layers (by clicking on the layer that you want), the go back to placing traces.
+
+11. Route all traces except the ground traces. We will route those later to our polygon pour ground plane, which we make last.
+
+12. When routing, you may notice obvious conflicts (lots of traces need to cross).  You can play with the design by rotating components, moving components, or rearranging your components to ease these conflicts.  You may have to do this a few times, so when you place a trace the first time, don't think of it as the final time - think of this as a sketch that you are refining as you go.  **It is ok (and expected!) to delete traces, move things and retrace!**
+
+13. You can use Vias to have a trace go from the top layer to the bottom layer or bottom to the top layer.  You can use this technique when you have to cross another trace.  Most trace crossings can be avoided with some thinking about placement of components, orientation of the different components, or tracing using different routes.  Routes should not be too long, though! Don't have super long traces to avoid crossing. 
+
+14. When placing a Via, you have to assign it to a "Net".  For example, if you want to ground a surface mount pad, create a Via (place -> Via), double click on it (to get to Properties, and then select the net "GND".  Now, Altium knows that it should be grounded.
+
+15. You can place labels (technically, you Place -> String) on your PCB to help you remember things. Because LEDs are directional, you may want to indicate which sides are positive by adding a "+" label near the high voltage side. Labels are good.  **You should label your board with your team number and name** as well as the date and your names if you would like.
+
+16. Pour a ground plane. Using the menu at the bottom of the PCB, select the bottom layer and cover it with a polygon pour. Once you put the polygon pour, open the properties, change the Net to "GND" and click on the "Repour". All of your grounded vias will be connected to the ground plane! **If you add new items to your PCB, you will need to repour your polygon pour.**  You may have to do this multiple times if you end up changing things over and over.
 
 Finally, we have a completed board! Altium creates a cartoon (Figure 4) that we can view before moving on to the final stage: Design Rule Check.
 
@@ -189,11 +218,14 @@ The DRC, or Design Rule Check is a way to check the validity of your PCB with re
 #### Procedure: Design Rules Check
 
 1. Recall that you created a set of Design Rules before creating your PCB. The Design Rule Check (DRC) assesses your design in light of these rules, and highlights any discrepancies between your layout and those rules. Your DRC must return ZERO errors before your PCB can be considered complete. Design Rule Check can be run by navigating to Tools -> Design Rule Check. Click Run Design Rule Check to run DRC. Generally, errors are highlighted in bright green.
+
 2. Once you have passed all design rule checks, take a screenshot of your error-free DRC screen.
 
 ## Final Deliverable
 
-Each team must upload a single zip file containing **all project files and a screenshot showing all DRCs passed** to this designated Google Drive folder [(click here)](https://drive.google.com/drive/folders/1dqrIZPnpz_5BiepUqeAE46O8Z0YM9a0D) by 11:59pm on October 17th, 2023. Make sure that your PCB passes all design rule checks before submitting it to the Google Drive folder. Each student will peer review three PCBs with rubrics provided on Canvas. 
+Each team must upload a single zip file containing **all project files and a screenshot showing all DRCs passed** to this designated Google Drive folder (linked in the Canvas assignment) by the date and time specified on the Canvas assignment.
+
+Each student will peer review three PCBs with rubrics provided on Canvas. 
 
 The zip file must:
 * Contain all information so that another person can unzip the file, open Altium, and see you schematic and PCB.
@@ -204,12 +236,12 @@ The zip file must:
 
 After the lab, every student will be required to peer review the PCBs of three other teams. 
 
-Peer reviews are due by 11:59pm on Tuesday, October 24th, 2023.  There is a canvas assignment as well as a google form that must be filled out for each review.
+There is a canvas assignment as well as a google form that must be filled out for each review.
 
 
 ## Peer Review and Final Submission
 
-- [ ] Submit your error-free DRC screenshot and all project files to the designated Google Drive folder by **October 17th, 2023, 11:59pm**.
-- [ ] Peer review three other teams' PCBs using provided rubrics by **October 24th, 2023, 11:59pm**.
+- [ ] Submit your error-free DRC screenshot and all project files to the designated Google Drive folder by the assignment deadline discussed in class and posted on the Canvas assignment.
+- [ ] Peer review three other teams' PCBs using provided rubrics by the date and time stated in the Canvas assignment.
 
 Remember, accuracy and collaboration are essential. Reach out to IAs, Professor Ridley, or the **#lab-help** channel on Slack for assistance if needed. Good luck with your PCB design!
