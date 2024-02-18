@@ -22,26 +22,6 @@ latex: true
   - [Final Deliverable](#final-deliverable)
   - [Submission](#peer-review-and-final-submission)
 
-Some random notes:
-- downloaded the e100_libraries folder
-- uncompress
-- In altium, new project. Choose a place in Documents (not public documents...)
-  - name should make sense!  Include team number in name!
-- drag and drop the 4 library files from a file folder into your project.
-  - It will ask about extracting libraries.  Extract them.
-- click back on "home"
-- All of the libraries are dumped into the general space and not into your project.
-  - drag and drop all 6 source documents individually into your project.
-  - Should then be able to see everything in your project under Libraries.
-- Make a schematic of your project
-  - As you place sensors on your schematic, change the label on the top of the sensor.  Some have a label of '*', while others are 'Temperature*'.  Give them all unique names that make sense.
-  - Ground all of your components using a "GND Power Port"
-  - Connect 5V pins together with arduino 5V pin (this will power the Arduino)
-  - Connect 3.3V
-  
-
-- For the GUVA sensor, use the Humidity sensor in the ENGR100 library, and relabel the pins to be the appropriate type (you need to swap the GND and 5V pins).
-
 
 ## Introduction
 
@@ -64,6 +44,15 @@ You may want to revisit the complete Altium tutorial in the Lab 1 post lab.  You
 Altium as a software can be very complex, and as such, we have given you some tools to help simplify the process of constructing your PCB. The following pictures are taken from a free online tutorial provided by Altium: [From Idea to Manufacture](https://www.altium.com/documentation/altium-designer/tutorial-complete-design-walkthrough?version=22). You can learn more about this example there.
 
 Broadly, the workflow in Altium is divided up into three steps: Schematic, PCB, and Design Rule Check. The Schematic step is where you lay out the electrical schematic of your board. Using all the components, you define how they connect to each other, ground, and power. The PCB step is where you make the physical layout of those components on the board. The electrical connections you set up in the schematic are shown for your reference, and you lay them down on your PCB physically as traces. That is, each trace you set corresponds to an electrical connection you outlined in your Schematic. The Design Rule Check step is when the software looks over your work and makes sure you aren't committing any errors or contradictions. This is inevitably the most frustrating part of using Altium, because you think you've done everything right, and the software is here to tell you that you haven't. It is important to note that design rule checks do not check whether you laid out your board the way you wanted, they will not notice if you accidentally connected your temperature sensor to your pressure sensor instead of the Arduino. You must double check this yourself. The design rule checks only check if your design rules are violating the physical and electrical laws associated with making a PCB.
+
+To get started:
+- Downloaded the new e100_libraries zip file
+- Uncompress it.
+- In altium, select new project. Choose a place in Documents (**not public documents...**)  The name should make sense!  Include team number in name!
+- Drag and drop the 4 library files from the extracted file folder into your project. It may ask about extracting libraries.  Extract them.
+- Click back on "home"
+- All of the libraries may be dumped into the general space and not into your project.  If they are, drag and drop all of the source documents individually into your project.  You should then be able to see everything in your project under Libraries.
+- Make a schematic of your project
 
 ## Schematic
 
@@ -90,9 +79,17 @@ Note that each component is defined with its own individual symbol. Capacitors, 
 
 Obviously, the functionality we're trying to put on a PCB is the ability to record data from your sensor board, so starting your schematic off by adding your full Lab 3, 4, and 5 circuits is a good starting point.
 
-Additionally, we decided that turning on and off your board would be nice, so add the SW-SPST switch included in the miscellaneous devices library between the positive terminal of the battery and the VIN pin on the Arduino.
+We have made a power board that provides you the LDOs and battery connector.  You should be able to find this in the provided ENGR100 library.
 
-LEDs are also useful when diagnosing software bugs without a computer, telling you if the board is on or off, and also making cool light patterns. Please wire pins D4-D9 to their own LED with a 1K resistor on each LED. This way, you have 6 LEDs to diagnose problems and play with.
+LEDs are also useful when diagnosing software bugs without a computer, telling you if the board is on or off, and also making cool light patterns.
+
+Please wire the 5V, 3.3V and battery line to their own LED with a 1K resistor on each LED.
+
+Some notes:
+- As you place sensors on your schematic, change the label on the top of the sensor.  Some have a label of '*', while others are 'Temperature*'.  Give them all unique names that make sense.
+- Ground all of your components using a "GND Power Port"
+- Connect 5V pins together with arduino 5V pin (this will power the Arduino). The re should be **NO connection to the Vin pin of the Arduino!**  You may want to make a 5V Net.
+
 
 In summary, your schematic (and the PCB) must have:
 - [ ] An Arduino Nano (voltage input should be through the 5V connector and nothing should be connected to the Vin pin)
@@ -103,12 +100,14 @@ In summary, your schematic (and the PCB) must have:
 - [ ] GPS
 - [ ] Level shifter
 - [ ] SD Card writer
-- [ ] LEDs with surface mount resistors from 3.3V, 5.0V, and battery voltage lines to ground
+- [ ] LEDs with resistors from 3.3V, 5.0V, and battery voltage lines to ground
 - [ ] Your extra sensor
 - [ ] The power daughter board (which includes battery connection, RBF pin, LDOs, capacitors, and charging port)
-- [ ] Surface mount capacitors from the input voltage line on the GPS to ground, the SD card input voltage to ground, and the Arduino 5V pin to ground.
+- [ ] 22 micro-F capacitors from the input voltage line on the GPS to ground, the SD card input voltage to ground, and the Arduino 5V pin to ground.
 
 If your extra sensor uses I2C communication protocols, you must connect it to the analog pins pre-set for I2C communications. In the Arduino Nano, these are A4 (SDA pin) and A5 (SCL pin). See more on connecting I2C devices (google search "connecting I2C devices to an Arduino nano") Be sure you read through your extra sensor’s documentation and/or hookup guide to understand whether it is I2C and if you will need the A4 and A5 I2C hookup pins. You can google search for the extra sensor datasheet.
+
+- For the GUVA sensor, use the Humidity sensor in the ENGR100 library, and relabel the pins (and labels) to be the appropriate type (you need to swap the GND and 5V pins).
 
 #### Procedure: Starting Your Design and Creating A Schematic
 
