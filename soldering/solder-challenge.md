@@ -134,39 +134,36 @@ READ ALL OF THESE ITEMS CAREFULLY. DO NOT SKIP ANY OF THESE ITEMS.
 
 - You will receive points (out of 20) based on how the board functions and if the code runs correctly on your board.
 
+- [ ] Submit a picture of your board with all LEDs turned on in Canvas, and leave a comment of the instructor's name who checked your board!
+
 ## Grading
+
+- [ ] (10 points) 1pt for each operational LED (one freebie from onboard LED)
+- [ ] (5 points) 1pt for each operational voltage divider
+- [ ] 5pts for cleanliness of board
 
 The following sequence should be observed:
 
-1. knight rider (9 LEDs turning off and on back and forth) twice - this tests LED connections (D1 - D9, R1 - R9) and digital pins on Arduino (D2 - D10)
+1. Knight rider (9 LEDs turning off and on back and forth) twice - this tests LED connections (D1 - D9, R1 - R9) and digital pins on Arduino (D2 - D10)
 
-2. The number of voltage divider circuits that are within tolerance (should be 5 lights and internal LED blinking 5 times) - this tests analog connections (A0 - A4) as well as some resistors
+2. The number of voltage divider circuits that are within tolerance (should be 5 lights and internal LED blinking 5 times) - this tests analog connections (A0 - A4) as well as some resistors.
 
-3. 9 lights on
+3. 0-9 LED scale indicating battery voltage (0-5v range, from 1/2 * Vbat voltage divider)
 
-4. 9 lights blink 5 times
+4. All 9 LEDs blink 5 times (indicating next reading is 5v)
 
-5. 9 lights on - battery voltage
+5. 0-9 LED scale indicating 5v pin voltage (0-5v range)
 
-6. 9 lights blink 1 time
+6. All 9 LEDs blink 2 times (indicating next reading is 5v * 2/3 voltage divider)
 
-7. 7 or 8 lights on - first voltage divider
+7. 0-9 LED scale indicating 5v * 2/3 voltage divider reading (0-5v range)
 
-8. 9 lights blink 3 times
+8. All 9 LEDs blink 2 times (indicating next reading is 5v * 1/3 voltage divider)
 
-8. 5 lights on - 5.0V line on Arduino
+9. 0-9 LED scale indicating 5v * 1/3 voltage divider reading (0-5v range)
 
-9. 9 lights blink 3 times
+10. All 9 LEDs blink 3 times (indicating next reading is 3.3v)
 
-10. 7 lights on - 3.3V line on Arduino
+11. 0-9 LED scale indicating 3.3v pin voltage (0-5v range)
 
-11. repeat sequence
-
-Points:
-- 1 point for each surface mount component - 10 total
-- 1 point for each thru-hole resistor (8) and LED (5) - 13 total
-- 1 point for the battery connection - 2 total
-- 1 point for each header pin - 30 total
-- 5 points for general quality of soldering (subjective)
-
-Grand total is 60 points.  Divide by 3 to get points out of 20.
+12. ^^Repeats this loop^^
