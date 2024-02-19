@@ -39,7 +39,7 @@ Working at a computer often can become a one person deal. It is important to avo
 
 ## Altium
 
-You may want to revisit the complete Altium tutorial in the Lab 1 post lab.  You worked through the schematic in Lab 1.  It would be worthwhile to revist this and then try to make the PCB, since that is what you will be doing in this lab.  The walk through on turning the schematic into the PCB is in lab-6-prelab.md.
+You may want to revisit the complete Altium tutorial in the Lab 1 post lab.  You worked through the schematic in Lab 1.  It would be worthwhile to revist this and then try to make the PCB, since that is what you will be doing in this lab.  The walk through on turning the schematic into the PCB is in [lab-6-prelab](/labs/lab-6-prelab).
 
 Altium as a software can be very complex, and as such, we have given you some tools to help simplify the process of constructing your PCB. The following pictures are taken from a free online tutorial provided by Altium: [From Idea to Manufacture](https://www.altium.com/documentation/altium-designer/tutorial-complete-design-walkthrough?version=22). You can learn more about this example there.
 

@@ -166,6 +166,10 @@ them.
     - If not, you should not have electrical issues
 1. This does not mean your connections are correct with your circuit, so please quadruple check your connections
 
+## Schematic to PCB
+
+Later on, in lab 6 prelab, you will turn this schematic into a PCB! The instructions to do so can be found [here](/labs/lab-6-prelab).
+
 ## Submission
 
 On Canvas, you will submit ***ONE PDF*** that will include all of the following:
