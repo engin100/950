@@ -86,7 +86,7 @@ LEDs are also useful when diagnosing software bugs without a computer, telling y
 Please wire the 5V, 3.3V and battery line to their own LED with a 1K resistor on each LED.
 
 Some notes:
-- As you place sensors on your schematic, change the label on the top of the sensor.  Some have a label of '*', while others are 'Temperature*'.  Give them all unique names that make sense.
+- **As you place sensors on your schematic, change the label on the top of the sensor.  Some have a label of '*', while others are 'Temperature*'.  Give them all unique names that make sense.**
 - Ground all of your components using a "GND Power Port"
 - Connect 5V pins together with arduino 5V pin (this will power the Arduino). The re should be **NO connection to the Vin pin of the Arduino!**  You may want to make a 5V Net.
 
@@ -111,7 +111,11 @@ If your extra sensor uses I2C communication protocols, you must connect it to th
 
 - For the heater, we will use a generic MOSFET, using the [wiring diagram here.](https://adam-meyer.com/arduino/images/2012/03/rfp30n06le-arduino-solenoid.png)  In this diagram, the MOSFET has pins 1 - G; 2 - D; 3 - S.  You can use a generic resistor to represent the heater, since it will just be soldered into place.
 
+![Heater with MOSFET Schematic](/media/Heater_wiring.png)
+
 - For the photo-cells, you can use generic resistors, since these will be soldered with wires, so the connection type doesn't really matter much.  A photo-cell acts as a resistor, so you will be creating a voltage divider circuit, with a resistor in series with the photo-cell, with the analog line coming off the wire in-between the resistor and photo-cell.
+
+![Photo-cells with MUX Schematic](/media/Light_sensor_mux.png)
 
 #### Procedure: Starting Your Design and Creating A Schematic
 
