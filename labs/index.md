@@ -59,11 +59,8 @@ Moving away from the breadboards and creating a custom PCB (Printed Circuit Boar
 
 [Link to lab 6](/labs/lab-6)
 
-<!--
-
-** Lab 7: Structures
+## Lab 7: Structures
 
 Design and testing of your custom payload structures.
 
 [Link to lab 7](/labs/lab-7)
--->
