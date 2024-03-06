@@ -37,7 +37,6 @@ Use 3 different insulations at your disposal. (possibilities include, hard foam,
 
 For the Accelerometer trials, you will be dropping your payload very carefully from chest height. This will simulate a bit of the turbulence that your PCB will face. You will do 3 trials, each with different materials for padding. Make sure that your breadboard has sufficient padding on all sides and that you are dropping it in a way that the wires are still facing up when it hits the ground. Make sure you are writing data to the SD as fast as possible, and you will be recording data for the duration of the drop.
 
-
 <div class="primer-spec-callout info" markdown="1">
 Plot each trial on a separate graph. Add the plots into your post-lab questions doc at the end.
 </div>
