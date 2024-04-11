@@ -9,6 +9,11 @@ Welcome to Engineering 100-950! Over the course of the next semester, you will b
 
 This webpage serves as the homepage for this class. From here, you can access any resources you may need, including the [syllabus](#syllabus), [labs](#labs), and more.
 
+<div class="primer-spec-callout danger" markdown="1">
+Follow the link below to see the most updated flight prediction for Sunday's launch!
+</div>
+[Flight Prediction](/labs/flight-prediction)
+
 ## Syllabus
 
 View the syllabus [here](/syllabus)
