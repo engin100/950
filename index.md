@@ -11,6 +11,7 @@ This webpage serves as the homepage for this class. From here, you can access an
 
 <div class="primer-spec-callout danger" markdown="1">
 Follow the link below to see the most updated flight prediction for Sunday's launch!
+Last updated: 04/12/24 11:22a
 </div>
 [Flight Prediction](/labs/flight-prediction)
 
