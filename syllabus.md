@@ -23,16 +23,16 @@ Engineering 100 is a team-based, project-based course. It is intended to provide
 
 ### Course Structure
 
-You enrolled in a course with lectures, a discussion, and a lab. Your discussion and lab together make up a three-hour block on Monday, Tuesday, or Wednesday, and attendance during this time is critical to course success. Your teams will be assigned from within the \~20 students of your discussion/lab section. Teams will complete some of their work during these slots, though you will likely also need to arrange some time on your own.
+You enrolled in a course with lectures, a discussion, and a lab. Your discussion and lab together make up a three-hour block on Monday, Tuesday, or Wednesday, and attendance during this time is critical to course success. Your teams will be assigned from within the \~25 students of your discussion/lab section. Teams will complete some of their work during these slots, though you will likely also need to arrange some time on your own.
 
 | Class | Time | Location |
 | ----- | ---- | -------- |
-| **Lecture (950)** | TuTh 3:00-4:30 | 1303 EECS |
-| Lab (951) | W 3:30-5:30 | 1225 CSRB |
+| **Lecture (950)** | TuTh 3:00-4:30 | 1200 EECS |
+| Lab (951) | W 3:30-5:30 | 1210/1225 CSRB |
 | Discussion (952) | W 2:30-3:30 | 1690 BEYSTER
-| Lab (953) | Th 12:30-2:30 | 1225 CSRB |
+| Lab (953) | Th 12:30-2:30 | 1210/1225 CSRB |
 | Discussion (954) | W 12:30-1:30 | 2166 DOW |
-| Lab (955) | W 12:30-2:30 | 1225 CSRB |
+| Lab (955) | W 12:30-2:30 | 1210/1225 CSRB |
 | Discussion (956) | W 11:30-12:30 | 104 EWRE |
 
 ### Instructor Information
@@ -42,10 +42,10 @@ Here is contact information for all the course staff. If you have a question tha
 | Instructor | Contact  |
 | ---------- | -------- |
 | Prof. Aaron Ridley<br>Technical lead  | <ridley@umich.edu><br>1416 CSRB |
-| Dr. Alan Hogg <br> Communication Instructor - lead | <alanhogg@umich.edu> <br> 307 GFL |
+| Dr. Alan Hogg <br> Communication Instructor - lead | <alanhogg@umich.edu> <br> GFL |
 | Dr. David Greenspan <br> Communication Instructor - lead |  <davidgrs@umich.edu> <br> GFL |
 | Hannah Barnard <br> IA| <hbarnard@umich.edu> <br> 1210 CSRB |
-| Yichen Wang <br> IA| <yicmwang@umich.edu> <br>1210 CSRB |
+| Zian (Sam) Ren <br> IA| <zianren@umich.edu> <br>1210 CSRB |
 | Jack Woods <br> IA| <jfwoods@umich.edu> <br> 1210 CSRB |
 | Ben Miller <br> IA| <benjamen@umich.edu> <br> 1210 CSRB |
 
@@ -64,7 +64,7 @@ We will use Canvas as our main online portal for this course. Canvas is the Lear
 
 This course integrates instruction in both communication and teamwork into an engineering project. It is important to realize that “being an engineer” doesn’t just mean solving technical problems; engineers do a lot of collaborating with others and communicating ideas. We’ll practice both of those in the context of a design project.
 
-In this course, we’ll be checking in on your group each week with surveys. We ask that you complete these surveys so we can help your group be successful.
+In this course, we’ll be checking in on your group each week with surveys during the last 3/4 of the semester. We ask that you complete these surveys so we can help your group be successful. Participation points will be distributed within your team based on feedback received by all of the team members.
 
 ### Teamwork
 
@@ -87,7 +87,7 @@ There are several types of assignments that you will complete as part of this co
 - **Individual assignments** - done on your own with no collaboration
 - **Peer Reviews** - done on your own with no collaboration
 - **In-Class, In-discussion, and In-lab activities** - done with significant collaboration. Turn in your own work, though.
-- **Group assignments** -- done with your project group with significant collaboration required. One assignment turned in for the entire group.
+- **Group assignments** -- done with your project group with significant collaboration required. One assignment turned in for the entire group. Grades will mostly be based on the quality of the assignment turned in, but individuals may receive a higher or lower grad depending on the results of the team surveys.
 
 These assignment types are described in more detail in the next sections.  
 
@@ -129,20 +129,9 @@ Late assignment exceptions will be made for:
 
 ### Grading
 
-A breakdown of the grading for this class is shown in the table below:
+In general, the grading is close to 50/50 technical and tech comm and 50/50 individual and group. Certain assignments may be technical only, and some assignments may be tech comm only. Grades will be posted on Canvas and you can keep track of your running grade there.  Keep in mind that Canvas only reports your grade for the assignments that have been graded, so if you have not turned in an assignment, Canvas may not reflect this accurately.  If you have questions about your grade, please contact one of the teaching staff.
 
-|                                    |                 |
-| ---------------------------------- | :-------------: |
-| **Item**                           | **# of points** |
-| Individual engineering/technical   |             |
-| Individual technical communication |              |
-| Team engineering/technical         |              |
-| Team technical communication       |             |
-| **Total**                          |     **000**    |
-
-We are working on assignments.  They will all be listed on Canvas!
-
-In general, the grading is close to 50/50 technical and tech comm and 50/50 individual and group. Certain assignments may be technical only, and some assignments may be tech comm only. Final letter grades will be assigned at the end of term and will be based on the points you have earned vs. the total points available in the class. We will grade on a “straight scale”:
+Final letter grades will be assigned at the end of term and will be based on the points you have earned vs. the total points available in the class. We will grade on a “straight scale”:
 
 |                       |                  |
 | :-------------------: | :--------------: |
@@ -163,13 +152,13 @@ In general, the grading is close to 50/50 technical and tech comm and 50/50 indi
 
 ### Professionalism and Missed Meetings or Deadlines
 
-This class is an opportunity to practice being a professional engineer, and in that role, there are expectations that you act in certain ways. In particular, if you know you will miss a course or a deadline, you should contact a supervisor \***before**\* you have missed anything (and ideally, as early as you could have known). You would normally explain the situation and briefly apologize, as well as propose a reasonable remedy (e.g., you might suggest that you’ll get notes from a friend as well as ask whether there is anything else that can be made up.) Only rarely would it be acceptable to contact the supervisor \*after\* the class period or deadline has been missed-- for example, if you had a medical emergency that you were actively addressing. There are some situations (we may request documentation) that will result in waived penalties, such as a medical emergency or a death in the family. There are other (common!) situations that we are sympathetic to, but that won’t likely result in waived course policies (examples include multiple assignments in multiple courses being due at the same time, oversleeping, uploading the wrong file).
+This class is an opportunity to practice being a professional engineer, and in that role, there are expectations that you act in certain ways. In particular, if you know you will miss a course or a deadline, you should contact a teaching staff member \***before**\* you have missed anything (and ideally, as early as you could have known). You would normally explain the situation and briefly apologize, as well as propose a reasonable remedy (e.g., you might suggest that you’ll get notes from a friend as well as ask whether there is anything else that can be made up.) Only rarely would it be acceptable to contact teaching staff \*after\* the class period or deadline has been missed-- for example, if you had a medical emergency that you were actively addressing. There are some situations (we may request documentation) that will result in waived penalties, such as a medical emergency or a death in the family. There are other (common!) situations that we are sympathetic to, but that won’t likely result in waived course policies (examples include multiple assignments in multiple courses being due at the same time, oversleeping, uploading the wrong file).
 
 ### Contested Grade Policy
 
 We are willing to re-evaluate the grade on any assignment provided you do the following:
 
-- Any request for re-evaluation must be made in writing to an instructor via email.
+- Any request for re-evaluation must be made in writing to an instructor via email or slack.
 - The written request must describe what you believe to be mis-graded, why you believe it to be mis-graded as well as what you believe to be an appropriate correction.
 - Any request for re-grades must be submitted within 1 week of the return of the original graded assignment. Please note that there are three possible outcomes to a regrade request: (1) the grade is not changed; (2) the grade is raised; or (3) the grade is lowered. Also, please note that upon request, each assignment will be re-evaluated only once and all grades are final after re-evaluation.
 
