@@ -29,11 +29,11 @@ You enrolled in a course with lectures, a discussion, and a lab. Your discussion
 | ----- | ---- | -------- |
 | **Lecture (950)** | TuTh 3:00-4:30 | 1200 EECS |
 | Lab (951) | W 3:30-5:30 | 1210/1225 CSRB |
-| Discussion (952) | W 2:30-3:30 | 1690 BEYSTER
+| Discussion (952) | W 2:30-3:30 | 1018 DOW |
 | Lab (953) | Th 12:30-2:30 | 1210/1225 CSRB |
-| Discussion (954) | W 12:30-1:30 | 2166 DOW |
+| Discussion (954) | W 12:30-1:30 | 1012 EECS |
 | Lab (955) | W 12:30-2:30 | 1210/1225 CSRB |
-| Discussion (956) | W 11:30-12:30 | 104 EWRE |
+| Discussion (956) | W 11:30-12:30 | 1012 EECS |
 
 ### Instructor Information
 
