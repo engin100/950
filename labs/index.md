@@ -19,6 +19,7 @@ Learning how to produce a PCB schematic in Altium.
 
 [Link to lab 1b](/labs/lab-1b)
 
+<!--
 ## Lab 2: Temperature Sensing
 
 Using our Arduino and circuitry knowledge to read data from a temperature sensor and plot it in real-time.
@@ -64,3 +65,4 @@ Moving away from the breadboards and creating a custom PCB (Printed Circuit Boar
 Design and testing of your custom payload structures.
 
 [Link to lab 7](/labs/lab-7)
+-->
