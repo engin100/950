@@ -27,7 +27,7 @@ All of these materials are presorted into the correct number you need in the sol
 - [ ] 5 Through-Hole LEDs
 - [ ] 4 Surface Mount LEDs
 - [ ] 1 9v Battery Connector
-- [ ] 2 10 Pin Headers
+- [ ] 2 15 Pin Headers
 
 ## General Tips and Tricks
 
@@ -50,7 +50,7 @@ READ ALL OF THESE ITEMS CAREFULLY. DO NOT SKIP ANY OF THESE ITEMS.
 3. **ALWAYS** use the carbon filter fans to absorb smoke from the iron and burning flux. It's not fun to breathe this smoke for long periods of time...
   - Please... DO NOT try to wipe the iron on the carbon filters, this ruins them.
 
-4. **DO NOT** try cleaning your iron with the sponge if it is not damp... this is (should be) self explanatory. If you do decide to use the damp sponge as a cleaner, do not do it very often or for long periods of time. The irons have a ceramic heating element with a metal cover. Going from extreme heat to extreme cold is hard on these materials.
+4. **DO NOT** try cleaning your iron with the sponge if it is not damp. If you do decide to use the damp sponge as a cleaner, do not do it very often or for long periods of time. The irons have a ceramic heating element with a metal cover. Going from extreme heat to extreme cold is hard on these materials.
 
 5. Wear safety glasses while soldering if you don't already wear glasses that sufficiently cover your eyes.
 
