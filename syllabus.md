@@ -56,6 +56,8 @@ Office hours are a chance to get to know the course staff, to get clarification 
 **For an up-to-date listing of office hours, always refer to the google calendar!**
 [There is a google calendar available here.](https://calendar.google.com/calendar/u/0?cid=dW1pY2guZWR1X3FranB0bnZjNGs5MXA0dDQ4dXExOGFoNWNzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20)
 
+<iframe src="https://calendar.google.com/calendar/embed?src=umich.edu_qkjptnvc4k91p4t48uq18ah5cs%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
 ## Canvas & Course Resources
 
 We will use Canvas as our main online portal for this course. Canvas is the Learning Management System (LMS) of choice for U-M. Canvas should be your starting point – all other resources are linked from there, and Canvas will remind you about assignments and due dates. Also, monitor your “to do” list on Canvas for reminders about all assignments except some minor in-class activities. Many of your homework assignments will be on Canvas also. Yeah, Canvas. Pay attention there!
