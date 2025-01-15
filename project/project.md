@@ -27,14 +27,7 @@ The goal of this semester's project is to:
 
 5. The payload must indicate that it is working without opening the payload.
 
-6. The team needs to include an extra component, examples of which include:
-- a heater that keeps the internal temperature above freezing
-- a magnetometer that measures the orientation of the payload throughout the flight
-- light detectors mounted externally that indicate the orientation of the payload
-- analysis of acceleration data that shows the orientation of the payload throughout the flight
-- a "professional" structure (CAD drawings + easy mounting of sensors + etc.)
+6. The team must prove that their payload will meet requirements.
 
-7. The team must prove that their payload will meet requirements.
-
-5. Conduct analysis of all of their data.
+7. Conduct analysis of all of their data.
 
