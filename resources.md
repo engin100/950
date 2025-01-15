@@ -56,7 +56,7 @@ For more detailed specs, see [the Arduino Nano website](https://docs.arduino.cc/
 
 ## Updating FTDI FT232 Drivers
 
-On some occasions, your computer* may not detect the Arduino, no matter what you do[^1]. In this case, you likely need to update some drivers for the Arduino's onboard USB-Serial converter. This is pretty straightforward, fortunately. 
+On some occasions, your computer may not detect the Arduino, no matter what you do[^1]. In this case, you likely need to update some drivers for the Arduino's onboard USB-Serial converter. This is pretty straightforward, fortunately. 
 
 1. Go to the [FTDI VCP Drivers website](https://ftdichip.com/drivers/vcp-drivers/). 
 2. Scroll down and select the option for your computer's operating system. Clicking on the link should start the download.
