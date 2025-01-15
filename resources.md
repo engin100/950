@@ -13,6 +13,7 @@ A collection of useful cheat-sheets and diagrams you may find yourself referring
   - [Contents](#contents)
   - [Arduino Debugging Checklist](#arduino-debugging-checklist)
   - [Arduino Nano Pinout](#arduino-nano-pinout)
+  - [Updating FTDI FT232 Drivers](#updating-ftdi-ft232-drivers)
   - [Arduino Nano Tech-Specs](#arduino-nano-tech-specs)
   - [Voltage Divider](#voltage-divider)
   - [LED Anode vs Cathode](#led-anode-vs-cathode)
@@ -31,6 +32,7 @@ A collection of useful cheat-sheets and diagrams you may find yourself referring
 - [ ] Exit out of the Arduino software and reopen it (make sure to close ALL open software windows).  
 - [ ] Try a different Arduino or Cord.
 - [ ] Restart your computer.
+- [ ] Update your FT232 drivers.
 
 If your Arduino is still not functioning after trying all of these steps, call an instructor over for help!
 
@@ -51,6 +53,22 @@ If your Arduino is still not functioning after trying all of these steps, call a
 For more detailed specs, see [the Arduino Nano website](https://docs.arduino.cc/hardware/nano)
 
 *[PWM]: Pulse Width Modulation
+
+## Updating FTDI FT232 Drivers
+
+On some occasions, your computer* may not detect the Arduino, no matter what you do. In this case, you likely need to update some drivers for the Arduino's onboard USB-Serial converter. This is pretty straightforward, fortunately. 
+
+1. Go to the [FTDI VCP Drivers website](https://ftdichip.com/drivers/vcp-drivers/). 
+2. Scroll down and select the option for your computer's operating system. Clicking on the link should start the download.
+3. Once downloaded, unzip the file. 
+
+<div class="primer-spec-callout" markdown="1">
+The process to unzip the file varies between macOS and Windows. 
+On Windows, right click the .zip file, click "extract all", then click "extract". 
+On macOS, just click the .zip file. Your computer will automatically unzip it!
+</div>
+
+4. After the file is unzipped, run the application inside the folder. This application will guide you through the rest of the installation process.
 
 ## Voltage Divider
 
