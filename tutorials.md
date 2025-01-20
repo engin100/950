@@ -23,6 +23,7 @@ Walk-throughs on common issues or installations.
     - [Connecting to an Arduino](#connecting-to-an-arduino)
     - [Uploading Code](#uploading-code)
     - [Viewing Arduino Output](#viewing-arduino-output)
+  - [Altium Student License](#altium-student-license)
 
 ## Arduino IDE Install
 
@@ -149,3 +150,30 @@ Additionally, if uploading is failing, try changing to a different bootloader. T
 Arduinos have 2 main ways of interfacing and displaying data on your computer. These are through the Serial Monitor, and the Serial Plotter. Both are accessible via the buttons in the top right-hand corner of the Arduino IDE.
 
 Both of these connections only work when an Arduino is plugged in and the port is specified correctly. Additionally, you will need to confirm that the baud rate - the speed at which the Arduino and your computer agree to exchange data at - is set the same for both your computer and your Arduino. This is configurable from Serial Monitor in the top right hand corner of the console in the bottom of your screen. The default for most instances is 9600 baud.
+
+## Altium Student License
+
+Altium licenses are no longer automatically provided to all students. All University Altium licenses will be tied to individual Altium accounts. The process for getting one of these accounts can take a day or two (business days) so we strongly recommend you set up your Altium account now before you need it to run Altium.
+
+1. Go this page: [https://www.altium.com/education/students](https://www.altium.com/education/students) and click "Enroll for Free."
+   - You will eventually need to log in using your university credentials and be required to submit documentation proving you are a student. Submit a picture of your MCard, front and back, for this step.
+
+2. When your application gets approved and activated, you should have an Altium Education account. Unfortunately, this is not the same as the actual Altium software account. The password for the education account will not allow you to run Altium Designer. You should at this point, however, also receive the correct Altium account but this step is often buggy.
+
+3. Assuming you didn't get an email to set up the Altium software account/password, go to this page: [https://auth.altium.com/?ReturnUrl=https://www.altium.com/](https://auth.altium.com/?ReturnUrl=https://www.altium.com/) and either click "forgot password" or utilize the Google log in on the bottom left.
+
+![](/media/altium_tutorial_figures/image.PNG)
+
+4. With the Altium account you can now log in to Altium Designer to obtain a license. You can also download and install Altium on your own machine if you desire.
+
+5. When you run Altium and the old license doesn't work, you will see a license page. Click sign in and either use the Google G button or the Altium username and password from step 3.
+
+![](/media/altium_tutorial_figures/image%202.PNG)
+
+6. Now select the Altium license and click "use" (or right click on the license and choose "use").
+
+![](/media/altium_tutorial_figures/image%203.PNG)
+
+7. You should now be licensed in Altium and see something like this.
+
+![](/media/altium_tutorial_figures/image%204.PNG)

@@ -39,6 +39,10 @@ For this lab, you will need:
 - [ ] [Spreadsheet of Footprints](https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing)
 - [ ] [Second Spreadsheet of Footprints](https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq/view?usp=sharing)
 
+<div class="primer-spec-callout danger" markdown="1">
+Note: Altium licenses are not automatically given to all students, you will need to register with Altium to obtain a license if you don't already have one. Take a look at the tutorials page for instructions on how to do this.
+</div>
+
 ## Getting Started
 
 - Upon logging in, a window should appear with a software directory.
