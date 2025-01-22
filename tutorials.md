@@ -24,6 +24,7 @@ Walk-throughs on common issues or installations.
     - [Uploading Code](#uploading-code)
     - [Viewing Arduino Output](#viewing-arduino-output)
   - [Altium Student License](#altium-student-license)
+  - [Installing VMWARE](#installing-vmware)
 
 ## Arduino IDE Install
 
@@ -177,3 +178,12 @@ Altium licenses are no longer automatically provided to all students. All Univer
 7. You should now be licensed in Altium and see something like this.
 
 ![](/media/altium_tutorial_figures/image%204.PNG)
+## Installing VMWARE
+The Windows Remote Desktop Service allows eligible individuals at Michigan Engineering to remotely access the CAEN Lab Software Environment (CLSE) for Windows. It is intended to provide the same experience as being in a CAEN computer lab.
+
+1. Follow instructions here to install VMWARE to your computer. **This software is essential for Mac users to run Altium.**
+https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5311
+
+2. To connet VMWARE to the CAEN server: <br>
+https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309
+
