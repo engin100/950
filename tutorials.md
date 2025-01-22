@@ -182,8 +182,8 @@ Altium licenses are no longer automatically provided to all students. All Univer
 The Windows Remote Desktop Service allows eligible individuals at Michigan Engineering to remotely access the CAEN Lab Software Environment (CLSE) for Windows. It is intended to provide the same experience as being in a CAEN computer lab.
 
 1. Follow instructions here to install VMWARE to your computer. **This software is essential for Mac users to run Altium.**
-https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5311
+[https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5311](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5311)
 
 2. To connet VMWARE to the CAEN server: <br>
-https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309
+[https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309)
 
