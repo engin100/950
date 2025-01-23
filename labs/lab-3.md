@@ -13,40 +13,20 @@ This is the first lab completed as a team! As such, the amount of work needed to
 
 - [Lab 3: Creating a Standalone Arduino and Adding Sensors](#lab-3-creating-a-standalone-arduino-and-adding-sensors)
   - [Contents](#contents)
-  - [Materials](#materials)
   - [Introduction](#introduction)
     - [Arduino Power Requirements](#arduino-power-requirements)
     - [Data Logging](#data-logging)
   - [Procedure](#procedure)
+    - [Materials](#materials)
     - [1. Powering the Arduino](#1-powering-the-arduino)
     - [2. Measuring Battery Voltage](#2-measuring-battery-voltage)
-    - [3. Adding the Temperature Sensors](#3-adding-the-temperature-sensors)
-    - [4. Adding the Pressure Sensor](#4-adding-the-pressure-sensor)
-    - [5. Adding the Humidity Sensor](#5-adding-the-humidity-sensor)
-    - [6. Adding the Accelerometer](#6-adding-the-accelerometer)
-    - [7. Adding the MicroSD Card Adapter Module](#7-adding-the-microsd-card-adapter-module)
-    - [8. Collecting Data](#8-collecting-data)
-    - [9. Analyzing the Data in MATLAB](#9-analyzing-the-data-in-matlab)
+    - [3. Adding the Temperature Sensor](#3-adding-the-temperature-sensor)
+    - [4. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor](#4-adding-the-bme680-temperature-pressure-humidity-voc-sensor)
+    - [5. Adding the Accelerometer](#5-adding-the-accelerometer)
+    - [6. Adding the MicroSD Card Adapter Module](#6-adding-the-microsd-card-adapter-module)
+    - [7. Collecting Data](#7-collecting-data)
+    - [8. Analyzing the Data in MATLAB](#8-analyzing-the-data-in-matlab)
   - [Submission](#submission)
-
-## Materials
-
-- [ ] 1 Arduino Nano
-- [ ] 1 Breadboard
-- [ ] 1 Programming Cable (and adapters if necessary)
-- [ ] 2 TMP36 Temperature Sensors
-- [ ] 1 Pressure Sensor
-- [ ] 1 Humidity Sensor
-- [ ] 1 Accelerometer
-- [ ] 1 MicroSD Card
-- [ ] 1 Data Logger
-- [ ] 1 MicroSD Card - USB Adapter
-- [ ] 2 1k$$\Omega$$ resistors
-- [ ] A handful of jumper wires
-- [ ] 1 9V battery
-- [ ] 1 9V battery connector
-- [ ] A computer with the Arduino IDE [installed](/tutorials#arduino-ide-install) and [setup](/tutorials#arduino-library).
-- [ ] ENGR100-950 Arduino Library
 
 ## Introduction
 
@@ -71,6 +51,24 @@ Due to the length of this lab, we are giving you the option to split into two gr
 - [Link to Group A Lab Manual](/labs/lab-3GroupA)
 - [Link to Group B Lab Manual](/labs/lab-3GroupB)
 
+### Materials
+
+- [ ] 1 Arduino Nano
+- [ ] 1 Breadboard
+- [ ] 1 Programming Cable (and adapters if necessary)
+- [ ] 1 TMP36 Temperature Sensor
+- [ ] 1 BME680 Temperature, Pressure, Humidity, VOC Sensor
+- [ ] 1 Accelerometer
+- [ ] 1 MicroSD Card
+- [ ] 1 Data Logger
+- [ ] 1 MicroSD Card - USB Adapter
+- [ ] 2 1k$$\Omega$$ resistors
+- [ ] A handful of jumper wires
+- [ ] 1 9V battery
+- [ ] 1 9V battery connector
+- [ ] A computer with the Arduino IDE [installed](/tutorials#arduino-ide-install) and [setup](/tutorials#arduino-library).
+- [ ] ENGR100-950 Arduino Library
+
 ### 1. Powering the Arduino
 
 To start, we want to power our Arduino with the 9V battery. Plug your Arduino into your breadboard, and plug the 9V into it's connection clip. It should only fit on one way, as the 9V's two terminals are different shapes.
@@ -78,7 +76,14 @@ To start, we want to power our Arduino with the 9V battery. Plug your Arduino in
 Notice that one wire coming out of the battery is red, and one is black. Common practice says that red will be positive, in this case +9V, and the black will be what we connect to our Arduino's GND.
 
 <div class="primer-spec-callout danger" markdown="1">
-Oftentimes we will refer to "Common Practice", meaning the circuit will work if you don't follow this convention, but it may be harder to understand for an outsider, or in certain "edge cases" it might function differently than expected. A common practice we are requiring you to follow is color coding your jumper wires, as this makes debugging a complex circuit much easier. Power should be red, GND should be black, and any data/signal jumpers should be some other color. Additionally, supply 5v to one red power rail on the breadboard, 3.3v to the other red rail, and GND the remaining two blue rails. Then you can connect any sensors to those rails without tracing wires over and over back to the Arduino pins.
+Oftentimes we will refer to "Common Practice", meaning the circuit will work if you don't follow this convention, but it may be harder to understand for an outsider, or in certain "edge cases" it might function differently than expected. A common practice we are requiring you to follow is color coding your jumper wires, as this makes debugging a complex circuit much easier. Additionally, please supply 5v to one red power rail on the breadboard, 3.3v to the other red rail, and GND the remaining two blue rails. Then you can connect any sensors to those rails without tracing wires over and over back to the Arduino pins.
+
+- **Red (or orange):** Power lines(5v, 3.3v, etc.)
+- **Black:** Ground
+- **Blue:** Analog (Pins labeled with an A, and most likely used for analogRead or sensor data)
+- **Yellow:** Digital (Pins labeled with a D, most likely used to control things or for more complicated sensors)
+- **Left Red Rail:** 5v
+- **Right Red Rail:** 3.3v
 </div>
 
 Take these wires and plug them into your Arduino via your breadboard. Red should go to the Arduino's Vin, and black should go to any GND pin.
@@ -111,7 +116,7 @@ Your battery, however, has a higher voltage than that. We now need to undo the e
 Note that the values displayed in the serial monitor are rounded, and don't show us as accurate of voltages as we would like. This is because the value is stored as an "int", or integer. To obtain decimal places, change this to a double, and when applying any calculations (such as converting from raw values to voltages) put .0 at the end to let the code know you are trying to obtain decimal values. Ex. "value * (10.0 / 1023.0);"
 </div>
 
-### 3. Adding the Temperature Sensors
+### 3. Adding the Temperature Sensor
 
 <div class="primer-spec-callout danger" markdown="1">
 Whenever you perform a calibration curve, or want to read accurate values to the SD card, you should do so with the battery connected. Because of the differences in voltage applied by a computer through USB and the 9V batteries we are using, there is some variation in the voltage values read by the Arduino from each sensor. For this lab, since you don't have an SD logger connected (yet!) just calibrate using the serial monitor through USB. Keep this in mind for future labs!
@@ -126,40 +131,37 @@ Here is the wiring diagram again for your reference:
 [![TMP36 Pinout](https://cdn-learn.adafruit.com/assets/assets/000/000/471/large1024/temperature_tmp36pinout.gif?1447975787)](https://learn.adafruit.com/tmp36-temperature-sensor/overview)
 
 <div class="primer-spec-callout warning" markdown="1">
-Do this process twice to record data from two TMP36 sensors. When we launch our weather balloons we will want to measure the internal temperature of our payload and the external temperature of the atmosphere.
+This temperature sensor will be used to measure the external temperature of your payload. In the next step you'll add a digital sensor that measures temperature, pressure, humidity, and Volatile Organic Compounds (VOCs). This sensor will be used for the interior temperature of your payload.
 </div>
 
-Once you have your temperature sensors connected, it's time to make a calibration curve (technically you should make two separate calibration curves for each TMP36 since they may have some variation, but they should be relatively similar). You can do this in the same manner as in the last lab using the cold chamber. Enter these calibration curves into your Arduino code by modifying the temperature variables with a slope-intercept equation, and verify that the serial monitor is producing realistic temperature values. Save these calibration curves somewhere for later use! **It may be less annoying to calibrate all of the sensors at the end once you have all the sensors connected but before you have the data logger plugged in. This is up to you!**
+Once you have your temperature sensor connected, it's time to make a calibration curve. You can do this in the same manner as in the last lab using the cold chamber or going outside. Enter these calibration curves into your Arduino code by modifying the temperature variables with a slope-intercept equation, and verify that the serial monitor is producing realistic temperature values. Save these calibration curves somewhere for later use! **It may be less annoying to calibrate all of the sensors at the end once you have all the sensors connected but before you have the data logger plugged in. This is up to you!**
 
-### 4. Adding the Pressure Sensor
-
-- [Link to MPX4115 Spec Sheet](https://drive.google.com/file/d/1HvO6ww0i4jqZtf4NJvgjcQmIwZw6AqbE/view?usp=sharing)
+### 4. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor
 
 <div class="primer-spec-callout info" markdown="1">
-Pay attention to the required supply voltage for each of these components to prevent accidental damage. You can find these values in the provided spec sheets for each individual component. In the case of the pressure sensor it is 5v.
+BME680 is the name of a specific sensor/component, produced by Bosch, that can measure temperature, pressure, humidity, and VOCs. In order to make the use of a BME680 much simpler, companies like Adafruit produce a BME680 breakout board. These are custom PCBs (Printed Circuit Boards) with the BME680 sensor attached, along with a slew of other power-handling or signal processing components. Linked below are the spec sheets for both variations. The sensor spec sheet is likely more useful for finding the operating ranges of the sensor, sensitivity levels, and other sensor operating details. The breakout spec sheet is likely more useful for finding wiring instructions and/or example code. The breakout spec sheet also lists the required input power range since this is determined by the circuitry of the breakout board.
 </div>
 
-Begin by skimming over the provided spec sheet and become familiar with the pin layout. Connect the sensor to the Arduino, based on the pin-out provided. **You only need to connect the Vin (or VCC), GND, and Vout pins.** Print the data to the Serial Monitor to ensure it is working, using `analogRead()` like before with the temperature sensors, add this to the code with the battery voltage and temperature sensors so that you now have four comma-separated values printed in one line. It may be "Voltage,Temp1,Temp2,Pressure" for example, all in one line. Again, these raw values should be converted to voltages within the code, as before.
-
-This data now needs to be calibrated in order to be useful! Take a measurement and create a calibration curve equation for this sensor, assuming that a measurement of 0V maps to 0 pressure for the other measurement. Again, save this calibration curve for later.
+- [Link to BME680 Adafruit breakout Spec Sheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas.pdf)
+- [Link to BME680 sensor Spec Sheet](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf)
 
 <div class="primer-spec-callout info" markdown="1">
-Note: You may simply look up the local Ann Arbor pressure using a weather app for the calibration point.
+Pay attention to the required supply voltage for each of these components to prevent accidental damage. You can find these values in the provided spec sheets for each individual component. In the case of the BME680 Adafruit Breakout, it can handle 3.3v or 5v. For the case of this lab we will be using 5v.
 </div>
 
-Apply this calibration curve to the code as before with the temperature sensors, adding to the string of values printed to the serial monitor. The values shouldn't be changing much if at all, because pressure won't vary by large values while remaining at a steady altitude.
+Begin by skimming over the provided spec sheets and become familiar with the pin layout. Connect the sensor to the Arduino, based on the pin-out provided below.
 
-### 5. Adding the Humidity Sensor
+| BME680 Adafruit Breakout Pin | Arduino Nano Pin  |
+| ---------- | -------- |
+| Vin (Voltage In) | 5 volt rail |
+| 3Vo (3v Out) | NOT USED |
+| GND (Ground) | Ground rail |
+| SCK (Serial Clock) | D6 |
+| SDO (Serial Data Out, aka MISO) | D7 |
+| SDI (Serial Data In, aka MOSI) | D8 |
+| CS (Chip Select) | D9 |
 
-- [Link to HIH-4030 Spec Sheet](https://drive.google.com/file/d/1AbuDJoNI-4D2zUW1M4IfG_zt5Is2a3Eh/view?usp=sharing)
-
-Begin by skimming over the provided spec sheet and become familiar with the pin layout. Connect the sensor to the Arduino, based on the pin-out provided and using the **5V pin** as the power supply.
-
-Add lines to the code from before to print the humidity data (voltages!) in the same comma-separated format.
-
-Take measurement data indoors and while walking outside to see changes. Create a calibration curve equation for this sensor and apply it to the code to print a calibrated humidity value in the serial monitor. Save this calibration curve.
-
-### 6. Adding the Accelerometer
+### 5. Adding the Accelerometer
 
 - [Link to ADXL335 Spec Sheet](https://drive.google.com/file/d/1nYnJopSdXv7brn2TT8iLgIH01D7TD_NQ/view?usp=sharing)
 
@@ -171,7 +173,7 @@ Add code to the program you've been working with to read voltage values from eac
 To perform a calibration curve of the accelerometer, take note of the axes as labeled on the top of the sensor. Holding the sensor so that only one axis is experiencing acceleration due to gravity, record the output value as -1g (g being acceleration due to gravity). Then flip it over 180 degrees so that it is experiencing 1g, and record this value as your second point. Apply these calibration curves to the code from before in csv format.
 </div>
 
-### 7. Adding the MicroSD Card Adapter Module
+### 6. Adding the MicroSD Card Adapter Module
 
 <div class="primer-spec-callout info" markdown="1">
 For teams working in two separate groups (all others ignore this message): You should already have your SD logger wired in, so once you have all of your components running on one Arduino/computer, skip down to "Plug your microSD card into your computer..."
@@ -193,7 +195,7 @@ There is a delay statement at the end of the loop.  Think about how many data po
 
 **Now that you have a completed circuit, take a picture of your setup and save this for your submission file. (Remember, wires and rails should follow "common practice" mentioned earlier.)**
 
-### 8. Collecting Data
+### 7. Collecting Data
 
 With everything plugged into the 9V and running, unplug the Arduino from your computer. Enjoy the portability of your new breadboard and walk around the building a little bit. Get the temperature to change dramatically by putting your sensor board into the cold chamber.  Wait for about 1-2 minutes to allow the temperature to adjust. Try rotating your circuit in different orientations so that each axis experiences some acceleration due to gravity, and walk outside to watch humidity change. This should provide plenty of data for all of your sensors!
 
@@ -205,7 +207,7 @@ Before returning all of your equipment, make sure you save your file on your com
 
 Then, delete the .csv file and any other .txt files off of the microSD card (you can leave any folders) so that other teams in future labs have to actually do the lab themselves, and don't just steal your data!
 
-### 9. Analyzing the Data in MATLAB
+### 8. Analyzing the Data in MATLAB
 
 You should have a MATLAB script saved from an in-class exercise. Use this MATLAB script to process and analyze the data you collected earlier in the lab. You should create plots for battery voltage, two temperature sensors, a humidity sensor, a pressure sensor, and each axis from the accelerometer. These plots should be titled, axes labeled, and calibration curves applied so that they contain the proper units. Make sure to use legends if you have more than one line on a single graph (such as if you put the temperature sensors together). Again, to reiterate, your CSV file (from the code provided to you) will have voltages and your MATLAB script will apply the calibration curves to make the data useful. Consider using subplots to organize the data better!
 
