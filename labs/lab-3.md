@@ -134,15 +134,19 @@ Here is the wiring diagram again for your reference:
 This temperature sensor will be used to measure the external temperature of your payload. In the next step you'll add a digital sensor that measures temperature, pressure, humidity, and Volatile Organic Compounds (VOCs). This sensor will be used for the interior temperature of your payload.
 </div>
 
-Once you have your temperature sensor connected, it's time to make a calibration curve. You can do this in the same manner as in the last lab using the cold chamber or going outside. Enter these calibration curves into your Arduino code by modifying the temperature variables with a slope-intercept equation, and verify that the serial monitor is producing realistic temperature values. Save these calibration curves somewhere for later use! **It may be less annoying to calibrate all of the sensors at the end once you have all the sensors connected but before you have the data logger plugged in. This is up to you!**
+Once you have your temperature sensor connected, it's time to make a calibration curve. You can do this in the same manner as in the last lab using the cold chamber or going outside. Enter these calibration curves into your Arduino code by modifying the temperature variables with a slope-intercept equation, and verify that the serial monitor is producing realistic temperature values. Save these calibration curves (slope and intercept values) somewhere for later use! **It may be less annoying to calibrate all of the sensors at the end once you have all the sensors connected but before you have the data logger plugged in. This is up to you! In whatever case, make sure to clearly record your slope and intercept values from the curves.**
 
 ### 4. Adding the Accelerometer
 
 - [Link to ADXL335 Spec Sheet](https://drive.google.com/file/d/1nYnJopSdXv7brn2TT8iLgIH01D7TD_NQ/view?usp=sharing)
 
+<div class="primer-spec-callout danger" markdown="1">
+The accelerometer we are using connects to 3.3v ONLY. DO NOT CONNECT TO 5V.
+</div>
+
 Begin by skimming over the provided spec sheet and become familiar with the pin layout. Connect the sensor to the Arduino, based on the pin-out provided and using the **3.3V pin** as the power supply. Each of the axes (x, y, and z) will be connected to its own analog pin. You will not have anything connected to the ST pin.
 
-Add code to the program you've been working with to read voltage values from each of the three axes. Then perform a two-point calibration for each axis individually, and update the code to print the new calibrated values in the same comma-delimited format as before. **Save these calibration curves! Take a screenshot of the serial monitor printing out a string of data from all of the sensors in the same line, every half second (or whatever the time delay is set to within the code).**
+Add code to the program you've been working with to read voltage values from each of the three axes. Then perform a two-point calibration for each axis individually, and update the code to print the new calibrated values in the same comma-delimited format as before. **Save these calibration curves (slope and intercept values)! Take a screenshot of the serial monitor printing out a string of data from all of the sensors in the same line, every half second (or whatever the time delay is set to within the code).**
 
 <div class="primer-spec-callout info" markdown="1">
 To perform a calibration curve of the accelerometer, take note of the axes as labeled on the top of the sensor. Holding the sensor so that only one axis is experiencing acceleration due to gravity, record the output value as -1g (g being acceleration due to gravity). Then flip it over 180 degrees so that it is experiencing 1g, and record this value as your second point. Apply these calibration curves to the code from before in csv format.
@@ -172,6 +176,10 @@ Begin by skimming over the provided spec sheets and become familiar with the pin
 | SDO (Serial Data Out, aka MISO) | D7 |
 | SDI (Serial Data In, aka MOSI) | D8 |
 | CS (Chip Select) | D9 |
+
+Navigate to and open the following example file: File -> Examples -> ENGR100-950 -> Lab3_SensorIntegration.
+
+Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves, and pin numbering for your specific wiring. Run this code and ensure it's working as expected.
 
 ### 6. Adding the MicroSD Card Adapter Module
 
