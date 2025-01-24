@@ -21,8 +21,8 @@ This is the first lab completed as a team! As such, the amount of work needed to
     - [1. Powering the Arduino](#1-powering-the-arduino)
     - [2. Measuring Battery Voltage](#2-measuring-battery-voltage)
     - [3. Adding the Temperature Sensor](#3-adding-the-temperature-sensor)
-    - [4. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor](#4-adding-the-bme680-temperature-pressure-humidity-voc-sensor)
-    - [5. Adding the Accelerometer](#5-adding-the-accelerometer)
+    - [4. Adding the Accelerometer](#4-adding-the-accelerometer)
+    - [5. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor](#5-adding-the-bme680-temperature-pressure-humidity-voc-sensor)
     - [6. Adding the MicroSD Card Adapter Module](#6-adding-the-microsd-card-adapter-module)
     - [7. Collecting Data](#7-collecting-data)
     - [8. Analyzing the Data in MATLAB](#8-analyzing-the-data-in-matlab)
@@ -113,13 +113,13 @@ You know on the Arduino Nano this value will be between 0-1024, and that your ma
 Your battery, however, has a higher voltage than that. We now need to undo the effects of the voltage divider to determine the battery's original voltage. Since we used the same resistance on either side of the voltage divider, the voltage is being cut in half. Therefore, we can simply multiply the Arduino's recorded voltage by 2 to get the 9V battery's voltage. It should be somewhere between 8 and 10V.
 
 <div class="primer-spec-callout info" markdown="1">
-Note that the values displayed in the serial monitor are rounded, and don't show us as accurate of voltages as we would like. This is because the value is stored as an "int", or integer. To obtain decimal places, change this to a double, and when applying any calculations (such as converting from raw values to voltages) put .0 at the end to let the code know you are trying to obtain decimal values. Ex. "value * (10.0 / 1023.0);"
+Note that the values displayed in the serial monitor are rounded, and don't show us as accurate of voltages as we would like. This is because the value is stored as an "int", or integer. To obtain decimal places, change this to a float, and when applying any calculations (such as converting from raw values to voltages) put .0 at the end to let the code know you are trying to obtain decimal values. Ex. "value * (10.0 / 1023.0);"
 </div>
 
 ### 3. Adding the Temperature Sensor
 
 <div class="primer-spec-callout danger" markdown="1">
-Whenever you perform a calibration curve, or want to read accurate values to the SD card, you should do so with the battery connected. Because of the differences in voltage applied by a computer through USB and the 9V batteries we are using, there is some variation in the voltage values read by the Arduino from each sensor. For this lab, since you don't have an SD logger connected (yet!) just calibrate using the serial monitor through USB. Keep this in mind for future labs!
+Whenever you perform a calibration curve, or want to read accurate values to the SD card, you should do so with the battery connected and computer disconnected. Because of the differences in voltage applied by a computer through USB and the 9V batteries we are using, there is some variation in the voltage values read by the Arduino from each sensor. For this lab, since you don't have an SD logger connected (yet!) just calibrate using the serial monitor through USB. Keep this in mind for future labs though!
 </div>
 
 - [Link to TMP36 Spec Sheet](https://drive.google.com/file/d/10Lu2-s9MYqh0s0O6Nkxy8E_LDwDpnZ7T/view?usp=sharing)
@@ -136,7 +136,19 @@ This temperature sensor will be used to measure the external temperature of your
 
 Once you have your temperature sensor connected, it's time to make a calibration curve. You can do this in the same manner as in the last lab using the cold chamber or going outside. Enter these calibration curves into your Arduino code by modifying the temperature variables with a slope-intercept equation, and verify that the serial monitor is producing realistic temperature values. Save these calibration curves somewhere for later use! **It may be less annoying to calibrate all of the sensors at the end once you have all the sensors connected but before you have the data logger plugged in. This is up to you!**
 
-### 4. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor
+### 4. Adding the Accelerometer
+
+- [Link to ADXL335 Spec Sheet](https://drive.google.com/file/d/1nYnJopSdXv7brn2TT8iLgIH01D7TD_NQ/view?usp=sharing)
+
+Begin by skimming over the provided spec sheet and become familiar with the pin layout. Connect the sensor to the Arduino, based on the pin-out provided and using the **3.3V pin** as the power supply. Each of the axes (x, y, and z) will be connected to its own analog pin. You will not have anything connected to the ST pin.
+
+Add code to the program you've been working with to read voltage values from each of the three axes. Then perform a two-point calibration for each axis individually, and update the code to print the new calibrated values in the same comma-delimited format as before. **Save these calibration curves! Take a screenshot of the serial monitor printing out a string of data from all of the sensors in the same line, every half second (or whatever the time delay is set to within the code).**
+
+<div class="primer-spec-callout info" markdown="1">
+To perform a calibration curve of the accelerometer, take note of the axes as labeled on the top of the sensor. Holding the sensor so that only one axis is experiencing acceleration due to gravity, record the output value as -1g (g being acceleration due to gravity). Then flip it over 180 degrees so that it is experiencing 1g, and record this value as your second point. Apply these calibration curves to the code from before in csv format.
+</div>
+
+### 5. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor
 
 <div class="primer-spec-callout info" markdown="1">
 BME680 is the name of a specific sensor/component, produced by Bosch, that can measure temperature, pressure, humidity, and VOCs. In order to make the use of a BME680 much simpler, companies like Adafruit produce a BME680 breakout board. These are custom PCBs (Printed Circuit Boards) with the BME680 sensor attached, along with a slew of other power-handling or signal processing components. Linked below are the spec sheets for both variations. The sensor spec sheet is likely more useful for finding the operating ranges of the sensor, sensitivity levels, and other sensor operating details. The breakout spec sheet is likely more useful for finding wiring instructions and/or example code. The breakout spec sheet also lists the required input power range since this is determined by the circuitry of the breakout board.
@@ -160,18 +172,6 @@ Begin by skimming over the provided spec sheets and become familiar with the pin
 | SDO (Serial Data Out, aka MISO) | D7 |
 | SDI (Serial Data In, aka MOSI) | D8 |
 | CS (Chip Select) | D9 |
-
-### 5. Adding the Accelerometer
-
-- [Link to ADXL335 Spec Sheet](https://drive.google.com/file/d/1nYnJopSdXv7brn2TT8iLgIH01D7TD_NQ/view?usp=sharing)
-
-Begin by skimming over the provided spec sheet and become familiar with the pin layout. Connect the sensor to the Arduino, based on the pin-out provided and using the **3.3V pin** as the power supply. Each of the axes (x, y, and z) will be connected to its own analog pin. You will not have anything connected to the ST pin.
-
-Add code to the program you've been working with to read voltage values from each of the three axes. Then perform a two-point calibration for each axis individually, and update the code to print the new calibrated values in the same comma-delimited format as before. **Save these calibration curves! Take a screenshot of the serial monitor printing out a string of data from all of the sensors in the same line, every half second (or whatever the time delay is set to within the code).**
-
-<div class="primer-spec-callout info" markdown="1">
-To perform a calibration curve of the accelerometer, take note of the axes as labeled on the top of the sensor. Holding the sensor so that only one axis is experiencing acceleration due to gravity, record the output value as -1g (g being acceleration due to gravity). Then flip it over 180 degrees so that it is experiencing 1g, and record this value as your second point. Apply these calibration curves to the code from before in csv format.
-</div>
 
 ### 6. Adding the MicroSD Card Adapter Module
 
