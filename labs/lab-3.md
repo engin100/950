@@ -179,7 +179,7 @@ Begin by skimming over the provided spec sheets and become familiar with the pin
 
 Navigate to and open the following example file: File -> Examples -> ENGR100-950 -> Lab3_BME680.
 
-Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves from before, and pin numbering for your specific wiring. Run this code and ensure it's working as expected.
+Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves from before, and pin numbering for your specific wiring. Run this code and ensure it's working as expected. There is a boolean statement that allows you to toggle the serial monitor printing on/off. If you are logging only to the sd card, turn this off.
 
 ### 6. Adding the MicroSD Card Adapter Module
 
@@ -199,7 +199,7 @@ Once everything is wired up, put your microSD card into the adapter module and p
 
 Please read through the comments of this code file, as you will be adding additional sensors and modifying this file on your own. In this lab, you may also need to change the analog pins that are the defaults for all of your sensors.
 
-There is a delay statement at the end of the loop. Think about how many data points will be taken if you take data for 5 minutes.  Will you need data this often?  More often?  Less often?  Adjust the delay accordingly. The current default is set to read once every second, but you can set this to a simpler value, such as "delay(500)" to delay 500 ms.
+There is a delay statement at the end of the loop. Think about how many data points will be taken if you take data for 5 minutes.  Will you need data this often?  More often?  Less often?  Adjust the delay accordingly. The current default is set to read once every second, but you can set this to a simpler value, such as "delay(500);" to delay 500 ms.
 
 **Now that you have a completed circuit, take a picture of your setup and save this for your submission file. (Remember, wires and rails should follow "common practice" mentioned earlier.)**
 
