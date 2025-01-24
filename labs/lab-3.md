@@ -45,7 +45,7 @@ Our Arduino has some memory on it, but reading and writing to this memory is a r
 ## Procedure
 
 <div class="primer-spec-callout danger" markdown="1">
-Due to the length of this lab, we are giving you the option to split into two groups within your team. This is not required, and if you would like to work all together, simply continue on with the lab manual. If you would like to pursue this option, split into two groups, and assign one group to be Group A, and one group to be Group B, then follow the links below to modified lab manuals.
+Due to the length of this lab, we are giving you the option to split into two groups within your team. This is not required, and if you would like to work all together, simply continue on with the lab manual. If you would like to pursue this option, split into two groups, and assign one group to be Group A, and one group to be Group B, then follow the links below to the modified lab manuals.
 </div>
 
 - [Link to Group A Lab Manual](/labs/lab-3GroupA)
@@ -71,17 +71,17 @@ Due to the length of this lab, we are giving you the option to split into two gr
 
 ### 1. Powering the Arduino
 
-To start, we want to power our Arduino with the 9V battery. Plug your Arduino into your breadboard, and plug the 9V into it's connection clip. It should only fit on one way, as the 9V's two terminals are different shapes.
+To start, we want to power our Arduino with the 9V battery. Plug your Arduino into your breadboard, and plug the 9V into it's connection clip. It should only fit one way, since the terminals are different shapes.
 
 Notice that one wire coming out of the battery is red, and one is black. Common practice says that red will be positive, in this case +9V, and the black will be what we connect to our Arduino's GND.
 
 <div class="primer-spec-callout danger" markdown="1">
 Oftentimes we will refer to "Common Practice", meaning the circuit will work if you don't follow this convention, but it may be harder to understand for an outsider, or in certain "edge cases" it might function differently than expected. A common practice we are requiring you to follow is color coding your jumper wires, as this makes debugging a complex circuit much easier. Additionally, please supply 5v to one red power rail on the breadboard, 3.3v to the other red rail, and GND the remaining two blue rails. Then you can connect any sensors to those rails without tracing wires over and over back to the Arduino pins.
 
-- **Red (or orange):** Power lines(5v, 3.3v, etc.)
+- **Red (or orange):** Power lines (5v, 3.3v, etc.)
 - **Black:** Ground
-- **Blue:** Analog (Pins labeled with an A, and most likely used for analogRead or sensor data)
-- **Yellow:** Digital (Pins labeled with a D, most likely used to control things or for more complicated sensors)
+- **Blue:** Analog (Pins labeled with an A, and most likely used with analogRead or sensor data)
+- **Yellow:** Digital (Pins labeled with a D, most likely used to control things or with more complicated sensors)
 - **Left Red Rail:** 5v
 - **Right Red Rail:** 3.3v
 </div>
@@ -90,7 +90,7 @@ Take these wires and plug them into your Arduino via your breadboard. Red should
 
 Once you've plugged the 9V in, the Arduino should light up - even though it isn't plugged into your computer! If it does, congrats, your external power is working! If not, check your connections again.
 
-As one last check that everything is working before we move on, upload the File → Examples → Basics → Blink code that the Arduino IDE comes with to your Arduino. After it finishes uploading, unplug your computer and verify that the onboard LED on the Arduino continues to blink on only the 9V's power.
+As one last check that everything is working before we move on, upload the File → Examples → Basics → Blink code that the Arduino IDE comes with, to your Arduino. After it finishes uploading, unplug your computer and verify that the onboard LED on the Arduino continues to blink on only the 9V's power.
 
 <div class="primer-spec-callout info" markdown="1">
 In the next lab we will go over creating a more reliable power source using a separate power circuit. For now, this will do, just take note that sensor readings may fluctuate based on whether the Arduino is powered by a battery or by your computer, and whether or not all of the sensors are plugged in and drawing power. More on this later!
@@ -100,20 +100,20 @@ In the next lab we will go over creating a more reliable power source using a se
 
 Most modern electronics, from your smartphone to even rockets, have some way of reporting back the charge of any internal batteries. While we don't use the battery for very long at any one time in this lab, other people are using the same batteries, and so we do want to verify they are charged.
 
-To measure battery voltage, we can use the analog pins on the Arduino, similar to how we did in lab 1. The caveat of this is, however, that the analog pins can **only take up to 5V!!** So, before reading the battery in, we need to build a voltage divider to step the battery voltage down to 5V max.
+To measure battery voltage, we can use the analog pins on the Arduino, similar to how we did in lab 1. The caveat of this, however, is that the analog pins can **only take up to 5V!!** So, before reading the battery in, we need to build a voltage divider to step the battery voltage down to 5V max.
 
-Using our voltage divider [(see the resources page for more)](/resources), we can take 2 1k$$\Omega$$ resistors and step 9V down to 4.5V max. Go ahead and build this voltage divider.
+Using our voltage divider [(see the resources page for more)](/resources), we can take 2 1k$$\Omega$$ resistors and step ~9V down to ~4.5V. Go ahead and build this voltage divider.
 
 When you are done, your 9V battery should have the black wire going to GND, and the red wire going to **both** Vin on the Arduino **and** a voltage divider.
 
-Now, let's test that the voltages look about right. Go to File → Examples → Basics → AnalogReadSerial and change the `analogRead()` function called in `loop()` to be the pin you plugged your voltage divider into. Run this code and make note of the values it returns.
+Now, let's test that the voltages look realistic. Go to File → Examples → Basics → AnalogReadSerial and change the `analogRead()` function called in `loop()` to be the pin you plugged your voltage divider into. Run this code and make note of the values it returns.
 
-You know on the Arduino Nano this value will be between 0-1024, and that your max voltage, as reported by the Arduino, is 5V. Convert your raw value to the voltage by dividing it by 1023 and multiplying it by 5V. This is the voltage your Arduino recorded.
+You know on the Arduino Nano this value will be between 0-1023, and that your max voltage, as reported by the Arduino, is 5V. Convert your raw value to the voltage by dividing it by 1023 and multiplying it by 5V. This is the voltage your Arduino recorded.
 
 Your battery, however, has a higher voltage than that. We now need to undo the effects of the voltage divider to determine the battery's original voltage. Since we used the same resistance on either side of the voltage divider, the voltage is being cut in half. Therefore, we can simply multiply the Arduino's recorded voltage by 2 to get the 9V battery's voltage. It should be somewhere between 8 and 10V.
 
 <div class="primer-spec-callout info" markdown="1">
-Note that the values displayed in the serial monitor are rounded, and don't show us as accurate of voltages as we would like. This is because the value is stored as an "int", or integer. To obtain decimal places, change this to a float, and when applying any calculations (such as converting from raw values to voltages) put .0 at the end to let the code know you are trying to obtain decimal values. Ex. "value * (10.0 / 1023.0);"
+Note that the values displayed in the serial monitor are rounded, and don't show us as accurate of voltages as we would like. This is because the value is stored as an "int", or integer. To obtain decimal places, change this to a float, and when applying any calculations (such as converting from raw values to voltages) put .0 at the end to let the code know you are trying to obtain decimal values. Ex. "float voltage = rawValue * (10.0 / 1023.0);"
 </div>
 
 ### 3. Adding the Temperature Sensor
@@ -124,14 +124,14 @@ Whenever you perform a calibration curve, or want to read accurate values to the
 
 - [Link to TMP36 Spec Sheet](https://drive.google.com/file/d/10Lu2-s9MYqh0s0O6Nkxy8E_LDwDpnZ7T/view?usp=sharing)
 
-Just like we did in the last lab, we now need to plug in the TMP36 to an analog pin on the Arduino, and read it using `analogRead()` and `Serial.println()`. Add this to the code used for measuring the battery voltage with comma-separated values. (Hint: You can use `Serial.print()` to print values without a newline character between them, which may help you print csv integers to the serial monitor for testing. Then you can just use `Serial.print(",");` to add a comma between the values. The last line you print, which will be the last sensor column of your csv matrix, should use `Serial.println()` in order to make a new line for the next data read). Convert these raw values to voltages using the equations used in previous labs, then print the voltages in the aforementioned format.
+Just like we did in the last lab, we now need to plug in the TMP36 to an analog pin on the Arduino, and read it using `analogRead()` and `Serial.println()`. Add this to the code used for measuring the battery voltage with comma-separated values. (Hint: You can use `Serial.print()` to print values without a newline character between them, which may help you print csv integers to the serial monitor for testing. Then you can just use `Serial.print(",");` to add a comma between the values. The last line you print, which will be the last sensor column of your csv matrix, should use `Serial.println()` in order to make a new line for the next data sample). Convert these raw values to voltages using the equations used in previous labs, then print the voltages in the aforementioned format.
 
 Here is the wiring diagram again for your reference:
 
 [![TMP36 Pinout](https://cdn-learn.adafruit.com/assets/assets/000/000/471/large1024/temperature_tmp36pinout.gif?1447975787)](https://learn.adafruit.com/tmp36-temperature-sensor/overview)
 
 <div class="primer-spec-callout warning" markdown="1">
-This temperature sensor will be used to measure the external temperature of your payload. In the next step you'll add a digital sensor that measures temperature, pressure, humidity, and Volatile Organic Compounds (VOCs). This sensor will be used for the interior temperature of your payload.
+This temperature sensor will be used to measure the external temperature of your payload. In the next step you'll add a digital sensor that measures temperature, pressure, humidity, and Volatile Organic Compounds (VOCs). That sensor will be used for the interior temperature of your payload.
 </div>
 
 Once you have your temperature sensor connected, it's time to make a calibration curve. You can do this in the same manner as in the last lab using the cold chamber or going outside. Enter these calibration curves into your Arduino code by modifying the temperature variables with a slope-intercept equation, and verify that the serial monitor is producing realistic temperature values. Save these calibration curves (slope and intercept values) somewhere for later use! **It may be less annoying to calibrate all of the sensors at the end once you have all the sensors connected but before you have the data logger plugged in. This is up to you! In whatever case, make sure to clearly record your slope and intercept values from the curves.**
@@ -158,7 +158,7 @@ To perform a calibration curve of the accelerometer, take note of the axes as la
 BME680 is the name of a specific sensor/component, produced by Bosch, that can measure temperature, pressure, humidity, and VOCs. In order to make the use of a BME680 much simpler, companies like Adafruit produce a BME680 breakout board. These are custom PCBs (Printed Circuit Boards) with the BME680 sensor attached, along with a slew of other power-handling or signal processing components. Linked below are the spec sheets for both variations. The sensor spec sheet is likely more useful for finding the operating ranges of the sensor, sensitivity levels, and other sensor operating details. The breakout spec sheet is likely more useful for finding wiring instructions and/or example code. The breakout spec sheet also lists the required input power range since this is determined by the circuitry of the breakout board.
 </div>
 
-- [Link to BME680 Adafruit breakout Spec Sheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas.pdf)
+- [Link to BME680 Adafruit Breakout Spec Sheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas.pdf)
 - [Link to BME680 Sensor Spec Sheet](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf)
 
 <div class="primer-spec-callout info" markdown="1">
@@ -177,9 +177,9 @@ Begin by skimming over the provided spec sheets and become familiar with the pin
 | SDI (Serial Data In, aka MOSI) | D8 |
 | CS (Chip Select) | D9 |
 
-Navigate to and open the following example file: File -> Examples -> ENGR100-950 -> Lab3_BME680.
+Navigate to and open the following example file: File -> Examples -> ENGR100-950 -> Lab3_BME680. This file is a standalone BME680 tester to ensure you have everything in working order before proceeding.
 
-Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves you made previously, and pin numbering for your specific wiring. Run this code and ensure it's working as expected. There is a boolean statement that allows you to toggle the serial monitor printing on/off. If you are logging only to the sd card, turn this off to increase the sampling rate substantially.
+Check all of the outputs and ensure they are plausible before proceeding. If they seem extraordinarily different from expected values, ask an instructor for help.
 
 ### 6. Adding the MicroSD Card Adapter Module
 
@@ -197,9 +197,9 @@ While your Arduino is powered off and disconnected from the 9V, plug your module
 Plug your microSD card into your computer and ensure that it is empty. If there are files on the card, delete them and empty the trash. You should always clear the card, empty the trash while the card is still inserted, and properly eject it before removing the card from your computer.
 </div>
 
-Once everything is wired up, put your microSD card into the adapter module and plug in your Arduino. At this point you should modify and upload the code found in File → Examples → ENGR100-950 → Lab3-SensorIntegration. Again, modify all of the "?" values to apply correctly to your setup.
+Once everything is wired up, put your microSD card into the adapter module and plug in your Arduino. At this point you should modify and upload the code found in File → Examples → ENGR100-950 → Lab3-SensorIntegration. Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves you made previously, and pin numbering for your specific wiring. Run this code and ensure it's working as expected. There is a boolean statement that allows you to toggle the serial monitor printing on/off. If you are logging only to the sd card, turn this off to increase the sampling rate substantially. If you want to debug the system, set this to true.
 
-Please read through the comments of this code file, as you will be adding additional sensors and modifying this file on your own in later labs. In this lab, you may also need to change the analog pins that are the defaults for all of your sensors.
+Please read through the comments of this file, as you will be adding additional sensors and modifying this file on your own in later labs.
 
 There is a delay statement at the end of the loop. Think about how many data points will be taken if you take data for 5 minutes.  Will you need data this often?  More often?  Less often?  Adjust the delay accordingly. The current default is set to read once every second (accounting for sampling delays that may occur), but you can set this to a simpler value, such as "delay(500);" to delay 500 ms before proceeding to the next iteration.
 
