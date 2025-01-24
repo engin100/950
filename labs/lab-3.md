@@ -159,7 +159,7 @@ BME680 is the name of a specific sensor/component, produced by Bosch, that can m
 </div>
 
 - [Link to BME680 Adafruit breakout Spec Sheet](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas.pdf)
-- [Link to BME680 sensor Spec Sheet](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf)
+- [Link to BME680 Sensor Spec Sheet](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf)
 
 <div class="primer-spec-callout info" markdown="1">
 Pay attention to the required supply voltage for each of these components to prevent accidental damage. You can find these values in the provided spec sheets for each individual component. In the case of the BME680 Adafruit Breakout, it can handle 3.3v or 5v. For the case of this lab we will be using 5v.
@@ -179,7 +179,7 @@ Begin by skimming over the provided spec sheets and become familiar with the pin
 
 Navigate to and open the following example file: File -> Examples -> ENGR100-950 -> Lab3_BME680.
 
-Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves from before, and pin numbering for your specific wiring. Run this code and ensure it's working as expected. There is a boolean statement that allows you to toggle the serial monitor printing on/off. If you are logging only to the sd card, turn this off.
+Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves you made previously, and pin numbering for your specific wiring. Run this code and ensure it's working as expected. There is a boolean statement that allows you to toggle the serial monitor printing on/off. If you are logging only to the sd card, turn this off to increase the sampling rate substantially.
 
 ### 6. Adding the MicroSD Card Adapter Module
 
@@ -193,31 +193,39 @@ Unlike the other sensors and modules we have used so far, the MicroSD module we 
 
 While your Arduino is powered off and disconnected from the 9V, plug your module in as shown above. The Arduino pins for this **DO** matter and cannot easily be changed, unlike the analog pins.
 
+<div class="primer-spec-callout info" markdown="1">
 Plug your microSD card into your computer and ensure that it is empty. If there are files on the card, delete them and empty the trash. You should always clear the card, empty the trash while the card is still inserted, and properly eject it before removing the card from your computer.
+</div>
 
 Once everything is wired up, put your microSD card into the adapter module and plug in your Arduino. At this point you should modify and upload the code found in File → Examples → ENGR100-950 → Lab3-SensorIntegration. Again, modify all of the "?" values to apply correctly to your setup.
 
-Please read through the comments of this code file, as you will be adding additional sensors and modifying this file on your own. In this lab, you may also need to change the analog pins that are the defaults for all of your sensors.
+Please read through the comments of this code file, as you will be adding additional sensors and modifying this file on your own in later labs. In this lab, you may also need to change the analog pins that are the defaults for all of your sensors.
 
-There is a delay statement at the end of the loop. Think about how many data points will be taken if you take data for 5 minutes.  Will you need data this often?  More often?  Less often?  Adjust the delay accordingly. The current default is set to read once every second, but you can set this to a simpler value, such as "delay(500);" to delay 500 ms.
+There is a delay statement at the end of the loop. Think about how many data points will be taken if you take data for 5 minutes.  Will you need data this often?  More often?  Less often?  Adjust the delay accordingly. The current default is set to read once every second (accounting for sampling delays that may occur), but you can set this to a simpler value, such as "delay(500);" to delay 500 ms before proceeding to the next iteration.
 
-**Now that you have a completed circuit, take a picture of your setup and save this for your submission file. (Remember, wires and rails should follow "common practice" mentioned earlier.)**
+<div class="primer-spec-callout info" markdown="1">
+Now that you have a completed circuit, take a picture of your setup and save this for your submission file. (Remember, wires and rails should follow "common practice" mentioned earlier.)
+</div>
 
 ### 7. Collecting Data
 
 With everything plugged into the 9V and running, unplug the Arduino from your computer. Enjoy the portability of your new breadboard and walk around the building a little bit. Get the temperature to change dramatically by putting your sensor board into the cold chamber.  Wait for about 1-2 minutes to allow the temperature to adjust. Try rotating your circuit in different orientations so that each axis experiences some acceleration due to gravity, and walk outside to watch humidity change. This should provide plenty of data for all of your sensors!
 
+<div class="primer-spec-callout warning" markdown="1">
+The code provided in Lab3-SensorIntegration allows for the creation of multiple datalog.csv files. The code checks the sd card for previous datalog.csv files, and then appends the sequential number following the highest file currently in the directory. For example, if there is already a datalog1.csv file present on the sd card, the new file will be named datalog2.csv, and so on. This occurs every time the Arduino is reset or power-cycled, meaning you can use this as a feature to track different inputs without having to remove the sd card every time. You can "reset" the code on the Arduino and force a new file to be made by pressing the white reset button on the top of the Arduino.
+</div>
+
 Go back to the lab and unplug the 9V now (unplug the battery and leave the wires connected to your board). Carefully remove the microSD from the adapter module, and plug it into your computer. You should see a `DATALOG.CSV` file. If you do not, or the file seems corrupted or very small, delete the file, plug the microSD card back in, and watch what the Serial monitor on your computer says while running the code.
 
 Once you have a sufficiently long test (2-3 minutes) and can see that there are clear changes in the data in the file created, you are done with the hardware portion of this lab!
 
-Before returning all of your equipment, make sure you save your file on your computer!! Maybe even upload it and share it with team members so you have a backup!
+Before returning all of your equipment, make sure you save your file(s) on your computer! Maybe even upload it and share it with team members so you have a backup!
 
-Then, delete the .csv file and any other .txt files off of the microSD card (you can leave any folders) so that other teams in future labs have to actually do the lab themselves, and don't just steal your data!
+Then, delete the datalog file and any other .csv files off of the microSD card so that other teams in future labs have to actually do the lab themselves, and don't just steal your data!
 
 ### 8. Analyzing the Data in MATLAB
 
-You should have a MATLAB script saved from an in-class exercise. Use this MATLAB script to process and analyze the data you collected earlier in the lab. You should create plots for battery voltage, two temperature sensors, a humidity sensor, a pressure sensor, and each axis from the accelerometer. These plots should be titled, axes labeled, and calibration curves applied so that they contain the proper units. Make sure to use legends if you have more than one line on a single graph (such as if you put the temperature sensors together). Again, to reiterate, your CSV file (from the code provided to you) will have voltages and your MATLAB script will apply the calibration curves to make the data useful. Consider using subplots to organize the data better!
+You should have a MATLAB script saved from an in-class exercise. Use this MATLAB script to process and analyze the data you collected earlier in the lab. You should create plots for battery voltage, two temperature sensors, a humidity sensor, a pressure sensor, and each axis from the accelerometer. These plots should be titled, axes labeled, and calibration curves applied so that they contain the proper units. Make sure to use legends if you have more than one line on a single graph (such as if you put the temperature sensors together). Consider using subplots to organize the data better!
 
 <div class="primer-spec-callout warning" markdown="1">
 Make sure you follow "common practice" Tech Comm rules, labelling all plots' axes and titles, and add legends where necessary.
@@ -228,7 +236,7 @@ Make sure you follow "common practice" Tech Comm rules, labelling all plots' axe
 On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 
 - [ ] A picture of your complete circuit with proper color conventions.
-- [ ] A screenshot of your serial **monitor** once all sensors are printing values in the same line (you may unplug the Arduino so the data pauses).
+- [ ] A screenshot of your serial **monitor** (not plotter) once all sensors are printing values in the same line (you may want to unplug the Arduino so the data pauses).
 - [ ] Exported images of the finished plots from MATLAB (with labels and calibrations!).
 - [ ] Screenshot of a schematic created in Altium of your entire completed circuit.
 
