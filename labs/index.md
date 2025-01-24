@@ -31,11 +31,9 @@ Saving Arduino sensor data to a microSD card so that we can use it later, and po
 
 :warning: This *may* come in handy when launching our weather balloons...
 
-<!--
 - [Link to lab 3 - START HERE](/labs/lab-3)
 - [Link to lab 3 - Group A](/labs/lab-3GroupA)
 - [Link to lab 3 - Group B](/labs/lab-3GroupB)
--->
 
 ## Lab 4: Power and Calibrations
 
