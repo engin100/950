@@ -177,9 +177,9 @@ Begin by skimming over the provided spec sheets and become familiar with the pin
 | SDI (Serial Data In, aka MOSI) | D8 |
 | CS (Chip Select) | D9 |
 
-Navigate to and open the following example file: File -> Examples -> ENGR100-950 -> Lab3_SensorIntegration.
+Navigate to and open the following example file: File -> Examples -> ENGR100-950 -> Lab3_BME680.
 
-Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves, and pin numbering for your specific wiring. Run this code and ensure it's working as expected.
+Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves from before, and pin numbering for your specific wiring. Run this code and ensure it's working as expected.
 
 ### 6. Adding the MicroSD Card Adapter Module
 
@@ -195,11 +195,11 @@ While your Arduino is powered off and disconnected from the 9V, plug your module
 
 Plug your microSD card into your computer and ensure that it is empty. If there are files on the card, delete them and empty the trash. You should always clear the card, empty the trash while the card is still inserted, and properly eject it before removing the card from your computer.
 
-Once everything is wired up, put your microSD card into the adapter module and plug in your Arduino. At this point you should modify and upload the code found in File → Examples → ENGR100-950 → Lab3-SD.
+Once everything is wired up, put your microSD card into the adapter module and plug in your Arduino. At this point you should modify and upload the code found in File → Examples → ENGR100-950 → Lab3-SensorIntegration. Again, modify all of the "?" values to apply correctly to your setup.
 
 Please read through the comments of this code file, as you will be adding additional sensors and modifying this file on your own. In this lab, you may also need to change the analog pins that are the defaults for all of your sensors.
 
-There is a delay statement at the end of the loop.  Think about how many data points will be taken if you take data for 5 minutes.  Will you need data this often?  More often?  Less often?  Adjust the delay accordingly.
+There is a delay statement at the end of the loop. Think about how many data points will be taken if you take data for 5 minutes.  Will you need data this often?  More often?  Less often?  Adjust the delay accordingly. The current default is set to read once every second, but you can set this to a simpler value, such as "delay(500)" to delay 500 ms.
 
 **Now that you have a completed circuit, take a picture of your setup and save this for your submission file. (Remember, wires and rails should follow "common practice" mentioned earlier.)**
 
