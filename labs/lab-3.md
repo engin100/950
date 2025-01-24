@@ -131,7 +131,7 @@ Here is the wiring diagram again for your reference:
 [![TMP36 Pinout](https://cdn-learn.adafruit.com/assets/assets/000/000/471/large1024/temperature_tmp36pinout.gif?1447975787)](https://learn.adafruit.com/tmp36-temperature-sensor/overview)
 
 <div class="primer-spec-callout warning" markdown="1">
-This temperature sensor will be used to measure the external temperature of your payload. In the next step you'll add a digital sensor that measures temperature, pressure, humidity, and Volatile Organic Compounds (VOCs). That sensor will be used for the interior temperature of your payload.
+This temperature sensor will be used to measure the external temperature of your payload. In a later step you'll add a digital sensor that measures temperature, pressure, humidity, and Volatile Organic Compounds (VOCs). That sensor will be used for the interior temperature of your payload.
 </div>
 
 Once you have your temperature sensor connected, it's time to make a calibration curve. You can do this in the same manner as in the last lab using the cold chamber or going outside. Enter these calibration curves into your Arduino code by modifying the temperature variables with a slope-intercept equation, and verify that the serial monitor is producing realistic temperature values. Save these calibration curves (slope and intercept values) somewhere for later use! **It may be less annoying to calibrate all of the sensors at the end once you have all the sensors connected but before you have the data logger plugged in. This is up to you! In whatever case, make sure to clearly record your slope and intercept values from the curves.**
@@ -146,7 +146,7 @@ The accelerometer we are using connects to 3.3v ONLY. DO NOT CONNECT TO 5V.
 
 Begin by skimming over the provided spec sheet and become familiar with the pin layout. Connect the sensor to the Arduino, based on the pin-out provided and using the **3.3V pin** as the power supply. Each of the axes (x, y, and z) will be connected to its own analog pin. You will not have anything connected to the ST pin.
 
-Add code to the program you've been working with to read voltage values from each of the three axes. Then perform a two-point calibration for each axis individually, and update the code to print the new calibrated values in the same comma-delimited format as before. **Save these calibration curves (slope and intercept values)! Take a screenshot of the serial monitor printing out a string of data from all of the sensors in the same line, every half second (or whatever the time delay is set to within the code).**
+Add code to the program you've been working with to read voltage values from each of the three axes. Then perform a two-point calibration for each axis individually, and update the code to print the new calibrated values in the same comma-delimited format as before. **Save these calibration curves (slope and intercept values)!**
 
 <div class="primer-spec-callout info" markdown="1">
 To perform a calibration curve of the accelerometer, take note of the axes as labeled on the top of the sensor. Holding the sensor so that only one axis is experiencing acceleration due to gravity, record the output value as -1g (g being acceleration due to gravity). Then flip it over 180 degrees so that it is experiencing 1g, and record this value as your second point. Apply these calibration curves to the code from before in csv format.
