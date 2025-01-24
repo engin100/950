@@ -197,7 +197,7 @@ While your Arduino is powered off and disconnected from the 9V, plug your module
 Plug your microSD card into your computer and ensure that it is empty. If there are files on the card, delete them and empty the trash. You should always clear the card, empty the trash while the card is still inserted, and properly eject it before removing the card from your computer.
 </div>
 
-Once everything is wired up, put your microSD card into the adapter module and plug in your Arduino. At this point you should modify and upload the code found in File → Examples → ENGR100-950 → Lab3-SensorIntegration. Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves you made previously, and pin numbering for your specific wiring. Run this code and ensure it's working as expected. There is a boolean statement that allows you to toggle the serial monitor printing on/off. If you are logging only to the sd card, turn this off to increase the sampling rate substantially. If you want to debug the system, set this to true.
+Once everything is wired up, put your microSD card into the adapter module and plug in your Arduino. At this point you should modify and upload the code found in File → Examples → ENGR100-950 → Lab3_SensorIntegration. Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves you made previously, and pin numbering for your specific wiring. Run this code and ensure it's working as expected. There is a boolean statement that allows you to toggle the serial monitor printing on/off. If you are logging only to the sd card, turn this off to increase the sampling rate substantially. If you want to debug the system, set this to true.
 
 Please read through the comments of this file, as you will be adding additional sensors and modifying this file on your own in later labs.
 
@@ -206,6 +206,9 @@ There is a delay statement at the end of the loop. Think about how many data poi
 <div class="primer-spec-callout info" markdown="1">
 Now that you have a completed circuit, take a picture of your setup and save this for your submission file. (Remember, wires and rails should follow "common practice" mentioned earlier.)
 </div>
+
+Note: The code used above, Lab3_SensorIntegration, is "heavier" than others we've used so far. To fully break it down, we've created a separate manual for this code linked below if you're curious or are experiencing difficulties and need to debug it.
+- [Link to Lab3_SensorIntegration Code Manual](/labs/lab3_code_manual)
 
 ### 7. Collecting Data
 
@@ -236,7 +239,7 @@ Make sure you follow "common practice" Tech Comm rules, labelling all plots' axe
 On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 
 - [ ] A picture of your complete circuit with proper color conventions.
-- [ ] A screenshot of your serial **monitor** (not plotter) once all sensors are printing values in the same line (you may want to unplug the Arduino so the data pauses).
+- [ ] A screenshot of your datalog.csv file (screenshot of the file opened) once all sensors are printing values.
 - [ ] Exported images of the finished plots from MATLAB (with labels and calibrations!).
 - [ ] Screenshot of a schematic created in Altium of your entire completed circuit.
 

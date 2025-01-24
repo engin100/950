@@ -27,7 +27,6 @@ Oftentimes we will refer to "Common Practice", meaning the circuit will work if 
     - [1. Adding the Temperature Sensor](#1-adding-the-temperature-sensor)
     - [2. Adding the Accelerometer](#2-adding-the-accelerometer)
     - [3. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor](#3-adding-the-bme680-temperature-pressure-humidity-voc-sensor)
-  - [Submission](#submission)
 
 ## Materials
 
@@ -53,11 +52,11 @@ Whenever you perform a calibration curve, or want to read accurate values to the
 
 Just like we did in the last lab, we now need to plug in the TMP36 to an analog pin on the Arduino, and read it using `analogRead()` and `Serial.println()`.
 
-Go to File → Examples → Basics → AnalogReadSerial and change the `analogRead()` function called in `loop()` to be the pin you plugged your TMP36 into. You know on the Arduino Nano this value will be between 0-1023, and that your max voltage, as reported by the Arduino, is 5V. Convert your raw value to the voltage outputted by the TMP36 by dividing it by 1023 and multiplying it by 5V. This is the voltage your Arduino recorded.
-
 Here is the wiring diagram again for your reference:
 
 [![TMP36 Pinout](https://cdn-learn.adafruit.com/assets/assets/000/000/471/large1024/temperature_tmp36pinout.gif?1447975787)](https://learn.adafruit.com/tmp36-temperature-sensor/overview)
+
+Go to File → Examples → Basics → AnalogReadSerial and change the `analogRead()` function called in `loop()` to be the pin you plugged your TMP36 into. You know on the Arduino Nano this value will be between 0-1023, and that your max voltage, as reported by the Arduino, is 5V. Convert your raw value to the voltage outputted by the TMP36 by dividing it by 1023 and multiplying it by 5V. This is the voltage your Arduino recorded.
 
 <div class="primer-spec-callout info" markdown="1">
 Note that the values displayed in the serial monitor are rounded, and don't always show us as accurate of voltages as we would like. This is because the value is stored as an "int", or integer. To obtain decimal places, change this to a float, and when applying any calculations (such as converting from raw values to voltages) put .0 at the end to let the code know you are trying to obtain decimal values. Ex. "float voltage = rawValue * (10.0 / 1023.0);"
