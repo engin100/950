@@ -8,7 +8,7 @@
 const int chipSelect = 10;
 
 // This is the string that goes at the top of your csv file. They are the column headers for your spreadsheet.
-const String header = "Time (ms),Voltage (V),TMP36_1 (V),TMP36_2 (V),Pressure (V),Humidity (V),Accel_x (V),Accel_y (V),Accel_z (V)";
+const String header = "Time (ms),Voltage (V),TMP36 (V),BME_Temp (V),Pressure (V),Humidity (V),Accel_x (V),Accel_y (V),Accel_z (V)";
 
 #include <SPI.h>
 #include <SD.h>
