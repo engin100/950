@@ -210,7 +210,7 @@ Now that you have a completed circuit, take a picture of your setup and save thi
 </div>
 
 Note: The code used above, Lab3_SensorIntegration, is "heavier" than others we've used so far. To fully break it down, we've created a separate manual for this code linked below if you're curious or are experiencing difficulties and need to debug it.
-- [Link to Lab3_SensorIntegration Code Manual](/labs/lab3_code_manual)
+- [Link to Lab3_SensorIntegration Code Manual](/labs/lab3-sensorintegration)
 
 ### 7. Collecting Data
 
