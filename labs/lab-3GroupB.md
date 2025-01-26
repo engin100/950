@@ -111,7 +111,7 @@ Begin by skimming over the provided spec sheets and become familiar with the pin
 | SDI (Serial Data In, aka MOSI) | D8 |
 | CS (Chip Select) | D9 |
 
-Navigate to and open the following example file: File -> Examples -> ENGR100-950 -> Lab3_BME680. This file is a standalone BME680 tester to ensure you have everything in working order before proceeding.
+Navigate to and open the following example file: File → Examples → ENGR100-950 → Lab3_BME680. This file is a standalone BME680 tester to ensure you have everything in working order before proceeding.
 
 Check all of the outputs and ensure they are plausible before proceeding. If they seem extraordinarily different from expected values, ask an instructor for help.
 
