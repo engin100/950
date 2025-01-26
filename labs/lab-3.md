@@ -203,7 +203,7 @@ At this point you should modify and upload the code found in File â†’ Examples â
 
 Please read through the comments of this file, as you will be adding additional sensors and modifying this file on your own in later labs.
 
-There is a delay statement at the end of the loop. Think about how many data points will be taken if you take data for 5 minutes.  Will you need data this often?  More often?  Less often?  Adjust the delay accordingly. The current default is set to read once every second (accounting for sampling delays that may occur), but you can set this to a simpler value, such as "delay(500);" to delay 500 ms before proceeding to the next iteration.
+There is a delay statement at the end of the loop. Think about how many data points will be taken if you take data for 5 minutes.  Will you need data this often?  More often?  Less often?  Adjust the delay accordingly. The current default is set to read once every second (accounting for sampling delays that may occur), but you can set this to a simpler value, such as `delay(500);` to delay 500 ms before proceeding to the next iteration.
 
 <div class="primer-spec-callout info" markdown="1">
 Now that you have a completed circuit, take a picture of your setup and save this for your submission file. (Remember, wires and rails should follow "common practice" mentioned earlier.)
