@@ -215,10 +215,6 @@ We will be using Slack to host the majority of the communication and asynchronou
 
 **We do not answer questions that are relevant to the whole class via email.** In order to save everyone time, we want all students to have the benefit of seeing each question and its answer, so please use Slack to ask questions.
 
-### Recordings
-
-Lectures will be audio/video recorded and made available on canvas. If you do not wish to be recorded, please contact a course instructor the first week of class to discuss alternative arrangements.
-
 ### Generative AI Policy
 
 ChatGPT and similar Generative AI (“GenAI”) technologies are rapidly becoming part of our professional lives. Learning how to use GenAI tools is important for all of us. But, in the case of writing and communication, you must first learn how to perform these tasks yourself and develop your own writing practice, voice, and expertise.
