@@ -189,7 +189,14 @@ For teams working in two separate groups (all others ignore this message): You s
 
 Unlike the other sensors and modules we have used so far, the MicroSD module we are using uses the Arduino's digital pins. Luckily for us, there are libraries (that you should have installed when following the tutorial and initially setting up your Arduino IDE), that handle all the complicated digital interfacing for us. All we need to know is which pins to plug the adapter module into.
 
-![MicroSD Adapter Module Wiring](../media/SD-Card-Wiring.png){: .invert-colors-in-dark-mode }
+| microSD Logger Pin | Arduino Nano Pin  |
+| ---------- | -------- |
+| VCC | 5 volt rail |
+| GND (Ground) | Ground rail |
+| CS (Chip Select) | D10 |
+| MOSI (Master Out, Slave In) | D11 |
+| MISO (Master In, Slave Out) | D12 |
+| SCK (Serial Clock) | D13 |
 
 While your Arduino is powered off and disconnected from the 9V, plug your module in as shown above. The Arduino pins for this **DO** matter and cannot easily be changed, unlike the analog pins.
 
