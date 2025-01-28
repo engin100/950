@@ -41,7 +41,7 @@ Code manual for `Lab3_SensorIntegration.ino`, published in the University of Mic
 - Analog ADXL335 Accelerometer.
 - Analog TMP36 Temperature Sensor.
 
-This manual provides a detailed breakdown of each code section, explaining its functionality, purpose, modifiable components, and usage examples. It also includes guidance on configuring placeholders (`?`) in the code with values specific to your setup.
+This manual provides a detailed breakdown of each code section, explaining its functionality, purpose, modifiable components, and usage examples. It also includes guidance on configuring placeholders (`?`) in the code with values specific for your setup.
 
 <div class="primer-spec-callout danger" markdown="1">
 **Important:** Ensure all `?` placeholders in the code are replaced with specific values relevant to your setup. These include pin numbers, calibration constants, and resistor values.
@@ -53,7 +53,7 @@ This manual provides a detailed breakdown of each code section, explaining its f
 
 ### Global Configuration and Libraries
 
-This section includes the necessary libraries, pin assignments, and the initialization of key components. It ensures the program can interface with the sensors and peripherals.
+This section includes the necessary libraries, pin assignments, and initialization of key components. It ensures the program can interface with the sensors and peripherals.
 
 ```cpp
 #include <SPI.h>
@@ -77,7 +77,7 @@ Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO, BME_SCK);
 
 #### Modifiable Components:
 
-- Replace `#define` values for pins with those specific to your wiring configuration. For use with an Arduino Nano and in conjunction with the microSD logger, it is recommended to use these default pins.
+- Replace `#define` values for pins with those specific to your wiring configuration. For use with an Arduino Nano in conjunction with the microSD logger, it is recommended to use these default pins.
 
 ---
 
@@ -259,9 +259,17 @@ void loop() {
 }
 ```
 
+#### Description
+
+- Records starting time for the current iteration.
+- Checks BME680 for temperature, humidity, and pressure, and returns error if reading fails.
+- Stores values for the voltage divider, TMP36, and ADXL335 accelerometer based on user defined slope-intercept equations.
+- Stores sensor values in a string, and if the microSD logger is cooperating writes that string to the csv file.
+- Delays the program such that the next iteration occurs exactly one second after the previous one started.
+
 #### Modifiable Components:
 
-- Customize the delay time to adjust the sampling rate. For example, use `delay(500);` for ~2Hz sampling. Note that this is highly dependent upon the time it takes each sensor to perform a sample, so whatever delay is added here is in addition to the time it takes each sensor to report its values.
+- Customize the delay time to adjust the sampling rate. For example, use `delay(500);` for ~2Hz sampling. Note that this is highly dependent upon the time it takes each sensor to perform a sample, so whatever delay is added here is in addition to the time it takes each sensor to report its values. The default shown here is used to delay the loop iteration such that each iteration is exactly 1 second apart.
 
 ---
 
