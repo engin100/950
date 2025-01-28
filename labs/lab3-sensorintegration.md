@@ -23,8 +23,6 @@ Code manual for `Lab3_SensorIntegration.ino`, published in the University of Mic
     - [Modifiable Components](#modifiable-components-2)
   - [Loop Function](#loop-function)
     - [Description](#description-3)
-  - [BME680 Configuration](#bme680-configuration)
-    - [Description](#description-4)
     - [Modifiable Components](#modifiable-components-3)
 - [Additional Tips](#additional-tips)
 
@@ -107,6 +105,10 @@ bool SerialPrint            = ???; // Set to true for serial monitor output, fal
 ```
 
 #### Description:
+
+- Takes in user defined values for use with slope-intercept calibrations and pin declarations.
+
+#### Modifiable Components:
 
 - **Pin Assignments**: User defined pin assignments for the battery voltage (voltage divider), TMP36, and ADXL335 Accelerometer.
 - **Constants**: Defines calibration values for analog sensors and voltage divider resistances in the form of slopes and intercepts (or Ohms for voltage dividers) to be used in the adjustment of voltages to real-world values.
@@ -259,7 +261,7 @@ void loop() {
 }
 ```
 
-#### Description
+#### Description:
 
 - Records starting time for the current iteration.
 - Checks BME680 for temperature, humidity, and pressure, and returns error if reading fails.
