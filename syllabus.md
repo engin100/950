@@ -126,6 +126,7 @@ Late assignments will be docked 10% per day for up to 10 days. There are excepti
 
 - PDR, Go/No-Go, Final Poster, Final Report
 - Team Surveys
+
 Late assignment exceptions will be made for:
 - Students register for classes late for assignments due in the month of January. 
 
