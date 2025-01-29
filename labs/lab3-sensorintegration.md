@@ -32,6 +32,10 @@ Code manual for `Lab3_SensorIntegration.ino`, published in the University of Mic
 
 `Lab3_SensorIntegration.ino` is a comprehensive Arduino program designed for ENGR100-950. This code integrates both digital and analog sensors to gather environmental and motion data in real-time. The primary use case is for high-altitude weather balloon projects, where sensor accuracy, data redundancy, and proper integration are critical.
 
+<div class="primer-spec-callout info" markdown="1">
+In order to run this code, make sure you install the "Adafruit BME680 Library" by Adafruit in the Arduino IDE Library.
+</div>
+
 ### Key Features:
 
 - Digital BME680 Temperature, Pressure, Humidity, and VOC Sensor (via Software SPI).

@@ -177,6 +177,10 @@ Begin by skimming over the provided spec sheets and become familiar with the pin
 | SDI (Serial Data In, aka MOSI) | D8 |
 | CS (Chip Select) | D9 |
 
+<div class="primer-spec-callout info" markdown="1">
+In order to run this code, make sure you install the "Adafruit BME680 Library" by Adafruit in the Arduino IDE Library. (Icon looks like a set of books on the left side of the screen).
+</div>
+
 Navigate to and open the following example file: File → Examples → ENGR100-950 → Lab3_BME680. This file is a standalone BME680 tester to ensure you have everything in working order before proceeding.
 
 Check all of the outputs and ensure they are plausible before proceeding. If they seem extraordinarily different from expected values, ask an instructor for help.
@@ -218,6 +222,10 @@ Now that you have a completed circuit, take a picture of your setup and save thi
 
 Note: The code used above, Lab3_SensorIntegration, is "heavier" than others we've used so far. To fully break it down, we've created a separate manual for this code linked below if you're curious or are experiencing difficulties and need to debug it.
 - [Link to Lab3_SensorIntegration Code Manual](/labs/lab3-sensorintegration)
+
+<div class="primer-spec-callout info" markdown="1">
+In order to run this code, make sure you install the "Adafruit BME680 Library" by Adafruit in the Arduino IDE Library. (Icon looks like a set of books on the left side of the screen).
+</div>
 
 ### 7. Collecting Data
 
