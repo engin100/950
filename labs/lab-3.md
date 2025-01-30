@@ -239,7 +239,7 @@ Go back to the lab and unplug the 9V now (unplug the battery and leave the wires
 
 Once you have a sufficiently long test (2-3 minutes) and can see that there are clear changes in the data in the file created, you are done with the hardware portion of this lab!
 
-Before returning all of your equipment, make sure you save your file(s) on your computer! Maybe even upload it and share it with team members so you have a backup!
+Make sure you save your file(s) on your computer! Maybe even upload it and share it with team members so you have a backup!
 
 Then, delete the datalog file and any other .csv files off of the microSD card so that other teams in future labs have to actually do the lab themselves, and don't just steal your data!
 
