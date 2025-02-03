@@ -39,9 +39,7 @@ Saving Arduino sensor data to a microSD card so that we can use it later, and po
 
 Creating a voltage regulating circuit to handle the power from the battery, and calibrating our complete circuit with known values.
 
-<!--
 [Link to lab 4](/labs/lab-4)
--->
 
 ## Lab 5: Adding GPS
 
