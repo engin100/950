@@ -184,6 +184,6 @@ The Windows Remote Desktop Service allows eligible individuals at Michigan Engin
 1. Follow instructions here to install VMWARE to your computer. **This software is essential for Mac users to run Altium.**
 [https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5311](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5311)
 
-2. To connet VMWARE to the CAEN server: <br>
+2. To connect VMWARE to the CAEN server: <br>
 [https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309)
 
