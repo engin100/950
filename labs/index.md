@@ -45,9 +45,7 @@ Creating a voltage regulating circuit to handle the power from the battery, and 
 
 Adding a digital GPS component to our Arduino breadboard circuit.
 
-<!--
 [Link to lab 5](/labs/lab-5)
--->
 
 ### Lab 6 Prelab: Altium Schematic to PCB
 
