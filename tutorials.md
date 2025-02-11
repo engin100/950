@@ -24,6 +24,7 @@ Walk-throughs on common issues or installations.
     - [Uploading Code](#uploading-code)
     - [Viewing Arduino Output](#viewing-arduino-output)
   - [Altium Student License](#altium-student-license)
+  - [Problems with Altium](#problems-with-altium)
   - [Installing VMWARE](#installing-vmware)
 
 ## Arduino IDE Install
@@ -176,6 +177,14 @@ Altium licenses are no longer automatically provided to all students. All Univer
 ![](/media/altium_tutorial_figures/image%203.PNG)
 
 7. You should now be licensed in Altium and see something like this.
+
+## Problems with Altium
+
+Some common issues on Altium results from a previous work session not being shut down properly. An error displaying "License Renewal Failed" would show up in the Altium window. To address this issue, please go through the following links/resources.
+
+[https://www.altium.com/documentation/altium-designer/license-management#roaming-an-on-demand-license]( https://www.altium.com/documentation/altium-designer/license-management#roaming-an-on-demand-license)
+
+[https://www.altium.com/documentation/knowledge-base/altium-designer/cannot-use-an-on-demand-license-as-the-seat-is-occupied](https://www.altium.com/documentation/knowledge-base/altium-designer/cannot-use-an-on-demand-license-as-the-seat-is-occupied)
 
 ![](/media/altium_tutorial_figures/image%204.PNG)
 ## Installing VMWARE
