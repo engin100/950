@@ -130,12 +130,12 @@ This lab will be worth 20 points total in your grade and is graded as follows:
 
 On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 
-- [ ] All Arduino programs that were created for this lab (copy and paste into the PDF) (1 pt)
-- [ ] All (or if you took a lot, then a subset of) GPS data (copy and paste into the PDF) (2 pts)
-- [ ] Plots of the GPS location information (3 pts)
-- [ ] Google Maps screenshot of the GPS location information (3 pts)
-- [ ] Answers to the post lab questions (as part of the .pdf file) (4 pts)
-- [ ] A screenshot of your Altium schematic (entire circuit from lab 3/4 + GPS and level shifter) (4 pts)
+- [ ] All Arduino programs that were created for this lab (copy and paste into the PDF)
+- [ ] All (or if you took a lot, then a subset of) GPS data (copy and paste into the PDF)
+- [ ] Plots of the GPS location information
+- [ ] Google Maps screenshot of the GPS location information
+- [ ] Answers to the post lab questions (as part of the .pdf file)
+- [ ] A screenshot of your Altium schematic (entire circuit from lab 3/4 + GPS and level shifter)
 
 **TECH COMM NOTES:**
 - [ ] Print your MATLAB or Python figures to png or pdf, do not use screencaps.
