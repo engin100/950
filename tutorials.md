@@ -178,6 +178,8 @@ Altium licenses are no longer automatically provided to all students. All Univer
 
 7. You should now be licensed in Altium and see something like this.
 
+![](/media/altium_tutorial_figures/image%204.PNG)
+
 ## Problems with Altium
 
 Some common issues on Altium results from a previous work session not being shut down properly. An error displaying "License Renewal Failed" would show up in the Altium window. To address this issue, please go through the following links/resources.
@@ -186,7 +188,7 @@ Some common issues on Altium results from a previous work session not being shut
 
 [https://www.altium.com/documentation/knowledge-base/altium-designer/cannot-use-an-on-demand-license-as-the-seat-is-occupied](https://www.altium.com/documentation/knowledge-base/altium-designer/cannot-use-an-on-demand-license-as-the-seat-is-occupied)
 
-![](/media/altium_tutorial_figures/image%204.PNG)
+
 ## Installing VMWARE
 The Windows Remote Desktop Service allows eligible individuals at Michigan Engineering to remotely access the CAEN Lab Software Environment (CLSE) for Windows. It is intended to provide the same experience as being in a CAEN computer lab.
 
