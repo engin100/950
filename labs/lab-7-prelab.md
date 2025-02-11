@@ -3,7 +3,7 @@ layout: spec
 latex: true
 ---
 
-# Lab 6 Prelab: Altium Schematic to PCB
+# Lab 7 Prelab: Altium Schematic to PCB
 
 ## Contents 
 
