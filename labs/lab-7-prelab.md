@@ -7,7 +7,7 @@ latex: true
 
 ## Contents 
 
-- [Lab 6 Prelab: Altium Schematic to PCB](#lab-6-prelab-altium-schematic-to-pcb)
+- [Lab 7 Prelab: Altium Schematic to PCB](#lab-7-prelab-altium-schematic-to-pcb)
   - [Contents](#contents)
   - [Resources](#resources)
   - [Procedure](#procedure)

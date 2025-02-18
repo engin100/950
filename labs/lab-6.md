@@ -6,8 +6,7 @@ latex: true
 # Lab 6: Structures
 
 ## Contents 
-
-- [Lab 7: Structures](#lab-7-structures)
+- [Lab 6: Structures](#lab-6-structures)
   - [Contents](#contents)
   - [Materials](#materials)
   - [Temperature](#temperature)
