@@ -51,9 +51,7 @@ Adding a digital GPS component to our Arduino breadboard circuit.
 
 Design and testing of your custom payload structures.
 
-<!--
 [Link to lab 6](/labs/lab-6)
--->
 
 ### Lab 7 Prelab: Altium Schematic to PCB
 
