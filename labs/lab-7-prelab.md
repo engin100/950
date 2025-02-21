@@ -28,8 +28,8 @@ latex: true
 - [ ] [Altium libraries .zip file](/[https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD]) (you will need to unzip before using)
 - [ ] [Youtube Tutorial](/[https://www.youtube.com/watch?v=t0okf__stjg])
 <!---
-- [ ] [Spreadsheet of Footprints](https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing)
-- [ ] [Second Spreadsheet of Footprints](https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq/view?usp=sharing)
+ Spreadsheet of Footprints - https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing
+ Second Spreadsheet of Footprints - https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq/view?usp=sharing
 note these are outdated footprints which do not have the BME sensor.
 --->
 ## Procedure
