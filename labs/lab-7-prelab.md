@@ -25,7 +25,7 @@ latex: true
 ## Resources
 
 - [ ] A CAEN computer, or a computer running UofM VMWare to access Altium software.
-- [ ] [Altium libraries .zip file](/[https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD]) (you will need to unzip before using)
+- [ ] [Altium libraries .zip file](/[https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD?usp=drive_link]) (you will need to unzip before using)
 - [ ] [Youtube Tutorial](/[https://www.youtube.com/watch?v=t0okf__stjg])
 <!---
  Spreadsheet of Footprints - https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing
@@ -34,7 +34,7 @@ note these are outdated footprints which do not have the BME sensor.
 --->
 ## Procedure
 
-This is the second part of the introduction to Altium. In this assignment, you will draw a schematic for a power board and then turn that schematic into a PCB. There has been a video created that walks through all of the steps of making the schematic and then making a PCB. It is a relatively long process (the video is about one hour and fifteen minutes), but it really shows you all of the steps of going through the process.
+This is the second part of the introduction to Altium. In this assignment, you will draw a schematic for a power board and then turn that schematic into a PCB. There has been a video created that walks through all of the steps of making the schematic and then making a PCB. It is a relatively long process (the video is about one hour and fifteen minutes), but it really shows you all of the steps of going through the process. [The video is here.](https://www.youtube.com/watch?v=t0okf__stjg)
 
 ### Onwards and Upwards (Upwards = to PCB Design)
 
@@ -89,7 +89,7 @@ This is the second part of the introduction to Altium. In this assignment, you w
 ### Polygon Pour
 
 - Can be used to remove the need for too many traces all over the board
-- A pour that is usually used is a GND or 5V over the entire top or bottom layer
+- A pour that is usually used is a GND over the entire bottom layer
 - For example, if you add a Polygon pour for the GND net for the entire bottom layer, then all components that have GND pins in the bottom layer will all be connected and you do not need traces to connect them
 - Place -> Polygon pour
 - Under Net Options, select the net you’d like to connect to
