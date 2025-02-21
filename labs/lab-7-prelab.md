@@ -131,7 +131,8 @@ This is the second part of the introduction to Altium. In this assignment, you w
 
 On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 
-- [ ] A screenshot of the PCB you made
+- [ ] A screenshot of the schematic you made
+- [ ] A screenshot of the PCB you made (**Both sides**)
 - [ ] Screenshot(s) of the PCB passing all design rule checks
 
 Export/Download this document as a PDF and upload it. **DO NOT SUBMIT A GOOGLE DOC FILE**.
