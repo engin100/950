@@ -30,7 +30,7 @@ latex: true
 <!--
 - [ ] [Spreadsheet of Footprints](https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing)
 - [ ] [Second Spreadsheet of Footprints](https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq/view?usp=sharing)
-*note these are outdated footprints which do not have the BME sensor.
+note these are outdated footprints which do not have the BME sensor.
 -->
 ## Procedure
 
