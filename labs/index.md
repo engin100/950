@@ -57,9 +57,9 @@ Design and testing of your custom payload structures.
 
 Finishing up postlab 1b to turn the schematic into a finished PCB.
 
-<!--
+
 [Link to Lab 7 Prelab](/labs/lab-7-prelab)
--->
+
 
 ## Lab 7: Altium
 
