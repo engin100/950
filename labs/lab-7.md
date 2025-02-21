@@ -33,20 +33,20 @@ Working at a computer often can become a one person deal. It is important to avo
 
 ## Lab Timeline
 
-- **February 22nd, 2023, 3:00pm**: Initial PCB design submission.
-- **February 22nd, 2023, 5:00pm**: Peer review submissions due.
-- **February 23rd, 2023, 12:00 noon**: Final PCB design submission.
+- **February 27nd, 2023, 3:00pm**: Initial PCB design submission.
+- **February 27nd, 2023, 5:00pm**: Peer review submissions due.
+- **February 28rd, 2023, 12:00 noon**: Final PCB design submission.
 
 ## Altium
 
-You may want to revisit the complete Altium tutorial in the Lab 1 post lab.  You worked through the schematic in Lab 1.  It would be worthwhile to revist this and then try to make the PCB, since that is what you will be doing in this lab.  The walk through on turning the schematic into the PCB is in [lab-6-prelab](/labs/lab-6-prelab).
+The walk through on creating a schematic and turning the schematic into the PCB is in [lab-7-prelab](/labs/lab-7-prelab). Make sure you do this before starting the Altium project!
 
 Altium as a software can be very complex, and as such, we have given you some tools to help simplify the process of constructing your PCB. The following pictures are taken from a free online tutorial provided by Altium: [From Idea to Manufacture](https://www.altium.com/documentation/altium-designer/tutorial-complete-design-walkthrough?version=22). You can learn more about this example there.
 
 Broadly, the workflow in Altium is divided up into three steps: Schematic, PCB, and Design Rule Check. The Schematic step is where you lay out the electrical schematic of your board. Using all the components, you define how they connect to each other, ground, and power. The PCB step is where you make the physical layout of those components on the board. The electrical connections you set up in the schematic are shown for your reference, and you lay them down on your PCB physically as traces. That is, each trace you set corresponds to an electrical connection you outlined in your Schematic. The Design Rule Check step is when the software looks over your work and makes sure you aren't committing any errors or contradictions. This is inevitably the most frustrating part of using Altium, because you think you've done everything right, and the software is here to tell you that you haven't. It is important to note that design rule checks do not check whether you laid out your board the way you wanted, they will not notice if you accidentally connected your temperature sensor to your pressure sensor instead of the Arduino. You must double check this yourself. The design rule checks only check if your design rules are violating the physical and electrical laws associated with making a PCB.
 
 To get started:
-- Downloaded the new e100_libraries zip file. [Here is the library.](https://drive.google.com/file/d/13q4CNdzr3JQKjOwI74BpWaEOPLYcpaI_/view?usp=drive_link)
+- Downloaded the new e100_libraries zip file. [Here is the library.](https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD?usp=drive_link)
 - Uncompress it.
 - In altium, select new project. Choose a place in Documents (**not public documents...**)  The name should make sense!  Include team number in name!
 - Drag and drop the 4 library files from the extracted file folder into your project. It may ask about extracting libraries.  Extract them.
@@ -83,43 +83,42 @@ We have made a power board that provides you the LDOs and battery connector.  Yo
 
 LEDs are also useful when diagnosing software bugs without a computer, telling you if the board is on or off, and also making cool light patterns.
 
-Please wire the 5V, 3.3V and battery line to their own LED with a 1K resistor on each LED.
+Please wire the 5V, 3.3V and battery line to their own LEDs with a 1K resistor on each LED. You are free to add LEDs in other places on your board if you would like!
 
 Some notes:
-- **As you place sensors on your schematic, change the label on the top of the sensor.  Some have a label of '*', while others are 'Temperature*'.  Give them all unique names that make sense.**
+- **As you place sensors on your schematic, change the label on the top of the sensor.  Some have a label of '*', while others are 'Temperature*'.  Give them all unique names that make sense (like TMP36 or Datalog).**
 - Ground all of your components using a "GND Power Port"
-- Connect 5V pins together with arduino 5V pin (this will power the Arduino). The re should be **NO connection to the Vin pin of the Arduino!**  You may want to make a 5V Net.
+- Connect 5V pins together from the power board with arduino 5V pin (this will power the Arduino) and all other 5V power connections on the 5V powered devices. There should be **NO connection to the Vin pin of the Arduino!**  You could make a 5V Net to make things cleaner.
 
 
 In summary, your schematic (and the PCB) must have:
 - [ ] An Arduino Nano (voltage input should be through the 5V connector and nothing should be connected to the Vin pin)
-- [ ] Two TMP36s (internal and external)
-- [ ] Humidity sensor
-- [ ] Pressure sensor
+- [ ] TMP36 (external temperature)
+- [ ] BME sensor (humidity, pressure, and temperature)
 - [ ] Accelerometer
 - [ ] GPS
 - [ ] Level shifter
 - [ ] SD Card writer
 - [ ] LEDs with resistors from 3.3V, 5.0V, and battery voltage lines to ground
-- [ ] Your extra sensor
+- [ ] Your extra sensor if you have one
 - [ ] The power daughter board (which includes battery connection, RBF pin, LDOs, capacitors, and charging port)
 - [ ] 22 micro-F capacitors from the input voltage line on the GPS to ground, the SD card input voltage to ground, and the Arduino 5V pin to ground.
 
 If your extra sensor uses I2C communication protocols, you must connect it to the analog pins pre-set for I2C communications. In the Arduino Nano, these are A4 (SDA pin) and A5 (SCL pin). See more on connecting I2C devices (google search "connecting I2C devices to an Arduino nano") Be sure you read through your extra sensor’s documentation and/or hookup guide to understand whether it is I2C and if you will need the A4 and A5 I2C hookup pins. You can google search for the extra sensor datasheet.
 
-- For the GUVA sensor, use the Humidity sensor in the ENGR100 library, and relabel the pins (and labels) to be the appropriate type (you need to swap the GND and 5V pins).
+- If you use the GUVA sensor, use the Humidity sensor in the ENGR100 library, and relabel the pins (and labels) to be the appropriate type (you need to swap the GND and 5V pins).
 
-- For the heater, we will use a generic MOSFET, using the [wiring diagram here.](https://adam-meyer.com/arduino/images/2012/03/rfp30n06le-arduino-solenoid.png)  In this diagram, the MOSFET has pins 1 - G; 2 - D; 3 - S.  You can use a generic resistor to represent the heater, since it will just be soldered into place.
+- If you use the heater, we will use a generic MOSFET, using the [wiring diagram here.](https://adam-meyer.com/arduino/images/2012/03/rfp30n06le-arduino-solenoid.png)  In this diagram, the MOSFET has pins 1 - G; 2 - D; 3 - S.  You can use a generic resistor to represent the heater, since it will just be soldered into place.
 
 ![Heater with MOSFET Schematic](/media/Heater_wiring.png)
 
-- For the photo-cells, you can use generic resistors, since these will be soldered with wires, so the connection type doesn't really matter much.  A photo-cell acts as a resistor, so you will be creating a voltage divider circuit, with a resistor in series with the photo-cell, with the analog line coming off the wire in-between the resistor and photo-cell.
+- If you use the photo-cells, you can use generic resistors, since these will be soldered with wires, so the connection type doesn't really matter much.  A photo-cell acts as a resistor, so you will be creating a voltage divider circuit, with a resistor in series with the photo-cell, with the analog line coming off the wire in-between the resistor and photo-cell.
 
 ![Photo-cells with MUX Schematic](/media/Light_sensor_mux.png)
 
 #### Procedure: Starting Your Design and Creating A Schematic
 
-1. Download the resources provided in the Canvas Files section for the Altium lab. There should be a folder called 'Altium Libraries' for you to download.
+1. Download Altium Libraries, which have been made available for the pre-lab.
 
 2. Open Altium Designer on a CAEN computer. Navigate to File -> New -> Project...
 
@@ -135,7 +134,7 @@ If your extra sensor uses I2C communication protocols, you must connect it to th
     
     _Figure 5: Project Creation Wizard popup_
 
-6. Now you should add two libraries we have given you. To do this, you can drag and drop the libraries into the project.  They may show up in "Free Documents".  If they do, then you will need to drag them up to the project and drop them in there.  Once they are added, save the project.
+6. Now you should add the libraries we have given you. To do this, you can drag and drop the libraries into the project.  They may show up in "Free Documents".  If they do, then you will need to drag them up to the project and drop them in there.  Once they are added, save the project.
 
 7. Look at the Projects Tab on the left side of the screen. Right click your project name in bold and click Add New to Project -> Schematic. A blank piece of paper should appear on the screen. This is where you are to lay out your schematic drawing. A few instructions for laying out a schematic:
 
@@ -202,13 +201,13 @@ _Pressing 1 on your keyboard takes you to the board design view. Pressing 2 take
 
 11. Route all traces except the ground traces. We will route those later to our polygon pour ground plane, which we make last.
 
-12. When routing, you may notice obvious conflicts (lots of traces need to cross).  You can play with the design by rotating components, moving components, or rearranging your components to ease these conflicts.  You may have to do this a few times, so when you place a trace the first time, don't think of it as the final time - think of this as a sketch that you are refining as you go.  **It is ok (and expected!) to delete traces, move things and retrace!**
+12. When routing, you may notice obvious conflicts (lots of traces need to cross).  You can play with the design by rotating components, moving components, or rearranging your components to ease these conflicts.  You may have to do this a few times, so when you place a trace the first time, don't think of it as the final time - think of this as a sketch that you are refining as you go.  **It is ok (and expected!) to delete traces, move things and retrace!** Use both layers of the board to trace! Remember that through hole components are connected on both sides of the board, so you can trace on either side!
 
-13. You can use Vias to have a trace go from the top layer to the bottom layer or bottom to the top layer.  You can use this technique when you have to cross another trace.  Most trace crossings can be avoided with some thinking about placement of components, orientation of the different components, or tracing using different routes.  Routes should not be too long, though! Don't have super long traces to avoid crossing. 
+13. You can use Vias to have a trace go from the top layer to the bottom layer or bottom to the top layer.  You can use this technique when you have to cross another trace.  Most trace crossings can be avoided with some thinking about placement of components, orientation of the different components, or tracing using different routes.  Routes should not be too long, though! **Don't have super long traces to avoid crossing.** 
 
 14. When placing a Via, you have to assign it to a "Net".  For example, if you want to ground a surface mount pad, create a Via (place -> Via), double click on it (to get to Properties, and then select the net "GND".  Now, Altium knows that it should be grounded.
 
-15. You can place labels (technically, you Place -> String) on your PCB to help you remember things. Because LEDs are directional, you may want to indicate which sides are positive by adding a "+" label near the high voltage side. Labels are good.  **You should label your board with your team number and name** as well as the date and your names if you would like.
+15. You can place labels (technically, you Place -> String) on your PCB to help you remember things. Because LEDs are directional, you may want to indicate which sides are positive by adding a "+" label near the high voltage side. Labels are good.  **You MUST label your board with your team number and name** as well as the date and your names if you would like.
 
 16. Pour a ground plane. Using the menu at the bottom of the PCB, select the bottom layer and cover it with a polygon pour. Once you put the polygon pour, open the properties, change the Net to "GND" and click on the "Repour". All of your grounded vias will be connected to the ground plane! **If you add new items to your PCB, you will need to repour your polygon pour.**  You may have to do this multiple times if you end up changing things over and over.
 
