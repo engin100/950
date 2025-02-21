@@ -25,13 +25,16 @@ latex: true
 ## Resources
 
 - [ ] A CAEN computer, or a computer running UofM VMWare to access Altium software.
-- [ ] [Altium libraries .zip file](https://drive.google.com/file/d/1JMCNjsRCwUEqwYapCFaCCkwo2zHAycD3/view?usp=drive_link) (you will need to unzip before using)
+- [ ] [Altium libraries .zip file](/[https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD]) (you will need to unzip before using)
+- [ ] [Youtube Tutorial](/[https://www.youtube.com/watch?v=t0okf__stjg])
+<!--
 - [ ] [Spreadsheet of Footprints](https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing)
 - [ ] [Second Spreadsheet of Footprints](https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq/view?usp=sharing)
-
+*note these are outdated footprints which do not have the BME sensor.
+-->
 ## Procedure
 
-This prelab begins where Postlab 1b ends, at the transition from schematic to PCB! If you have not already made the schematic, you need to do so before proceeding through PCB design as we will be using that schematic for this procedure.
+This is the second part of the introduction to Altium. In this assignment, you will draw a schematic for a power board and then turn that schematic into a PCB. There has been a video created that walks through all of the steps of making the schematic and then making a PCB. It is a relatively long process (the video is about one hour and fifteen minutes), but it really shows you all of the steps of going through the process.
 
 ### Onwards and Upwards (Upwards = to PCB Design)
 
