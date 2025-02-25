@@ -33,9 +33,9 @@ Working at a computer often can become a one person deal. It is important to avo
 
 ## Lab Timeline
 
-- **February 27nd, 2023, 3:00pm**: Initial PCB design submission.
-- **February 27nd, 2023, 5:00pm**: Peer review submissions due.
-- **February 28rd, 2023, 12:00 noon**: Final PCB design submission.
+- **February 27nd, 2025, 3:00pm**: Initial PCB design submission.
+- **February 27nd, 2025, 5:00pm**: Peer review submissions due.
+- **February 28rd, 2025, 12:00 noon**: Final PCB design submission.
 
 ## Altium
 
