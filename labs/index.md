@@ -65,6 +65,5 @@ Finishing up postlab 1b to turn the schematic into a finished PCB.
 
 Moving away from the breadboards and creating a custom PCB (Printed Circuit Board) using Altium software.
 
-<!--
+
 [Link to lab 7](/labs/lab-7)
--->
