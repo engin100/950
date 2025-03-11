@@ -7,6 +7,7 @@
   This code integrates the following components:
   Digital BME680 Temperature, Pressure, Humidity, VOCs sensor (Software SPI)
   Digital MicroSD Card Logger (Hardware SPI)
+  Digital Adafruit Ultimate GPS Breakout
   Analog ADXL335 Accelerometer
   Analog TMP36 Temperature Sensor
 
@@ -74,8 +75,8 @@ const int xAccelPin         = A?; // x-axis accelerometer pin
 const int yAccelPin         = A?; // y-axis accelerometer pin
 const int zAccelPin         = A?; // z-axis accelerometer pin
 
-const float R1              = ???; // Ohms, R1 = sum of all resistances between Vin and Vout
-const float R2              = ???; // Ohms, R2 = sum of all resistances between Vout and GND
+const float R1              = ???.??; // Ohms, R1 = sum of all resistances between Vin and Vout
+const float R2              = ???.??; // Ohms, R2 = sum of all resistances between Vout and GND
 
 // ***** Enable the following boolean to print raw voltages to the serial monitor for calibration of analog sensors *****
 bool calibration_setup      = ???; // True for calibration mode (slope = 1, intercept = 0), false for normal operation
@@ -83,52 +84,52 @@ bool calibration_setup      = ???; // True for calibration mode (slope = 1, inte
 // Note that you still need to fill in the slope and intercept values below to prevent an error from the question marks, this
 // just overrides those values for calibrating so you don't have to switch all of the pin declarations values back and forth.
 
-const float tmpSlope        = ?; // Slope for TMP36 calibration curve
-const float tmpIntercept    = ?; // Intercept for TMP36 calibration curve
+float tmpSlope              = ???; // Slope for TMP36 calibration curve
+float tmpIntercept          = ???; // Intercept for TMP36 calibration curve
 
-const float xAccelSlope     = ?; // Slope for x-axis accelerometer calibration curve
-const float xAccelIntercept = ?; // Intercept for x-axis accelerometer calibration curve
-const float yAccelSlope     = ?; // Slope for y-axis accelerometer calibration curve
-const float yAccelIntercept = ?; // Intercept for y-axis accelerometer calibration curve
-const float zAccelSlope     = ?; // Slope for z-axis accelerometer calibration curve
-const float zAccelIntercept = ?; // Intercept for z-axis accelerometer calibration curve
+float xAccelSlope           = ???; // Slope for x-axis accelerometer calibration curve
+float xAccelIntercept       = ???; // Intercept for x-axis accelerometer calibration curve
+float yAccelSlope           = ???; // Slope for y-axis accelerometer calibration curve
+float yAccelIntercept       = ???; // Intercept for y-axis accelerometer calibration curve
+float zAccelSlope           = ???; // Slope for z-axis accelerometer calibration curve
+float zAccelIntercept       = ???; // Intercept for z-axis accelerometer calibration curve
 
 bool SerialPrint            = ???; // True to print, false for no serial monitor (defaults to true in calibration mode)
 // ************************************************** END EDITING **************************************************
-
-if (calibration_setup) {
-    SerialPrint = true;
-}
-
-if (calibration_setup) {
-    // Calibration mode
-    tmpSlope        = 1.0;
-    tmpIntercept    = 0.0;
-    
-    xAccelSlope     = 1.0;
-    xAccelIntercept = 0.0;
-    yAccelSlope     = 1.0;
-    yAccelIntercept = 0.0;
-    zAccelSlope     = 1.0;
-    zAccelIntercept = 0.0;
-
-    if (SerialPrint) {
-      Serial.println(F("Calibration mode enabled."));
-    }
-} else {
-    if (SerialPrint) {
-      Serial.println(F("Calibration mode disabled."));
-    }
-}
 
 // Filename placeholder
 char dataFileName[16];
 
 void setup() {
-  if (SerialPrint) {
-    if (isVerbose) Serial.begin(9600);
-    while (!Serial) { /* wait for Serial */ }
+    if (calibration_setup) {
+      // Calibration mode
+      SerialPrint = true;
+      tmpSlope        = 1.0;
+      tmpIntercept    = 0.0;
+      
+      xAccelSlope     = 1.0;
+      xAccelIntercept = 0.0;
+      yAccelSlope     = 1.0;
+      yAccelIntercept = 0.0;
+      zAccelSlope     = 1.0;
+      zAccelIntercept = 0.0;
+
+      if (SerialPrint) {
+        Serial.println(F("Calibration mode enabled."));
+      }
+  } else {
+      if (SerialPrint) {
+        Serial.println(F("Calibration mode disabled."));
+      }
   }
+
+  Serial.begin(9600);
+  if (SerialPrint) {
+    if (isVerbose) {
+      Serial.println(F("Serial communication initialized."));
+    }
+  }
+
 
   // --- Initialize SD Card on hardware SPI ---
   pinMode(SD_CS, OUTPUT);
@@ -194,10 +195,6 @@ void setup() {
   // *************** END OF BME680 CONFIGURATION ***************
 
   gps.begin(9600);
-  while (!gps) {
-    delay(2); // wait
-  }
-
   // set the gps port to listen:
   gps.listen();
   if (isVerbose) Serial.println("GPS is initialized!");  
@@ -208,7 +205,6 @@ void setup() {
 }
 
 void loop() {
-  static unsigned long startTime = 0;
   unsigned long currentTime = millis();
   bool bmeOk = bme.performReading();
   clear_gps_string();
@@ -286,6 +282,7 @@ void loop() {
   }
 
   unsigned long elapsed = millis() - currentTime;
-  unsigned long delayTime = 1000 - elapsed % 1000;
-  delay(delayTime - 50);
+  if (elapsed < 1000) {
+      delay(1000 - elapsed);
+  }
 }
