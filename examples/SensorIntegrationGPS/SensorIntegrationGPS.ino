@@ -75,8 +75,8 @@ const int xAccelPin         = A?; // x-axis accelerometer pin
 const int yAccelPin         = A?; // y-axis accelerometer pin
 const int zAccelPin         = A?; // z-axis accelerometer pin
 
-const float R1              = ???.??; // Ohms, R1 = sum of all resistances between Vin and Vout
-const float R2              = ???.??; // Ohms, R2 = sum of all resistances between Vout and GND
+const float R1              = ???; // Ohms, R1 = sum of all resistances between Vin and Vout
+const float R2              = ???; // Ohms, R2 = sum of all resistances between Vout and GND
 
 // ***** Enable the following boolean to print raw voltages to the serial monitor for calibration of analog sensors *****
 bool calibration_setup      = ???; // True for calibration mode (slope = 1, intercept = 0), false for normal operation
@@ -84,15 +84,15 @@ bool calibration_setup      = ???; // True for calibration mode (slope = 1, inte
 // Note that you still need to fill in the slope and intercept values below to prevent an error from the question marks, this
 // just overrides those values for calibrating so you don't have to switch all of the pin declarations values back and forth.
 
-float tmpSlope              = ???; // Slope for TMP36 calibration curve
-float tmpIntercept          = ???; // Intercept for TMP36 calibration curve
+float tmpSlope              = ?; // Slope for TMP36 calibration curve
+float tmpIntercept          = ?; // Intercept for TMP36 calibration curve
 
-float xAccelSlope           = ???; // Slope for x-axis accelerometer calibration curve
-float xAccelIntercept       = ???; // Intercept for x-axis accelerometer calibration curve
-float yAccelSlope           = ???; // Slope for y-axis accelerometer calibration curve
-float yAccelIntercept       = ???; // Intercept for y-axis accelerometer calibration curve
-float zAccelSlope           = ???; // Slope for z-axis accelerometer calibration curve
-float zAccelIntercept       = ???; // Intercept for z-axis accelerometer calibration curve
+float xAccelSlope           = ?; // Slope for x-axis accelerometer calibration curve
+float xAccelIntercept       = ?; // Intercept for x-axis accelerometer calibration curve
+float yAccelSlope           = ?; // Slope for y-axis accelerometer calibration curve
+float yAccelIntercept       = ?; // Intercept for y-axis accelerometer calibration curve
+float zAccelSlope           = ?; // Slope for z-axis accelerometer calibration curve
+float zAccelIntercept       = ?; // Intercept for z-axis accelerometer calibration curve
 
 bool SerialPrint            = ???; // True to print, false for no serial monitor (defaults to true in calibration mode)
 // ************************************************** END EDITING **************************************************
@@ -101,6 +101,7 @@ bool SerialPrint            = ???; // True to print, false for no serial monitor
 char dataFileName[16];
 
 void setup() {
+  Serial.begin(9600);
     if (calibration_setup) {
       // Calibration mode
       SerialPrint = true;
@@ -123,7 +124,6 @@ void setup() {
       }
   }
 
-  Serial.begin(9600);
   if (SerialPrint) {
     if (isVerbose) {
       Serial.println(F("Serial communication initialized."));
@@ -205,7 +205,7 @@ void setup() {
 }
 
 void loop() {
-  unsigned long currentTime = millis();
+  auto currentTime = millis();
   bool bmeOk = bme.performReading();
   clear_gps_string();
   read_gps();
@@ -281,7 +281,7 @@ void loop() {
     Serial.println(dataString);
   }
 
-  unsigned long elapsed = millis() - currentTime;
+  auto elapsed = millis() - currentTime;
   if (elapsed < 1000) {
       delay(1000 - elapsed);
   }
