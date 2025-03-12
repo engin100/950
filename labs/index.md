@@ -69,4 +69,4 @@ Moving away from the breadboards and creating a custom PCB (Printed Circuit Boar
 [Link to lab 7](/labs/lab-7)
 
 ## Project
-[Powerboard assembly guide](/project/power-board.md)
+[Powerboard assembly guide](/project/power-board)
