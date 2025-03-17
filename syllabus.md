@@ -3,7 +3,7 @@ layout: spec
 latex: true
 ---
 
-# Engineering 100-950 “Atmospheric and Space Sensors” Winter 2024
+# Engineering 100-950 “Atmospheric and Space Sensors” Winter 2025
 
 ## Course Overview
 
