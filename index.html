@@ -109,12 +109,19 @@ layout: null
       margin: 25px auto 0;
     }
     .calendar {
-      margin: 40px;
+      margin: 40px auto;
       text-align: center;
     }
     .calendar iframe {
       width: 100%;
       max-width: 100%;
+    }
+    .calendar-section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #00274C;
+      text-align: center;
     }
     .about, .links {
       max-width: 1000px;
@@ -188,6 +195,7 @@ layout: null
         </ul>
       </li>
       <li><a href="{{ '/project/project' | relative_url }}">Project</a></li>
+      <li><a href="{{ '/staff' | relative_url }}">Staff</a></li>
       <li class="dropdown"><a href="{{ '/resources' | relative_url }}">Resources</a>
         <ul class="dropdown-content">
           <li><a href="{{ '/tutorials' | relative_url }}">Tutorials</a></li>
@@ -241,9 +249,14 @@ layout: null
       <a class="button-link" href="{{ '/resources' | relative_url }}">Supplemental Resources</a>
     </div>
   </section>
-  <div class="calendar">
-    <iframe class="calendar-iframe" src="https://calendar.google.com/calendar/embed?src=umich.edu_qkjptnvc4k91p4t48uq18ah5cs%40group.calendar.google.com&ctz=America%2FNew_York" style="border:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
-  </div>
+  <section class="calendar-section">
+    <h2>Course Calendar</h2>
+    <p>Stay up to date with lectures, labs, office hours, and due dates.</p>
+    <div class="calendar">
+      <iframe class="calendar-iframe" src="https://calendar.google.com/calendar/embed?src=umich.edu_qkjptnvc4k91p4t48uq18ah5cs%40group.calendar.google.com&ctz=America%2FNew_York" style="border:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <p><a href="https://calendar.google.com/calendar/u/0?cid=dW1pY2guZWR1X3FranB0bnZjNGs5MXA0dDQ4dXExOGFoNWNzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20">Open Calendar in Google</a></p>
+  </section>
   <script>
     window.addEventListener('scroll', function() {
       var navbar = document.querySelector('.navbar');
