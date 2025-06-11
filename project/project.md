@@ -1,10 +1,9 @@
 ---
 layout: spec
+toc: false
 latex: true
 ---
-
 # Project Guidelines
-
 
 ## Project Specification
 

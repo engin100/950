@@ -1,5 +1,6 @@
 ---
 layout: spec
+toc: false
 latex: true
 ---
 

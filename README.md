@@ -16,4 +16,4 @@ View the library status from Arduino [here](https://downloads.arduino.cc/librari
 
 ## Power Boards
 
-The KiCAD files for the power management PCBs we print and launch on high altitude weather balloons are located [here](https://github.com/engin100/power-boards)
+The KiCAD files for the power management PCBs we print and launch on high altitude weather balloons are located [here](https://github.com/engin100/power-boards).
