@@ -6,8 +6,6 @@ latex: true
 # Course Staff
 
 Below you can meet the instructors and instructional aides who run ENGR 100-950.
-Each staff member has a placeholder portrait image that can be replaced with a
-photo located in `media/`.
 
 <style>
 .staff-grid {
