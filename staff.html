@@ -111,6 +111,32 @@ toc: false
       background: #f0f0f0;
       margin-bottom: 10px;
     }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: row;
+        align-items: center;
+      }
+      .navbar img.logo {
+        display: none;
+      }
+      .nav-links {
+        flex-direction: row;
+        width: auto;
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+      }
+      .navbar li {
+        width: auto;
+      }
+      .navbar a {
+        padding: 10px;
+      }
+      .dropdown-content {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
