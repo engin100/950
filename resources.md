@@ -30,7 +30,7 @@ A collection of useful cheat-sheets and diagrams you may find yourself referring
 - [ ] Reset the Arduino by holding down the button on it for a few seconds.
 - [ ] Unplug the Arduino then plug it back in.
 - [ ] Exit out of the Arduino software and reopen it (make sure to close ALL open software windows).  
-- [ ] Try a different Arduino or Cord.
+- [ ] Try a different Arduino or cord.
 - [ ] Restart your computer.
 - [ ] Update your FT232 drivers.
 

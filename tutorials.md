@@ -25,7 +25,7 @@ Walk-throughs on common issues or installations.
     - [Viewing Arduino Output](#viewing-arduino-output)
   - [Altium Student License](#altium-student-license)
   - [Problems with Altium](#problems-with-altium)
-  - [Installing VMWARE](#installing-vmware)
+  - [Installing VMware](#installing-vmware)
 
 ## Arduino IDE Install
 
@@ -189,12 +189,12 @@ Some common issues on Altium results from a previous work session not being shut
 [https://www.altium.com/documentation/knowledge-base/altium-designer/cannot-use-an-on-demand-license-as-the-seat-is-occupied](https://www.altium.com/documentation/knowledge-base/altium-designer/cannot-use-an-on-demand-license-as-the-seat-is-occupied)
 
 
-## Installing VMWARE
+## Installing VMware
 The Windows Remote Desktop Service allows eligible individuals at Michigan Engineering to remotely access the CAEN Lab Software Environment (CLSE) for Windows. It is intended to provide the same experience as being in a CAEN computer lab.
 
-1. Follow instructions here to install VMWARE to your computer. **This software is essential for Mac users to run Altium.**
+1. Follow instructions here to install VMware to your computer. **This software is essential for Mac users to run Altium.**
 [https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5311](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5311)
 
-2. To connect VMWARE to the CAEN server: <br>
+2. To connect VMware to the CAEN server: <br>
 [https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309)
 
