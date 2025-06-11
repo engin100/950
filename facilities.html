@@ -55,6 +55,7 @@ toc: false
       text-decoration: none;
       font-weight: bold;
     }
+    .home-link { display: none; }
     .navbar li:hover > a { background-color: #001d38; }
     .dropdown-content {
       display: none;
@@ -133,6 +134,9 @@ toc: false
       .navbar a {
         padding: 10px;
       }
+      .home-link {
+        display: block;
+      }
       .dropdown-content {
         display: none;
       }
@@ -141,7 +145,9 @@ toc: false
 </head>
 <body>
   <nav class="navbar">
-    <img class="logo" src="{{ '/media/umich-coe3.png' | relative_url }}" alt="University of Michigan, College of Engineering">
+    <a class="logo-link" href="{{ '/' | relative_url }}">
+      <img class="logo" src="{{ '/media/umich-coe3.png' | relative_url }}" alt="University of Michigan, College of Engineering">
+    </a>
     <ul class="nav-links">
       <li class="dropdown"><a href="{{ '/syllabus' | relative_url }}">Syllabus</a>
         <ul class="dropdown-content">
@@ -156,7 +162,7 @@ toc: false
       </li>
       <li><a href="{{ '/project/project' | relative_url }}">Project</a></li>
       <li><a href="{{ '/staff' | relative_url }}">Staff</a></li>
-      <li><a href="{{ '/facilities' | relative_url }}">Facilities</a></li>
+      <li class="home-link"><a href="{{ '/' | relative_url }}">Home</a></li>
     </ul>
   </nav>
   <div class="hero">
