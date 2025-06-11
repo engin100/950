@@ -29,7 +29,7 @@ The labs will be made publicly visible as they are released in the week leading 
 
 ## Solder Challenge
 
-Soldering tutorial and challenge to gain or improve soldering abilites.
+Soldering tutorial and challenge to gain or improve soldering abilities.
 
 [Soldering Challenge](/soldering/solder-challenge.md)
 
@@ -55,3 +55,4 @@ Calendar containing office hours and lecture/lab/discussion times.
 [Link to course calendar](https://calendar.google.com/calendar/u/0?cid=dW1pY2guZWR1X3FranB0bnZjNGs5MXA0dDQ4dXExOGFoNWNzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20)
 
 <iframe src="https://calendar.google.com/calendar/embed?src=umich.edu_qkjptnvc4k91p4t48uq18ah5cs%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
