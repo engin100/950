@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+    <meta http-equiv="refresh" content="content=60" />
+    <style type="text/css">
+      html { height: 100% } 
+      body { height: 75%; margin: 20; padding: 20 }
+    </style>
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD60d34mCUoQ63hWqsCdZwwa1_Ywhm_4wE&sensor=true">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+           center: new google.maps.LatLng(42.3, -85.3),
+           zoom: 11,
+           mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions);
+ 
+        var pinColorR = "0000FF";
+        var pinImageR = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColorR,
+           new google.maps.Size(21, 34),
+           new google.maps.Point(0,0),
+           new google.maps.Point(10, 34));
+  
+        var marker = new google.maps.Marker({
+           position: new google.maps.LatLng(42.3,-85.3),
+           icon: pinImageR,
+           map: map
+        });
+
+      }
+
+
+    </script>
+  </head>
+
+  <body onload="initialize()">
+    <div id="map_canvas" style="width:100%; height:100%"></div>
+    <b>Author:</b><br>
+    Aaron Ridley<p>
+    <b>Class:</b><br>
+    Eng100-950<p>
+  </body>
+
+</html>
