@@ -30,7 +30,7 @@ You enrolled in a course with lectures, a discussion, and a lab. Your discussion
 | ----- | ---- | -------- |
 | **Lecture (950)** | TuTh 3:00-4:30 | 1200 EECS |
 | Lab (951) | W 3:30-5:30 | 1210/1225 CSRB |
-| Discussion (952) | W 2:30-3:30 | 1018 DOW |
+| Discussion (952) | W 2:30-3:30 | 104 EWRE |
 | Lab (953) | Th 12:30-2:30 | 1210/1225 CSRB |
 | Discussion (954) | W 12:30-1:30 | 1012 EECS |
 | Lab (955) | W 12:30-2:30 | 1210/1225 CSRB |
@@ -44,7 +44,7 @@ Here is contact information for all the course staff. If you have a question tha
 | ---------- | -------- |
 | Dr. Aaron Ridley<br>Technical Lead  | <ridley@umich.edu><br>1416 CSRB |
 | Dr. Alan Hogg <br> Technical Communication Instructor | <alanhogg@umich.edu> <br> GFL |
-| Dr. David Greenspan <br> Technical Communication Instructor |  <davidgrs@umich.edu> <br> GFL |
+| Dr. David Greenspan <br> Technical Communication Instructor |  <davidgrs@umich.edu> <br> 305 GFL |
 | Benjamen Miller <br> Instructional Aide | <benjamen@umich.edu> <br> 1210 CSRB |
 | Zian (Sam) Ren <br> Instructional Aide | <zianren@umich.edu> <br>1210 CSRB |
 | Ismael Enriquez <br> Instructional Aide | <ismaenri@umich.edu> <br> 1210 CSRB |
