@@ -9,13 +9,7 @@ Welcome to Engineering 100-950! Over the course of the next semester, you will b
 
 This webpage serves as the homepage for this class. From here, you can access any resources you may need, including the [syllabus](#syllabus), [labs](#labs), and more.
 
-<!--
-<div class="primer-spec-callout danger" markdown="1">
-Follow the link below to see the most updated flight prediction for Sunday's launch!
-Last updated: 04/12/24 11:22a
-</div>
-[Flight Prediction](/labs/flight-prediction)
--->
+
 
 ## Syllabus
 
@@ -55,4 +49,3 @@ Calendar containing office hours and lecture/lab/discussion times.
 [Link to course calendar](https://calendar.google.com/calendar/u/0?cid=dW1pY2guZWR1X3FranB0bnZjNGs5MXA0dDQ4dXExOGFoNWNzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20)
 
 <iframe src="https://calendar.google.com/calendar/embed?src=umich.edu_qkjptnvc4k91p4t48uq18ah5cs%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-
