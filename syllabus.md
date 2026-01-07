@@ -42,22 +42,26 @@ Here is contact information for all the course staff. If you have a question tha
 
 | Instructor | Contact  |
 | ---------- | -------- |
-| Prof. Aaron Ridley<br>Technical lead  | <ridley@umich.edu><br>1416 CSRB |
-| Dr. Alan Hogg <br> Communication Instructor - lead | <alanhogg@umich.edu> <br> GFL |
-| Dr. David Greenspan <br> Communication Instructor - lead |  <davidgrs@umich.edu> <br> GFL |
-| Hannah Barnard <br> IA| <hbarnard@umich.edu> <br> 1210 CSRB |
-| Zian (Sam) Ren <br> IA| <zianren@umich.edu> <br>1210 CSRB |
-| Jack Woods <br> IA| <jfwoods@umich.edu> <br> 1210 CSRB |
-| Ben Miller <br> IA| <benjamen@umich.edu> <br> 1210 CSRB |
+| Dr. Aaron Ridley<br>Technical Lead  | <ridley@umich.edu><br>1416 CSRB |
+| Dr. Alan Hogg <br> Technical Communication Instructor | <alanhogg@umich.edu> <br> GFL |
+| Dr. David Greenspan <br> Technical Communication Instructor |  <davidgrs@umich.edu> <br> GFL |
+| Benjamen Miller <br> Instructional Aide | <benjamen@umich.edu> <br> 1210 CSRB |
+| Zian (Sam) Ren <br> Instructional Aide | <zianren@umich.edu> <br>1210 CSRB |
+| Ismael Enriquez <br> Instructional Aide | <ismaenri@umich.edu> <br> 1210 CSRB |
+| Felix Foreman-Braunschweig <br> Instructional Aide, Electrical Engineer | <felixfb@umich.edu> <br> 1210 CSRB |
 
 ### Office Hours
 
 Office hours are a chance to get to know the course staff, to get clarification on concepts presented in class, and get encouragement on homework and labs. Extensive office hours will be held throughout the semester. In person office hours are posted above.
 
+**Under Construction:** The course calendar will return when an updated link is available.
+
+<!--
 **For an up-to-date listing of office hours, always refer to the google calendar!**
 [There is a google calendar available here.](https://calendar.google.com/calendar/u/0?cid=dW1pY2guZWR1X3FranB0bnZjNGs5MXA0dDQ4dXExOGFoNWNzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20)
 
 <iframe src="https://calendar.google.com/calendar/embed?src=umich.edu_qkjptnvc4k91p4t48uq18ah5cs%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+-->
 
 ## Canvas & Course Resources
 

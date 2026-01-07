@@ -20,6 +20,8 @@ Learning how to produce a PCB schematic in Altium.
 
 [Link to lab 1b](/labs/lab-1b)
 
+<!--
+
 ## Lab 2: Temperature Sensing
 
 Using our Arduino and circuitry knowledge to read data from a temperature sensor and plot it in real-time.
@@ -58,16 +60,14 @@ Design and testing of your custom payload structures.
 
 Finishing up postlab 1b to turn the schematic into a finished PCB.
 
-
 [Link to Lab 7 Prelab](/labs/lab-7-prelab)
-
 
 ## Lab 7: Altium
 
 Moving away from the breadboards and creating a custom PCB (Printed Circuit Board) using Altium software.
 
-
 [Link to lab 7](/labs/lab-7)
 
 ## Project
 [Powerboard assembly guide](/project/power-board)
+-->
