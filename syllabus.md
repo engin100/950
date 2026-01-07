@@ -52,9 +52,7 @@ Here is contact information for all the course staff. If you have a question tha
 
 ### Office Hours
 
-Office hours are a chance to get to know the course staff, to get clarification on concepts presented in class, and get encouragement on homework and labs. Extensive office hours will be held throughout the semester. In person office hours are posted above.
-
-**Under Construction:** The course calendar will return when an updated link is available.
+Office hours are a chance to get to know the course staff, to get clarification on concepts presented in class, and get encouragement on homework and labs. Extensive office hours will be held throughout the semester. In person office hours are posted on the google calendar.
 
 <!--
 **For an up-to-date listing of office hours, always refer to the google calendar!**
@@ -130,7 +128,7 @@ Please note the following guidelines about submitting your assignments:
 Late assignments will be docked 10% per day for up to 10 days. There are exceptions.  No late assignments are allowed for:
 
 - PDR, Go/No-Go, Final Poster, Final Report
-- Team Surveys
+- Team Surveys and Peer Evaluations
 
 Late assignment exceptions will be made for:
 - Students registering for classes late
@@ -179,7 +177,7 @@ If you do not have a diagnosed disability but believe that we could make pedagog
 
 ### Diversity, Equity, and Inclusion
 
-The University of Michigan is committed to student learning and the development of the whole student in a diverse and multicultural campus community. We seek to engender a diverse community that is accessible, safe, and inclusive. We value a community that appreciates and learns from our similarities and differences. We pledge our commitment to support the success of all community members. If you experience anything, directly or indirectly, that goes against this commitment, please talk to any instructor, GSI, or IA -  anyone that you feel comfortable talking to. We want to know! We try hard not to knowingly do or say something that will cause harm or stress to you. Many of us are constantly going to workshops and reading papers about how to have the most inclusive classroom that we can have. But we are human and sometimes we mess up! If we do, we sincerely hope you will come talk to one of us so that we can see things from your point of view, and we can learn how to improve our class for the next semester.
+The University of Michigan is committed to student learning and the development of the whole student in a diverse and multicultural campus community. We seek to engender a diverse community that is accessible, safe, and inclusive. We value a community that appreciates and learns from our similarities and differences. We pledge our commitment to support the success of all community members. If you experience anything, directly or indirectly, that goes against this commitment, please talk to any instructor, GSI, or IA, anyone that you feel comfortable talking to. We want to know! We try hard not to knowingly do or say something that will cause harm or stress to you. Many of us are constantly going to workshops and reading papers about how to have the most inclusive classroom that we can have. But we are human and sometimes we mess up! If we do, we sincerely hope you will come talk to one of us so that we can see things from your point of view, and we can learn how to improve our class for the next semester.
 
 ### For Physical and Mental Health
 
@@ -191,6 +189,7 @@ TL;DR: Reach out if you need help.
 
 We have taught Engr 100 for a bit now. Here are some tips that will help you be less frustrated:
 
+- Most of the labs have "Hands On Engineering" videos on youtube that walk through the basics of how to do them.  We highly recommend that you watch these videos.
 - The weekly prep work will cover the lab concepts before lab. However, the lab documents will be available alongside the weekly prep work to allow you to read the material before the lecture.
 - Make sure you are clear on which assignments are to be done individually and which are to be done in a group. If you have any questions concerning the nature of an assignment, ask your instructors.
 - Test presentations and reports with both Windows and MacOSX; formatting does not always transfer, even in .pdf format.
