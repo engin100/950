@@ -61,6 +61,12 @@ Office hours are a chance to get to know the course staff, to get clarification 
 <iframe src="https://calendar.google.com/calendar/embed?src=umich.edu_qkjptnvc4k91p4t48uq18ah5cs%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
 -->
 
+### Course Calendar
+
+Use the course calendar to track lectures, labs, office hours, and major deadlines. Updates will appear here as the semester progresses.
+
+<iframe src="https://calendar.google.com/calendar/embed?src=c_04c98b0d94f41460574970b8cef77cd82f99cbd86e0ccdc0a3a9172c645a60e6%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+
 ## Canvas & Course Resources
 
 We will use Canvas as our main online portal for this course. Canvas is the Learning Management System (LMS) of choice for U-M. Canvas should be your starting point – all other resources are linked from there, and Canvas will remind you about assignments and due dates. Also, monitor your “to do” list on Canvas for reminders about all assignments except some minor in-class activities. Many of your homework assignments will be on Canvas also. Yeah, Canvas. Pay attention there!
@@ -233,4 +239,3 @@ GenAI is an advanced writing tool, and will be incorporated into your writing cu
 ***
 
 [\[1\]](https://docs.google.com/document/u/1/d/e/2PACX-1vQa6Gp4kuvSjpsSFilGEghIfq5EmZpL8GRDead6Zxbv7l8D0Jl_EthJM0wGnNm40A2ZYkP4utesM8c5/pub#ftnt_ref1) Slightly adapted from Webster’s New Universal Unabridged Dictionary, Deluxe 2nd Ed., Cleveland: New World Dictionaries/Simon & Schuster, 1983.
-
