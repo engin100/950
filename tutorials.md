@@ -152,13 +152,13 @@ Both of these connections only work when an Arduino is plugged in and the port i
 ## KiCad Install
 
 <div class="primer-spec-callout info" markdown="1">
-Use the official KiCad download page for the latest release. You can also use the links below to download the most recent release (9.0.7) as of January 12, 2026.
+The first link below is to the download page hosted by KiCad. Feel free to use this option to download the latest release. The links listed below that option are direct downloads for the different operating systems with the most current release as of January 12, 2026 (version 9.0.7).
 </div>
 
-Pick your operating system and then choose the North America GitHub download option:
+To use the general download page, pick your operating system and then choose the North America GitHub download option:
 [https://www.kicad.org/download/](https://www.kicad.org/download/)
 
-Current North America GitHub downloads (as shown on the KiCad site):
+Direct download links for version 9.0.7:
 
 - Windows x64 (9.0.7): [https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-x86_64.exe](https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-x86_64.exe)
 - Windows ARM64 (9.0.7): [https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-arm64.exe](https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-arm64.exe)
