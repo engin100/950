@@ -23,9 +23,12 @@ Walk-throughs on common issues or installations.
     - [Connecting to an Arduino](#connecting-to-an-arduino)
     - [Uploading Code](#uploading-code)
     - [Viewing Arduino Output](#viewing-arduino-output)
-  - [Altium Student License](#altium-student-license)
-  - [Problems with Altium](#problems-with-altium)
-  - [Installing VMware](#installing-vmware)
+  - [KiCad Install](#kicad-install)
+    - [Direct downloads (auto-updating)](#direct-downloads-auto-updating)
+    - [Windows setup](#windows-setup)
+    - [macOS setup](#macos-setup)
+    - [Linux setup](#linux-setup)
+    - [First launch setup](#first-launch-setup)
 
 ## Arduino IDE Install
 
@@ -151,48 +154,70 @@ Arduinos have 2 main ways of interfacing and displaying data on your computer. T
 
 Both of these connections only work when an Arduino is plugged in and the port is specified correctly. Additionally, you will need to confirm that the baud rate - the speed at which the Arduino and your computer agree to exchange data at - is set the same for both your computer and your Arduino. This is configurable from Serial Monitor in the top right hand corner of the console in the bottom of your screen. The default for most instances is 9600 baud.
 
-## Altium Student License
+## KiCad Install
 
-Altium licenses are no longer automatically provided to all students. All University Altium licenses will be tied to individual Altium accounts. The process for getting one of these accounts can take a day or two (business days) so we strongly recommend you set up your Altium account now before you need it to run Altium.
+KiCad is free and works on Windows, macOS, and Linux. The download links below use the GitHub release assets linked from the KiCad download page (North America) and stay current as new versions are published.
 
-1. Go this page: [https://www.altium.com/education/students](https://www.altium.com/education/students) and click "Enroll for Free."
-   - You will eventually need to log in using your university credentials and be required to submit documentation proving you are a student. Submit a picture of your MCard, front and back, for this step.
+### Direct downloads (auto-updating)
 
-2. When your application gets approved and activated, you should have an Altium Education account. Unfortunately, this is not the same as the actual Altium software account. The password for the education account will not allow you to run Altium Designer. You should at this point, however, also receive the correct Altium account but this step is often buggy.
+<ul>
+  <li><a id="kicad-win-x64" href="https://github.com/KiCad/kicad-source-mirror/releases/latest">Windows x64 installer (latest)</a></li>
+  <li><a id="kicad-win-arm64" href="https://github.com/KiCad/kicad-source-mirror/releases/latest">Windows ARM64 installer (latest)</a></li>
+  <li><a id="kicad-mac-universal" href="https://github.com/KiCad/kicad-source-mirror/releases/latest">macOS universal DMG (latest)</a></li>
+</ul>
 
-3. Assuming you didn't get an email to set up the Altium software account/password, go to this page: [https://auth.altium.com/?ReturnUrl=https://www.altium.com/](https://auth.altium.com/?ReturnUrl=https://www.altium.com/) and either click "forgot password" or utilize the Google log in on the bottom left.
+If the links above do not update, use the latest release page and download the matching asset:
+[https://github.com/KiCad/kicad-source-mirror/releases/latest](https://github.com/KiCad/kicad-source-mirror/releases/latest)
 
-![](/media/altium_tutorial_figures/image.PNG)
+<script>
+(() => {
+  const apiUrl = "https://api.github.com/repos/KiCad/kicad-source-mirror/releases/latest";
+  const linkMap = [
+    { id: "kicad-win-x64", pattern: /x86_64\.exe$/ },
+    { id: "kicad-win-arm64", pattern: /arm64\.exe$/ },
+    { id: "kicad-mac-universal", pattern: /unified-universal.*\.dmg$/ },
+  ];
 
-4. With the Altium account you can now log in to Altium Designer to obtain a license. You can also download and install Altium on your own machine if you desire.
+  const updateLinks = (assets) => {
+    linkMap.forEach((item) => {
+      const asset = assets.find((a) => item.pattern.test(a.name));
+      const link = document.getElementById(item.id);
+      if (!asset || !link) return;
+      link.href = asset.browser_download_url;
+      link.title = asset.name;
+    });
+  };
 
-5. When you run Altium and the old license doesn't work, you will see a license page. Click sign in and either use the Google G button or the Altium username and password from step 3.
+  fetch(apiUrl)
+    .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+    .then((data) => updateLinks(Array.isArray(data.assets) ? data.assets : []))
+    .catch(() => {});
+})();
+</script>
 
-![](/media/altium_tutorial_figures/image%202.PNG)
+### Windows setup
 
-6. Now select the Altium license and click "use" (or right click on the license and choose "use").
+1. Download the latest Windows installer from the links above.
+2. Run the `.exe` file and keep the default options unless you have a specific reason to change them.
+3. Launch KiCad from the Start Menu.
 
-![](/media/altium_tutorial_figures/image%203.PNG)
+### macOS setup
 
-7. You should now be licensed in Altium and see something like this.
+1. Download the latest macOS universal DMG from the links above.
+2. Open the `.dmg` and drag KiCad into Applications.
+3. Launch KiCad from Applications (or Spotlight).
 
-![](/media/altium_tutorial_figures/image%204.PNG)
+### Linux setup
 
-## Problems with Altium
+KiCad does not ship an official Linux binary in the GitHub release assets. Use one of the supported package options instead:
 
-Some common issues on Altium results from a previous work session not being shut down properly. An error displaying "License Renewal Failed" would show up in the Altium window. To address this issue, please go through the following links/resources.
+- Ubuntu/Debian: [https://www.kicad.org/download/linux/](https://www.kicad.org/download/linux/)
+- Flatpak (all major distros): [https://flathub.org/apps/org.kicad.KiCad](https://flathub.org/apps/org.kicad.KiCad)
 
-[https://www.altium.com/documentation/altium-designer/license-management#roaming-an-on-demand-license]( https://www.altium.com/documentation/altium-designer/license-management#roaming-an-on-demand-license)
+After installation, launch KiCad and confirm it opens to the project manager screen.
 
-[https://www.altium.com/documentation/knowledge-base/altium-designer/cannot-use-an-on-demand-license-as-the-seat-is-occupied](https://www.altium.com/documentation/knowledge-base/altium-designer/cannot-use-an-on-demand-license-as-the-seat-is-occupied)
+### First launch setup
 
-
-## Installing VMware
-The Windows Remote Desktop Service allows eligible individuals at Michigan Engineering to remotely access the CAEN Lab Software Environment (CLSE) for Windows. It is intended to provide the same experience as being in a CAEN computer lab.
-
-1. Follow instructions here to install VMware to your computer. **This software is essential for Mac users to run Altium.**
-[https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5311](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5311)
-
-2. To connect VMware to the CAEN server: <br>
-[https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309)
-
+1. When prompted to set up symbol and footprint library tables, choose the default global tables.
+2. Create a new project (File > New Project) and pick a folder you will use for class work.
+3. Open Preferences > Configure Paths and leave the defaults unless instructed otherwise.
