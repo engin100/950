@@ -151,7 +151,11 @@ Both of these connections only work when an Arduino is plugged in and the port i
 
 ## KiCad Install
 
-Use the official KiCad download page and follow their instructions:
+Use the official KiCad download page for instructions, then pick your operating system and the North America GitHub download option:
 [https://www.kicad.org/download/](https://www.kicad.org/download/)
 
-Select your operating system, then choose the North America GitHub install option and follow the directions on that page.
+Current North America GitHub downloads (as shown on the KiCad site):
+
+- Windows x64 (9.0.7): [https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-x86_64.exe](https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-x86_64.exe)
+- Windows ARM64 (9.0.7): [https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-arm64.exe](https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-arm64.exe)
+- macOS universal (9.0.7): [https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-unified-universal-9.0.7.dmg](https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-unified-universal-9.0.7.dmg)
