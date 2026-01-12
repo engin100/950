@@ -166,4 +166,4 @@ The following sequence should be observed:
 
 11. 0-9 LED scale indicating 3.3v pin voltage (0-5v range)
 
-12. ^^Repeats this loop^^
+12. ^^Repeats this loop^^ 
