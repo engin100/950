@@ -24,11 +24,6 @@ Walk-throughs on common issues or installations.
     - [Uploading Code](#uploading-code)
     - [Viewing Arduino Output](#viewing-arduino-output)
   - [KiCad Install](#kicad-install)
-    - [Direct downloads (auto-updating)](#direct-downloads-auto-updating)
-    - [Windows setup](#windows-setup)
-    - [macOS setup](#macos-setup)
-    - [Linux setup](#linux-setup)
-    - [First launch setup](#first-launch-setup)
 
 ## Arduino IDE Install
 
@@ -156,68 +151,7 @@ Both of these connections only work when an Arduino is plugged in and the port i
 
 ## KiCad Install
 
-KiCad is free and works on Windows, macOS, and Linux. The download links below use the GitHub release assets linked from the KiCad download page (North America) and stay current as new versions are published.
+Use the official KiCad download page and follow their instructions:
+[https://www.kicad.org/download/](https://www.kicad.org/download/)
 
-### Direct downloads (auto-updating)
-
-<ul>
-  <li><a id="kicad-win-x64" href="https://github.com/KiCad/kicad-source-mirror/releases/latest">Windows x64 installer (latest)</a></li>
-  <li><a id="kicad-win-arm64" href="https://github.com/KiCad/kicad-source-mirror/releases/latest">Windows ARM64 installer (latest)</a></li>
-  <li><a id="kicad-mac-universal" href="https://github.com/KiCad/kicad-source-mirror/releases/latest">macOS universal DMG (latest)</a></li>
-</ul>
-
-If the links above do not update, use the latest release page and download the matching asset:
-[https://github.com/KiCad/kicad-source-mirror/releases/latest](https://github.com/KiCad/kicad-source-mirror/releases/latest)
-
-<script>
-(() => {
-  const apiUrl = "https://api.github.com/repos/KiCad/kicad-source-mirror/releases/latest";
-  const linkMap = [
-    { id: "kicad-win-x64", pattern: /x86_64\.exe$/ },
-    { id: "kicad-win-arm64", pattern: /arm64\.exe$/ },
-    { id: "kicad-mac-universal", pattern: /unified-universal.*\.dmg$/ },
-  ];
-
-  const updateLinks = (assets) => {
-    linkMap.forEach((item) => {
-      const asset = assets.find((a) => item.pattern.test(a.name));
-      const link = document.getElementById(item.id);
-      if (!asset || !link) return;
-      link.href = asset.browser_download_url;
-      link.title = asset.name;
-    });
-  };
-
-  fetch(apiUrl)
-    .then((res) => (res.ok ? res.json() : Promise.reject(res)))
-    .then((data) => updateLinks(Array.isArray(data.assets) ? data.assets : []))
-    .catch(() => {});
-})();
-</script>
-
-### Windows setup
-
-1. Download the latest Windows installer from the links above.
-2. Run the `.exe` file and keep the default options unless you have a specific reason to change them.
-3. Launch KiCad from the Start Menu.
-
-### macOS setup
-
-1. Download the latest macOS universal DMG from the links above.
-2. Open the `.dmg` and drag KiCad into Applications.
-3. Launch KiCad from Applications (or Spotlight).
-
-### Linux setup
-
-KiCad does not ship an official Linux binary in the GitHub release assets. Use one of the supported package options instead:
-
-- Ubuntu/Debian: [https://www.kicad.org/download/linux/](https://www.kicad.org/download/linux/)
-- Flatpak (all major distros): [https://flathub.org/apps/org.kicad.KiCad](https://flathub.org/apps/org.kicad.KiCad)
-
-After installation, launch KiCad and confirm it opens to the project manager screen.
-
-### First launch setup
-
-1. When prompted to set up symbol and footprint library tables, choose the default global tables.
-2. Create a new project (File > New Project) and pick a folder you will use for class work.
-3. Open Preferences > Configure Paths and leave the defaults unless instructed otherwise.
+Select your operating system, then choose the North America GitHub install option and follow the directions on that page.
