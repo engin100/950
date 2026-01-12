@@ -151,7 +151,11 @@ Both of these connections only work when an Arduino is plugged in and the port i
 
 ## KiCad Install
 
-Use the official KiCad download page for instructions, then pick your operating system and the North America GitHub download option:
+<div class="primer-spec-callout info" markdown="1">
+Use the official KiCad download page for the latest release. You can also use the links below to download the most recent release (9.0.7) as of January 12, 2026.
+</div>
+
+Pick your operating system and then choose the North America GitHub download option:
 [https://www.kicad.org/download/](https://www.kicad.org/download/)
 
 Current North America GitHub downloads (as shown on the KiCad site):
