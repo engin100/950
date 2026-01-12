@@ -14,9 +14,9 @@ Learning how to program and wire an Arduino micro-controller to control LEDs on 
 
 [Link to lab 1](/labs/lab-1)
 
-### Lab 1b: Creating an Altium Schematic
+### Lab 1b: Creating an KiCAD Schematic
 
-Learning how to produce a PCB schematic in Altium.
+Learning how to produce a PCB schematic in KiCAD.
 
 [Link to lab 1b](/labs/lab-1b)
 
@@ -70,4 +70,5 @@ Moving away from the breadboards and creating a custom PCB (Printed Circuit Boar
 
 ## Project
 [Powerboard assembly guide](/project/power-board)
+
 -->
