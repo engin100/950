@@ -35,13 +35,13 @@ For this lab, you will need:
 
 - [ ] A computer running [UofM Omnissa Horizon Client](https://950.engr100.org/tutorials#installing-omnissa-horizon-client) to access KiCAD software.
 - [ ] KiCAD properly [installed](https://950.engr100.org/tutorials#kicad-install).
-- [ ] You can and should watch this HandsOnEngineering video on KiCAD: [Link to video]([https://www.youtube.com/watch?v=9W7zGEHqjcg](https://www.youtube.com/watch?v=N5ABkj99-lc))
+- [ ] You can, and should watch this HandsOnEngineering video on KiCAD: [Link to video]([https://www.youtube.com/watch?v=9W7zGEHqjcg](https://www.youtube.com/watch?v=N5ABkj99-lc))
 - [ ] [List of footprints](https://github.com/engin100/950/blob/main/media/List%20of%20footprints_v2_lab1b.pdf)
 
-##(commented out, they won't need this until later, and we need to make sure that these libaries actually work)- [ ] [Altium libraries .zip file](https://drive.google.com/file/d/1JMCNjsRCwUEqwYapCFaCCkwo2zHAycD3/view?usp=drive_link) (you will need to unzip before using)
-##- [ ] [Spreadsheet of Footprints](https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing)
-##- [ ] [Second Spreadsheet of Footprints](https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq/view?usp=sharing)
-
+<!-- (commented out, they won't need this until later, and we need to make sure that these libaries actually work)- [ ] [Altium libraries .zip file](https://drive.google.com/file/d/1JMCNjsRCwUEqwYapCFaCCkwo2zHAycD3/view?usp=drive_link) (you will need to unzip before using)
+[//]: # [Spreadsheet of Footprints](https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing)
+[//]: # [Second Spreadsheet of Footprints](https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq/view?usp=sharing)
+-->
 
 
 ## Getting Started
