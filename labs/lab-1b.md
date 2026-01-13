@@ -25,7 +25,6 @@ Note: While it is okay to work next to someone else to accomplish this goal and 
         - [Back to building](#back-to-building)
         - [Connecting components](#connecting-components)
         - [Some schematic pointers](#some-schematic-pointers)
-        - [Finishing up schematic design](#finishing-up-schematic-design)
         - [Saving and compiling schematic](#saving-and-compiling-schematic)
     - [Submission](#submission)
 
@@ -36,10 +35,10 @@ For this lab, you will need:
 - [ ] A computer running [UofM Omnissa Horizon Client](https://950.engr100.org/tutorials#installing-omnissa-horizon-client) to access KiCAD software.
 - [ ] KiCAD properly [installed](https://950.engr100.org/tutorials#kicad-install).
 - [ ] You can, and should watch this HandsOnEngineering video on KiCAD: [Link to video](https://www.youtube.com/watch?v=N5ABkj99-lc)
-- [ ] List of footprints
+<!--- [ ] List of footprints
 ![List of footprints](/media/list-of-footprints-v2-lab1b.png)
 
-<!-- (commented out, they won't need this until later, and we need to make sure that these libaries actually work)- [ ] [Altium libraries .zip file](https://drive.google.com/file/d/1JMCNjsRCwUEqwYapCFaCCkwo2zHAycD3/view?usp=drive_link) (you will need to unzip before using)
+(commented out, they won't need this until later, and we need to make sure that these libaries actually work)- [ ] [Altium libraries .zip file](https://drive.google.com/file/d/1JMCNjsRCwUEqwYapCFaCCkwo2zHAycD3/view?usp=drive_link) (you will need to unzip before using)
 [//]: # [Spreadsheet of Footprints](https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing)
 [//]: # [Second Spreadsheet of Footprints](https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq/view?usp=sharing)
 -->
@@ -120,14 +119,14 @@ them.
 1. Make sure you label your components (Your resistors should not be “R?” but
 “R1”, “R2”, etc.) or you will get errors when compiling
 
-#### Finishing up schematic design
+<!--#### Finishing up schematic design
 
 1. Double click on each component
 1. Click on the empty box under the column "Value" and the Row "Footprint", a libary symbol should pop up next to the empty box
 1. Click that libary symbol to bring up the list of footprints
 1. Select the correct footprint corresponding the spreadsheet/pdf provided earlier
 1. Click “OK”
-
+-->
 #### Saving and compiling schematic
 
 1. Make sure you are saving your project
