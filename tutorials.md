@@ -173,3 +173,7 @@ The Windows Remote Desktop Service allows eligible individuals at Michigan Engin
 
 2. To connect VMware to the CAEN server: <br>
 [https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=5309)
+
+<div class="primer-spec-callout info" markdown="1">
+Note: Connecting to the Windows Remote Desktop Service from off-campus networks will require use of the [U-M VPN client](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
+</div>
