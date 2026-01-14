@@ -29,14 +29,13 @@ latex: true
 - [ ] 1 Breadboard
 - [ ] 1 Programming Cable (and adapters if necessary)
 - [ ] 1 TMP36 Temperature Sensor
+- [ ] 1 BME680 Sensor
 - [ ] A hand-full of jumper wires (it is possible to do the whole lab without any)
 - [ ] A computer with the Arduino IDE [installed](/tutorials#arduino-ide-install) and [setup](/tutorials#arduino-library).
 
 ## Introduction
 
-[This video goes through how to set up the TMP36 and is very useful to watch before you get started.](https://www.youtube.com/watch?v=Mdx2m6hNuqc)
-
-This lab represents the start of your journey into the development of your payload's sensor board. Your board will measure an ensemble of variables, including temperature, pressure (to derive altitude), and acceleration vector. We will begin with the simplest, most visceral metric: temperature. This lab will introduce you to the temperature sensor associated with your sensor board.
+This lab represents the start of your journey into the development of your payload's sensor board. Your board will measure an ensemble of variables, including temperature, pressure (to derive altitude), and acceleration vector. We will begin with the simplest, most visceral metric: temperature. This lab will introduce you to the **digital**  sensor associated with your sensor board (BME680) and a **analog** temperature sensor that you will need to calibrate for this lab (TMP36).
 
 A **sensor** is a device that provides measurement of some environmental observable. Many times, sensors work by **transduction** whereby they convert one form of energy into another, often times converting input to electrical energy. However, how do we know what the relationship is between the input and the output? If, for instance, the output from a temperature sensor reads as 2 Volts at room temperature, what does an output of 3 Volts mean? In order to answer this question, we need to generate a **calibration curve** for the sensor: an equation that maps input values against output values.
 
@@ -44,7 +43,7 @@ Here's a cool example: since you'll be dealing with a temperature sensor this la
 
 ![thermocouple](media/../../media/thermocouple.jpg){: .invert-colors-in-dark-mode }
 
-Over the next few weeks, you will become very familiar with the sensors used in this course. We'll start by looking at the temperature sensor we'll be using for the semester. Unlike the thermocouple, this temperature sensor has a lot of processing circuitry built into it to make its calibration curve linear.
+Over the next few weeks, you will become very familiar with the sensors used in this course. We'll start by looking at the BME680 sensor we'll be using for the semester, along with the TMP36 sensor specifically used for this lab. Unlike the thermocouple, the TMP36 sensor has a lot of processing circuitry built into it to make its calibration curve linear.
 
 ### How Analog to Digital Converters (ADCs) Work
 
@@ -58,13 +57,31 @@ $$ Resolution = \frac{V_{ref}}{(2^{bits}-1)} $$
 
 Now, to turn the raw value returned by `analogRead()` into a voltage, you need to simply multiply it by the resolution of the ADC. This is shown by the formula below.
 
-$$ Voltage = Value * Resolution $$
+$$ Voltage = Value \cdot Resolution $$
 
 This is not exactly correct, but we will cover this in class later.
 
+### BME680 4-in-1 Digital Sensor
+
+The BME680 is a digital sensor that measures temperature, humidity, pressure, and VOC gases. VOC stands for Volitile Organic Compound, think organic solvents like alcohols and paint stripper. The pressure data from this sensor can be used to calculate your altitude since atmospheric pressure decreases with altitude.
+
+This is a digital sensor, which means that instead of connecting it to an analog pin on your Arduino and reading the raw voltage, it will connect to a digital pin. This also means that you will not need to calibrate this sensor, since you will be reading a direct measurement from it and not voltage.
+
 ## Procedure
 
-### 1. Wiring the TMP36
+### 1. Wiring the BME680
+
+In the real world of electrical and computer engineering, there most likely won't always be a tutorial to hold your hand and tell you how to wire up a component. As such, instead of *showing you* exactly how to wire up your BME680, [here are the sensor's technical specs, which include wiring information on **page 12**](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas.pdf). 
+
+### 2. Creating the BME680 code
+
+Modify either your code or the code given in the BME680 example code to add your new sensor to the csv of the Arduino outputs. You will need to modify the pins defined at the top of the file, and will need to add some column titles to the header string defined above the setup() function as well. You will also need to modify the code in loop() to include the sensor values in the string added each iteration. The new data from the BME680 will be in the physical units of the corresponding type of measurement (e.g. C for temperature), and not voltage or raw value like your analog data. Check what unit each sensor reads, and make sure it is reflected in the new column titles of your header string.
+
+Since the BME680 can be somewhat complicated to interface with, an example has been provided in the Arduino library for this class. Take a few minutes to look through the example and understand each part. Note that this example only covers basic communication with the BME680, so you will need to use this program as an example of what to add to either your code or the code given for the previous lab.
+
+### 3. Wiring the TMP36
+
+[This video goes through how to set up the TMP36 and is very useful to watch before you get started.](https://www.youtube.com/watch?v=Mdx2m6hNuqc)
 
 Using the image below, take note of which pins must be connected to each circuit element. Connecting the TMP36 backwards will quickly smell like BBQ...  Please watch the youtube video above to get the orientation right before burning your fingers.
 
