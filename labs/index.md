@@ -20,14 +20,13 @@ Learning how to produce a PCB schematic in KiCAD.
 
 [Link to lab 1b](/labs/lab-1b)
 
-<!--
-
 ## Lab 2: Temperature Sensing
 
 Using our Arduino and circuitry knowledge to read data from a temperature sensor and plot it in real-time.
 
 [Link to lab 2](/labs/lab-2)
 
+<!--
 ## Lab 3: Creating a Standalone Circuit and Adding Sensors
 
 Saving Arduino sensor data to a microSD card so that we can use it later, and powering an Arduino with a battery. Additionally, adding more sensors such as pressure, acceleration, and humidity sensors.
