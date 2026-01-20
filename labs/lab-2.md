@@ -212,7 +212,7 @@ To get you thinking critically about how your 2-point calibration curve works, a
 2. What would the voltage (based on your own calibration curve) be if it output a temperature of 6 °C? (Show work!)
 3. What **binary value** would your Arduino be reading in for a voltage of 0V? 2.5V? 5V? If you are stuck on this, try re-reading the section about [how analog to digital converters (ADCs) work](#how-analog-to-digital-converters-adcs-work) and try working backwards through the Arduino code. The `analogRead()` function is what actually returns the binary value, so if you know the voltage, could you re-arrange the equation given in the starter code to solve for the binary value?
 
-## schematic tips
+## Schematic Tips
 
 For the schematic of your circuit, there are a couple of things that you would have to pay attention. This time, you will be graded based on using the correct symbols, or rather the correct components. Last lab, (lab 1b), you used generic resistors, batteries, and components, for this lab, please refer to the List of Symbols provided earlier.
 
