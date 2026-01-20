@@ -28,13 +28,16 @@ latex: true
 
 ## Materials
 
-- [ ] 1 Arduino Nano
+- [ ] 1 Arduino Nano Every
 - [ ] 1 Breadboard
 - [ ] 1 Programming Cable (and adapters if necessary)
 - [ ] 1 TMP36 Temperature Sensor
 - [ ] 1 BME680 Sensor
 - [ ] A hand-full of jumper wires
 - [ ] A computer with the Arduino IDE [installed](/tutorials#arduino-ide-install) and [setup](/tutorials#arduino-library).
+- [ ] KiCAD [installed](/tutorials#kicad-install)
+- [ ] BME680 and TMP36 KiCAD [Symbols](https://drive.google.com/drive/folders/1nf7gW98DLbIMlhNs1pC0pqOG59n_sK79?usp=sharing)
+- [ ] List of symbols to use for Schematic ![symbols](/media/list-of-footprints-lab2.png)
 
 ## Introduction
 
