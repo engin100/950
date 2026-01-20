@@ -20,6 +20,7 @@ A collection of useful cheat-sheets and diagrams you may find yourself referring
   - [Basic Circuitry Formulas](#basic-circuitry-formulas)
   - [Resistor Color Codes](#resistor-color-codes)
   - [TMP36 Wiring](#tmp36-wiring)
+  - [Importing into KiCAD](#importing-into-kicad)
 
 ## Arduino Debugging Checklist
 
@@ -95,3 +96,42 @@ Similarly, Watt-hours = Volts * Amp-hours
 ## TMP36 Wiring
 
 [![TMP36 Pinout](https://cdn-learn.adafruit.com/assets/assets/000/000/471/large1024/temperature_tmp36pinout.gif?1447975787)](https://learn.adafruit.com/tmp36-temperature-sensor/overview)
+
+## importing into KiCAD
+
+Importing Symbols
+
+Using the *.kicad_sym file:
+1. Extract the content of the downloaded file.
+2. In KiCad, go to Preferences.
+3. Click on Manage Symbol Libraries.
+4. On the Global Libraries tab, click on Browse Libraries (the small folder icon below) 
+5. Select the .kicad_sym file that you want to import, then click Open. 
+6. The library will appear, click OK.
+
+Steps 7-8 ensures that you've properly imported the Symbol.
+
+7. Click on Symbol Editor.
+8. Type on the filter search field, and navigate to the symbol you imported. Double-click over it to open the file.
+
+<!--Import Footprints
+
+Using the *.kicad_mod file:
+Extract the content of the downloaded *.zip file.
+In KiCad, go to Preferences.
+Click on Manage Footprint Libraries.
+On the Global Libraries tab, click on Browse Libraries (the small folder icon below) 
+
+ 
+Navigate to the Folder where the .kicad_mod file is located. Then click Select Folder. 
+​
+**NOTE: You will not normally see the .kicad_mod file on this step because you need to select the folder where it is located.
+
+ 
+The library will appear, click OK. 
+
+NOTE: If the path doesn't have the same name. you can rename it as the part.
+ 
+Click on Footprint Editor.
+Type on the filter search field, and navigate to the footprint you imported. Double-click over it to open the file.
+-->
