@@ -216,7 +216,7 @@ To get you thinking critically about how your 2-point calibration curve works, a
 
 For the schematic of your circuit, there are a couple of things that you would have to pay attention. This time, you will be graded based on using the correct symbols, or rather the correct components. Last lab, (lab 1b), you used generic resistors, batteries, and components, for this lab, please refer to the List of Symbols provided earlier.
 
-KiCAD keeps a lot of compoenets and their footprints inside of it's internal libary, but for the BME 680 sensor, and the TMP36, you would have to import them. The instructions for importing symbols can be found [here](https://github.com/engin100/950/blob/main/resources.md#importing-into-kicad)
+KiCAD keeps a lot of compoenets and their footprints inside of it's internal libary, but for the BME 680 sensor, and the TMP36, you would have to import them. The instructions for importing symbols can be found [here](https://950.engr100.org/resources#importing-into-kicad)
 
 ## Memo
 
