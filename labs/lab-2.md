@@ -23,6 +23,7 @@ latex: true
     - [7. Modifying the Code](#7-modifying-the-code)
     - [8. Field Trip Pt. 2](#8-field-trip-pt-2)
   - [Post-Lab Questions](#post-lab-questions)
+  - [Schematic Tips](#schematic-tips)_
   - [Memo](#memo)
   - [Submission](#submission)
 
@@ -210,6 +211,12 @@ To get you thinking critically about how your 2-point calibration curve works, a
 1. If your Arduino read in a voltage of 0.4V, what temperature would that equate to on your calibration curve? (Show your work!)
 2. What would the voltage (based on your own calibration curve) be if it output a temperature of 6 °C? (Show work!)
 3. What **binary value** would your Arduino be reading in for a voltage of 0V? 2.5V? 5V? If you are stuck on this, try re-reading the section about [how analog to digital converters (ADCs) work](#how-analog-to-digital-converters-adcs-work) and try working backwards through the Arduino code. The `analogRead()` function is what actually returns the binary value, so if you know the voltage, could you re-arrange the equation given in the starter code to solve for the binary value?
+
+## schematic tips
+
+For the schematic of your circuit, there are a couple of things that you would have to pay attention. This time, you will be graded based on using the correct symbols, or rather the correct components. Last lab, (lab 1b), you used generic resistors, batteries, and components, for this lab, please refer to the List of Symbols provided earlier.
+
+KiCAD keeps a lot of compoenets and their footprints inside of it's internal libary, but for the BME 680 sensor, and the TMP36, you would have to import them. The instructions for importing symbols can be found [here](https://github.com/engin100/950/blob/main/resources.md#importing-into-kicad)
 
 ## Memo
 
