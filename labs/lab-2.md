@@ -222,7 +222,7 @@ KiCAD keeps a lot of compoenets and their footprints inside of it's internal lib
 
 In addition to the pdf you will create as detailed in the submission below, you will also be writing a memo for this lab.
 
-For details about the memo, [see the Canvas assignment](https://umich.instructure.com/courses/658397/assignments/2251439).
+For details about the memo see Canvas.
 
 ## Submission
 
