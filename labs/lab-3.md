@@ -132,7 +132,7 @@ Pay attention to the required supply voltage for each of these components to pre
 
 In Lab 2, you wired up the BME680. If you do not remember how to wire it up, open up the breakout spec sheet and look at the section tittled **SPI Wiring**.
 
-To make sure that the BME680 is working you can again use the BME680_Example_Code by navigating to `File → Examples → ENGR100-950 → BME680_Example_Code`. Check all of the outputs and ensure they are plausible before proceeding. If they seem extraordinarily different from expected values, ask an instructor for help.
+To make sure that the BME680 is working you can again use the `BME680_Example_Code` by navigating to `File → Examples → ENGR100-950 → BME680_Example_Code`. Check all of the outputs and ensure they are plausible before proceeding. If they seem extraordinarily different from expected values, ask an instructor for help.
 
 ### 4. Adding the TMP36
 

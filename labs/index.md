@@ -26,7 +26,7 @@ Using our Arduino and circuitry knowledge to read data from a temperature sensor
 
 [Link to lab 2](/labs/lab-2)
 
-<!--
+
 ## Lab 3: Creating a Standalone Circuit and Adding Sensors
 
 Saving Arduino sensor data to a microSD card so that we can use it later, and powering an Arduino with a battery. Additionally, adding more sensors such as pressure, acceleration, and humidity sensors.
@@ -37,6 +37,7 @@ Saving Arduino sensor data to a microSD card so that we can use it later, and po
 - [Link to lab 3 - Group A](/labs/lab-3GroupA)
 - [Link to lab 3 - Group B](/labs/lab-3GroupB)
 
+<!--
 ## Lab 4: Power and Calibrations
 
 Creating a voltage regulating circuit to handle the power from the battery, and calibrating our complete circuit with known values.
