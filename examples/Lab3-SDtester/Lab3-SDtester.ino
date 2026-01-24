@@ -4,8 +4,9 @@
 // MOSI - pin 11
 // MISO - pin 12
 // CLK  - pin 13
-// CS   - pin 10
-const int chipSelect = 10;
+
+// Update this variable to the correct pin 
+const int SDLoggerChipSelect = ??;
 
 // This is the string that goes at the top of your csv file. They are the column headers for your spreadsheet.
 const String header = "Time (ms),Voltage (V),TMP36 (V),BME_Temp (V),Pressure (V),Humidity (V),Accel_x (V),Accel_y (V),Accel_z (V)";
@@ -20,7 +21,7 @@ void setup() {
     Serial.print("Initializing SD card...");
 
     // see if the card is present and can be initialized:
-    if (!SD.begin(chipSelect)) {
+    if (!SD.begin(SDLoggerChipSelect)) {
         Serial.println("Card failed, or not present");
         // don't do anything more:
         while (1);
@@ -59,10 +60,10 @@ void loop() {
     // add the adjusted voltage divider value
     dataString += String(vDivVal);
     dataString += ",";
-    // add the first TMP36 value
+    // add the TMP36 value
     dataString += String(tmp1Val);
     dataString += ",";
-    // add the second TMP36 value
+    // add the BME680 value
     dataString += String(tmp2Val);
     dataString += ",";
     // add the pressure value

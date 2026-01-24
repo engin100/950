@@ -1,44 +1,53 @@
 /*
   Sensor Integration
 
-  Written by: Benjamen Miller, University of Michigan
-  Included in UMich ENGR 100.950 "Electronics for Atmospheric and Space Measurements" Public Library
+  Written by: Benjamen Miller & Ismael Enriquez, University of Michigan
+  Included in UMICH ENGR 100.950 "Electronics for Atmospheric and Space Measurements" Public Library
 
   This code integrates the following components:
-  Digital BME680 Temperature, Pressure, Humidity, VOCs sensor (Software SPI)
+  Digital BME680 Temperature, Pressure, Humidity, VOCs sensor (Hardware SPI)
   Digital MicroSD Card Logger (Hardware SPI)
   Analog ADXL335 Accelerometer
   Analog TMP36 Temperature Sensor
 
-  Code includes commands for Software SPI, Hardware SPI, and analog communications.
+  Code includes commands for Hardware SPI and analog communications.
   Take note of the values in the section "BME680 Configuration" for data filtering and oversampling
 */
 
+// These are the pins your MicroSD Card Adapter and BME680 will be connected to.
+// These pins are specific and should not change. You do not need to worry
+// about why these are the pins, just connect them as listed.
+// MOSI - pin 11
+// MISO - pin 12
+// CLK  - pin 13
 #include <SPI.h>
 #include <SD.h>
-#include <Adafruit_BME680.h>
-
-// --- Software SPI pins for BME680 ---
-#define BME_SCK   6
-#define BME_MISO  7
-#define BME_MOSI  8
-#define BME_CS    9
-
-// --- Hardware SPI pin for SD Card ---
-#define SD_CS     10
-
-// BME680 object constructor
-Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO, BME_SCK);
+#include <Adafruit_Sensor.h>
+#include "Adafruit_BME680.h"
 
 // ************************************************** NEEDS EDITING **************************************************
-const int vDivPin           = A?; // Voltage divider pin
-const int tmpPin            = A?; // TMP36 pin
-const int xAccelPin         = A?; // x-axis accelerometer pin
-const int yAccelPin         = A?; // y-axis accelerometer pin
-const int zAccelPin         = A?; // z-axis accelerometer pin
+// This is the CS pin that the SD Logger is connected to
+const int SDLoggerChipSelect = ??;
 
-const float R1              = ???; // Ohms, R1 = sum of all resistances between Vin and Vout
-const float R2              = ???; // Ohms, R2 = sum of all resistances between Vout and GND
+// This is the CS pin that the BME680 is connected to
+const int BMEchipSelect = ??;
+
+// These are the pins your accelerometer lines are connected to
+const int xAccelPin = A?;
+const int yAccelPin = A?;
+const int zAccelPin = A?;
+
+// This is the pin your TMP36 is connected to 
+const int tmpPin = A?;
+
+// This is the pin your voltage divider is connected to
+const int vDivPin = A?;
+
+// Ohms, R1 = sum of all resistances between Vin and Vout
+const float R1 = ???;
+
+// Ohms, R2 = sum of all resistances between Vout and GND
+const float R2 = ???;
 
 const float tmpSlope        = ?;
 const float tmpIntercept    = ?;
@@ -50,31 +59,40 @@ const float yAccelIntercept = ?;
 const float zAccelSlope     = ?;
 const float zAccelIntercept = ?;
 
-bool SerialPrint            = ???; // True to print, false for no serial monitor
+// true to print, false for no serial monitor
+bool serialPrint = ???;
 // ************************************************** END EDITING **************************************************
+
+// This is the string that goes at the top of your csv file. It is the column headers for your spreadsheet.
+// You can change this as needed.
+const String header = "Time(ms),Voltage(V),TMP36(C),BME_Temp(C),Pressure(Pa),Humidity(%),xAccel(g),yAccel(g),zAccel(g)";
+
+//This instantiates the BME sensor in your code
+Adafruit_BME680 bme(BMEchipSelect, &SPI);
 
 // Filename placeholder
 char dataFileName[16];
 
 void setup() {
-  if (SerialPrint) {
+  if (serialPrint) {
     Serial.begin(9600);
     while (!Serial) { /* wait for Serial */ }
   }
 
-  // --- Initialize SD Card on hardware SPI ---
-  pinMode(SD_CS, OUTPUT);
-  if (!SD.begin(SD_CS)) {
-    if (SerialPrint) {
-      Serial.println(F("SD initialization failed!"));
-    }
-    while (true) {}
-  }
-  if (SerialPrint) {
-    Serial.println(F("SD initialization OK."));
-  }
+  if(serialPrint)
+    Serial.print(F("Initializing SD card..."));
 
-  // --- Find next available file name, like "datalog1.csv", "datalog2.csv" ---
+  // See if the card is present and can be initialized:
+  if (!SD.begin(SDLoggerChipSelect)) {
+    if(serialPrint)
+      Serial.println("Card failed, or not present");
+    // don't do anything more:
+    while (1);
+  }
+  if(serialPrint)
+    Serial.println("SD card initialized!");
+
+    // --- Find next available file name, like "datalog1.csv", "datalog2.csv" ---
   int fileIndex = 1;
   while (true) {
     // Format candidate
@@ -87,33 +105,33 @@ void setup() {
     fileIndex++;  // Increment and try the next number
   }
 
-  // Create chosen file and write header
+  // Now, before we actually start reading data, we need to write the header to the file.
+  // Open the file. Note that only one file can be open at a time,
+  // so you have to close this one before opening another.
   File dataFile = SD.open(dataFileName, FILE_WRITE);
   if (dataFile) {
-    dataFile.println(F("Time (ms),Voltage (V),TMP36 (C),BME Temp (C),Pressure (Pa),Humidity (%),xAccel (g),yAccel (g),zAccel(g)"));
-    dataFile.close();
-
-    if (SerialPrint) {
-      Serial.print(F("Created file: "));
-      Serial.println(dataFileName);
-    }
-  } else {
-    if (SerialPrint) {
-      Serial.print(F("Error1: Can't open "));
-      Serial.println(dataFileName);
-    }
+      dataFile.println(header);
+      dataFile.close();
+      if (serialPrint) {
+        Serial.print(F("Created file: "));
+        Serial.println(dataFileName);
+      }
+  } 
+  else {
+      if (serialPrint) {
+        Serial.print(F("Error1: Can't open "));
+        Serial.println(dataFileName);
+      }
   }
 
-  // --- Initialize BME680 on software SPI ---
+  // Initialize the BME and check if it's connected
   if (!bme.begin()) {
-    if (SerialPrint) {
-      Serial.println(F("BME680 initialization failed! Check wiring."));
-    }
-    while (true) {}
+      if(serialPrint)
+        Serial.println(F("Could not find a valid BME680 sensor, check wiring!"));
+      while (1);
   }
-  if (SerialPrint) {
-    Serial.println(F("BME680 initialization OK."));
-  }
+  if(serialPrint)
+    Serial.println(F("BME680 initialization OK!"));
 
   // *************** BME680 CONFIGURATION ***************
   bme.setTemperatureOversampling(BME680_OS_2X); // 2 samples for temperature oversampling
@@ -124,14 +142,11 @@ void setup() {
   // If you want to utilize the gas heater, a common setting is 320 C, 150 ms (320, 150)
   bme.setGasHeater(0, 0); // Gas heater settings: 0 C, 0 ms, DISABLED
   // *************** END OF BME680 CONFIGURATION ***************
-
-  if (SerialPrint) {
-    Serial.println(F("Setup complete."));
-  }
+  if(serialPrint)
+    Serial.println(F("Setup complete!"));
 }
 
 void loop() {
-  static unsigned long startTime = 0;
   unsigned long currentTime = millis();
   bool bmeOk = bme.performReading();
 
@@ -141,12 +156,11 @@ void loop() {
   float pressure        = NAN;
 
   if (!bmeOk) {
-    if (SerialPrint) {
+    if (serialPrint)
       Serial.println(F("**BME680 Read Failed**"));
-    }
     delay(10);
   } else {
-    // Gather sensor values
+    // Gather BME680 values
     bme_temperature  = bme.temperature; // °C
     humidity         = bme.humidity;    // %
     pressure         = bme.pressure;    // Pa
@@ -167,9 +181,10 @@ void loop() {
   float zAccelV      = analogRead(zAccelPin) * 5.0 / 1023.0;
   float zAccel       = (zAccelSlope * zAccelV) + zAccelIntercept;
 
-  // Build the CSV line with a string
-  String dataString;
-  dataString += String(millis());       
+  // Now let's make a nice string to write to the file.
+  // This is a comma-separated values (CSV) file, so we need to separate each value with a comma.
+  String dataString = "";
+  dataString += String(millis());
   dataString += ",";
   dataString += String(vDivVoltage);    
   dataString += ",";
@@ -185,26 +200,24 @@ void loop() {
   dataString += ",";
   dataString += String(yAccel);         
   dataString += ",";
-  dataString += String(zAccel);         
+  dataString += String(zAccel);  
 
   // Write to SD card using unique filename
   File dataFile = SD.open(dataFileName, FILE_WRITE);
   if (dataFile) {
     dataFile.println(dataString);
     dataFile.close();
-  } else {
-    if (SerialPrint) {
+  } 
+  else {
+    if (serialPrint) {
       Serial.print(F("Error2: Can't open "));
       Serial.println(dataFileName);
     }
   }
-
-  // Print string to serial monitor
-  if (SerialPrint) {
+  if (serialPrint)
     Serial.println(dataString);
-  }
 
   unsigned long elapsed = millis() - currentTime;
-  unsigned long delayTime = 1000 - elapsed % 1000;
+  unsigned long delayTime = (1000 - (elapsed % 1000)) % 1000;
   delay(delayTime);
 }

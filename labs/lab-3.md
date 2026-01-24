@@ -6,7 +6,7 @@ latex: true
 # Lab 3: Creating a Standalone Arduino and Adding Sensors
 
 <div class="primer-spec-callout danger" markdown="1">
-This is the first lab completed as a team! As such, the amount of work needed to complete it is slightly higher than previous labs. The completion of this lab will be made MUCH easier if you carefully read through this manual and complete it in steps.
+This is the first lab completed as a team! As such, the amount of work needed to complete it is slightly higher than previous labs. The completion of this lab will be made MUCH easier if you **carefully read** through this manual and complete it in steps. If you move too fast, you may miss a step and then be more confused!
 </div>
 
 ## Contents 
@@ -20,12 +20,13 @@ This is the first lab completed as a team! As such, the amount of work needed to
     - [Materials](#materials)
     - [1. Powering the Arduino](#1-powering-the-arduino)
     - [2. Measuring Battery Voltage](#2-measuring-battery-voltage)
-    - [3. Adding the Temperature Sensor](#3-adding-the-temperature-sensor)
-    - [4. Adding the Accelerometer](#4-adding-the-accelerometer)
-    - [5. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor](#5-adding-the-bme680-temperature-pressure-humidity-voc-sensor)
-    - [6. Adding the MicroSD Card Adapter Module](#6-adding-the-microsd-card-adapter-module)
-    - [7. Collecting Data](#7-collecting-data)
-    - [8. Analyzing the Data in MATLAB](#8-analyzing-the-data-in-matlab)
+    - [3. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor](#3-adding-the-bme680-temperature-pressure-humidity-voc-sensor)
+    - [4. Adding the TMP36](#4-adding-the-tmp36)
+    - [5. Adding the Accelerometer](#5-adding-the-accelerometer)
+    - [6. Calibrating the Accelerometer](#6-calibrating-the-accelerometer)
+    - [7. Adding the MicroSD Card Adapter Module](#7-adding-the-microsd-card-adapter-module)
+    - [8. Collecting Data](#8-collecting-data)
+    - [9. Analyzing the Data in MATLAB](#9-analyzing-the-data-in-matlab)
   - [Submission](#submission)
 
 ## Introduction
@@ -116,43 +117,7 @@ Your battery, however, has a higher voltage than that. We now need to undo the e
 Note that the values displayed in the serial monitor are rounded, and don't show us as accurate of voltages as we would like. This is because the value is stored as an "int", or integer. To obtain decimal places, change this to a float, and when applying any calculations (such as converting from raw values to voltages) put .0 at the end to let the code know you are trying to obtain decimal values. Ex. "float voltage = rawValue * (10.0 / 1023.0);"
 </div>
 
-### 3. Adding the Temperature Sensor
-
-<div class="primer-spec-callout danger" markdown="1">
-Whenever you perform a calibration curve, or want to read accurate values to the SD card, you should do so with the battery connected and computer disconnected. Because of the differences in voltage applied by a computer through USB and the 9V batteries we are using, there is some variation in the voltage values read by the Arduino from each sensor. For this lab, since you don't have an SD logger connected (yet!) just calibrate using the serial monitor through USB. Keep this in mind for future labs though!
-</div>
-
-- [Link to TMP36 Spec Sheet](https://drive.google.com/file/d/10Lu2-s9MYqh0s0O6Nkxy8E_LDwDpnZ7T/view?usp=sharing)
-
-Just like we did in the last lab, we now need to plug in the TMP36 to an analog pin on the Arduino, and read it using `analogRead()` and `Serial.println()`. Add this to the code used for measuring the battery voltage with comma-separated values. (Hint: You can use `Serial.print()` to print values without a newline character between them, which may help you print csv integers to the serial monitor for testing. Then you can just use `Serial.print(",");` to add a comma between the values. The last line you print, which will be the last sensor column of your csv matrix, should use `Serial.println()` in order to make a new line for the next data sample). Convert these raw values to voltages using the equations used in previous labs, then print the voltages in the aforementioned format.
-
-Here is the wiring diagram again for your reference:
-
-[![TMP36 Pinout](https://cdn-learn.adafruit.com/assets/assets/000/000/471/large1024/temperature_tmp36pinout.gif?1447975787)](https://learn.adafruit.com/tmp36-temperature-sensor/overview)
-
-<div class="primer-spec-callout warning" markdown="1">
-This temperature sensor will be used to measure the external temperature of your payload. In a later step you'll add a digital sensor that measures temperature, pressure, humidity, and Volatile Organic Compounds (VOCs). That sensor will be used for the interior temperature of your payload.
-</div>
-
-Once you have your temperature sensor connected, it's time to make a calibration curve. You can do this in the same manner as in the last lab using the cold chamber or going outside. Enter these calibration curves into your Arduino code by modifying the temperature variables with a slope-intercept equation, and verify that the serial monitor is producing realistic temperature values. Save these calibration curves (slope and intercept values) somewhere for later use! **It may be less annoying to calibrate all of the sensors at the end once you have all the sensors connected but before you have the data logger plugged in. This is up to you! In whatever case, make sure to clearly record your slope and intercept values from the curves.**
-
-### 4. Adding the Accelerometer
-
-- [Link to ADXL335 Spec Sheet](https://drive.google.com/file/d/1nYnJopSdXv7brn2TT8iLgIH01D7TD_NQ/view?usp=sharing)
-
-<div class="primer-spec-callout danger" markdown="1">
-The accelerometer we are using connects to 3.3v ONLY. DO NOT CONNECT TO 5V.
-</div>
-
-Begin by skimming over the provided spec sheet and become familiar with the pin layout. Connect the sensor to the Arduino, based on the pin-out provided and using the **3.3V pin** as the power supply. Each of the axes (x, y, and z) will be connected to its own analog pin. You will not have anything connected to the ST pin.
-
-Add code to the program you've been working with to read voltage values from each of the three axes. Then perform a two-point calibration for each axis individually, and update the code to print the new calibrated values in the same comma-delimited format as before. **Save these calibration curves (slope and intercept values)!**
-
-<div class="primer-spec-callout info" markdown="1">
-To perform a calibration curve of the accelerometer, take note of the axes as labeled on the top of the sensor. Holding the sensor so that only one axis is experiencing acceleration due to gravity, record the output value as -1g (g being acceleration due to gravity). Then flip it over 180 degrees so that it is experiencing 1g, and record this value as your second point. Apply these calibration curves to the code from before in csv format.
-</div>
-
-### 5. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor
+### 3. Adding the BME680 Temperature, Pressure, Humidity, VOC Sensor
 
 <div class="primer-spec-callout info" markdown="1">
 BME680 is the name of a specific sensor/component, produced by Bosch, that can measure temperature, pressure, humidity, and VOCs. In order to make the use of a BME680 much simpler, companies like Adafruit produce a BME680 breakout board. These are custom PCBs (Printed Circuit Boards) with the BME680 sensor attached, along with a slew of other power-handling or signal processing components. Linked below are the spec sheets for both variations. The sensor spec sheet is likely more useful for finding the operating ranges of the sensor, sensitivity levels, and other sensor operating details. The breakout spec sheet is likely more useful for finding wiring instructions and/or example code. The breakout spec sheet also lists the required input power range since this is determined by the circuitry of the breakout board.
@@ -162,88 +127,157 @@ BME680 is the name of a specific sensor/component, produced by Bosch, that can m
 - [Link to BME680 Sensor Spec Sheet](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf)
 
 <div class="primer-spec-callout info" markdown="1">
-Pay attention to the required supply voltage for each of these components to prevent accidental damage. You can find these values in the provided spec sheets for each individual component. In the case of the BME680 Adafruit Breakout, it can handle 3.3v or 5v. For the case of this lab we will be using 5v.
+Pay attention to the required supply voltage for each of these components to prevent accidental damage. You can find these values in the provided spec sheets for each individual component. In the case of the BME680 Adafruit Breakout, it can handle 3.3v or 5v. For the case of this lab we will be using **5V**.
 </div>
 
-Begin by skimming over the provided spec sheets and become familiar with the pin layout. Connect the sensor to the Arduino, based on the pin-out provided below.
+In Lab 2, you wired up the BME680. If you do not remember how to wire it up, open up the breakout spec sheet and look at the section tittled **SPI Wiring**.
 
-| BME680 Adafruit Breakout Pin | Arduino Nano Pin  |
-| ---------- | -------- |
-| Vin (Voltage In) | 5 volt rail |
-| 3Vo (3v Out) | NOT USED |
-| GND (Ground) | Ground rail |
-| SCK (Serial Clock) | D6 |
-| SDO (Serial Data Out, aka MISO) | D7 |
-| SDI (Serial Data In, aka MOSI) | D8 |
-| CS (Chip Select) | D9 |
+To make sure that the BME680 is working you can again use the BME680_Example_Code by navigating to `File → Examples → ENGR100-950 → BME680_Example_Code`. Check all of the outputs and ensure they are plausible before proceeding. If they seem extraordinarily different from expected values, ask an instructor for help.
+
+### 4. Adding the TMP36
+
+<div class="primer-spec-callout danger" markdown="1">
+Whenever you perform a calibration curve, or want to read accurate values to the SD card, you should do so with the battery connected and computer disconnected. Because of the differences in voltage applied by a computer through USB and the 9V batteries we are using, there is some variation in the voltage values read by the Arduino from each sensor. For this lab, since you don't have an SD logger connected (yet!) just calibrate using the serial monitor through USB. Keep this in mind for future labs though!
+</div>
+
+- [Link to TMP36 Spec Sheet](https://drive.google.com/file/d/10Lu2-s9MYqh0s0O6Nkxy8E_LDwDpnZ7T/view?usp=sharing)
+
+Just like we did in the last lab, we now need to plug in the TMP36 to an analog pin on the Arduino, and read it using `analogRead()` and `Serial.println()`. Add this to the code used for measuring the battery voltage with comma-separated values. (Hint: You can use `Serial.print()` to print values without a newline character between them, which may help you print CSV integers to the serial monitor for testing. Then you can just use `Serial.print(",");` to add a comma between the values. The last line you print, which will be the last sensor column of your CSV matrix, should use `Serial.println()` in order to make a new line for the next data sample). Convert these raw values to voltages using the equations used in previous labs, then print the voltages in the aforementioned format.
+
+```cpp
+// The "|" represents where you are after printing to the serial monitor
+Serial.print("firstVal");
+//firstVal|
+
+Serial.print(",");
+//firstVal,|
+
+Serial.println("secondVal");
+//firstVal,secondVal
+//|
+
+Serial.print("I am in a new line because of println");  
+//firstVal,secondVal
+//I am in a new line because of println|
+```
+
+Here is the wiring diagram again for your reference:
+
+[![TMP36 Pinout](https://cdn-learn.adafruit.com/assets/assets/000/000/471/large1024/temperature_tmp36pinout.gif?1447975787)](https://learn.adafruit.com/tmp36-temperature-sensor/overview)
+
+Once you have your TMP36 connected, it's time to make a calibration curve. You can do this in the same manner as in the last lab using the cold chamber or going outside. Enter these calibration curves into your Arduino code by modifying the temperature variables with a slope-intercept equation, and verify that the serial monitor is producing realistic temperature values. Save these calibration curves (slope and intercept values) somewhere for later use! **It may be less annoying to calibrate all of the sensors at the end once you have all the sensors connected but before you have the data logger plugged in. This is up to you! In whatever case, make sure to clearly record your slope and intercept values from the curves.**
+
+<div class="primer-spec-callout danger" markdown="1">
+Make sure to recalibrate your TMP36 as it is likely you did not get the same TMP36 as you did in lab 2, meaning that the calibration curve that you created will not work for this TMP36.
+</div>
+
+### 5. Adding the Accelerometer
+
+- [Link to ADXL335 Spec Sheet](https://drive.google.com/file/d/1nYnJopSdXv7brn2TT8iLgIH01D7TD_NQ/view?usp=sharing)
+
+<div class="primer-spec-callout danger" markdown="1">
+The accelerometer we are using connects to 3.3v ONLY. DO NOT CONNECT TO 5V.
+</div>
+
+Begin by skimming over the provided spec sheet and become familiar with the pin layout. Connect the sensor to the Arduino, based on the pin-out provided and using the **3.3V pin** as the power supply. Each of the axes (x, y, and z) will be connected to its own analog pin. You will not have anything connected to the ST pin.
+
+Add code to the program you've been working with to read the voltage values from each of the three axes.
+
+### 6. Calibrating The Accelerometer
+
+To calibrate your accelerometer, you will have to go through the same procedure that you did in lab 2, for all 3 axes of the accelerometer. This means that for each axis, you will need at least 2 known values of acceleration that you can subject the sensor to while reading the voltage.
+
+In order to find 2 known values of acceleration, we must understand what exactly is it that the accelerometer measures. The name "accelerometer" is kind of misleading in this case, since it doesn't actually measure total acceleration. Internally, the sensor has a tiny object (usually silicon) that is connected to the rest of the sensor via a spring-like connection. This connection has electrical properties that change based on the tension that the connection experiences. This is a simplified explanation, but the actual sensors don't differ too much. 
+
+If a force is applied to the outside of the sensor, the tension in the connection increases to keep the small internal object accelerating at the same rate as the sensor. This means that the sensor can only detect acceleration from forces that are applied **only** to the outside of the package, since if a force was applied equally to the internal object, the tension in the connection would not have to increase to keep the object accelerating with the rest of the sensor. Usually this isn't a problem, since most forces we're concerned with are fall into this category, however, there is one major force that doesn't: **gravity**. Recall from physics that gravity acts in a way that makes all objects accelerate at the same rate ($$9.8\,\frac{m}{s^2}$$). This is the exact type of force that accelerometers cannot measure, since the internal connection does not have to apply any force to the internal object to keep it accelerating with the sensor - in the absence of external forces, everything accelerates at $$9.8\,\frac{m}{s^2}$$.
+
+Now let's try to figure out what the accelerometer would measure in 2 different situations: in free-fall, and sitting stationary on a lab table. Start by drawing a free-body diagram for each situation, and then remove the gravitational force. The acceleration from the remaining forces is what the sensor would measure. In the situation of free-fall, since gravity is the only force (in the absence of air resistance), the accelerometer measures nothing. In the situation of the sensor sitting stationary, the normal force opposes gravity and is exactly equal to the force from gravity. The accelerometer will only measure the acceleration from the normal force, and since the normal force is equal to gravity in this case, it will measure $$9.8\,\frac{m}{s^2}$$, or 1 G, upwards. You will use this fact to calibrate the accelerometer.
 
 <div class="primer-spec-callout info" markdown="1">
-In order to run this code, make sure you install the "Adafruit BME680 Library" by Adafruit in the Arduino IDE Library. (Icon looks like a set of books on the left side of the screen).
+Reminder to pay attention to the 3-axis figure printed on the sensor module. When the sensor is flat on the table, the Z-axis should be vertical, and the others will be parallel to the table/ground.
 </div>
 
-Navigate to and open the following example file: File → Examples → ENGR100-950 → Lab3_BME680. This file is a standalone BME680 tester to ensure you have everything in working order before proceeding.
+In this orientation, the Z-axis is straight up, and from our previous findings it should measure 1G. X and Y are both perpendicular to the force of gravity and would be recording 0Gs. If you turn your board upside down, the Z axis should read -1G. Rotate your sensor around as needed so that each axis has at least two data-points where it is (anti-)parallel to the force of gravity and make sure to take note of the voltage value for both points.
 
-Check all of the outputs and ensure they are plausible before proceeding. If they seem extraordinarily different from expected values, ask an instructor for help.
+With this calibration process completed, each axis will have a calibration value of 1G and -1G. Record the voltage values in your spreadsheet, and calculate the calibration curve for each axis.
 
-### 6. Adding the MicroSD Card Adapter Module
+Now update the code to print the new calibrated values in the same comma seperated values (CSV) format as before. **Save these calibration curves (slope and intercept values)!**
+
+### 7. Adding the MicroSD Card Adapter Module
 
 <div class="primer-spec-callout info" markdown="1">
 For teams working in two separate groups (all others ignore this message): You should already have your SD logger wired in, so once you have all of your components running on one Arduino/computer, skip down to "Plug your microSD card into your computer..."
 </div>
 
-Unlike the other sensors and modules we have used so far, the MicroSD module we are using uses the Arduino's digital pins. Luckily for us, there are libraries (that you should have installed when following the tutorial and initially setting up your Arduino IDE), that handle all the complicated digital interfacing for us. All we need to know is which pins to plug the adapter module into.
+The SD logger connects to the Arduino using the same pins as the BME680. This is ok to do since they both use a protocol called SPI. This is a very common protocol used to connect different digital chips together. SPI uses 3 pins to transfer data, and 1 pin to select which chip to communicate with, called chip select (CS for short). This CS pin tells the device (the SD logger or BME680) to either pay attention to the 3 data pins, or ignore them. Both the SD logger and the BME680 will connect the 3 data pins to the same 3 pins on the Arduino, however the CS pin for the BME680 will not connect to the same pin as the CS pin on the SD logger, it will instead connect to a different digital pin on the Arduino. The goal is for the Arduino to be able to "select" which chip it wants to communicate using the CS pins.
 
-| microSD Logger Pin | Arduino Nano Pin  |
+Wire the SD logger by following the below table.
+
+| microSD Logger Pin | Arduino Nano Every Pin  |
 | ---------- | -------- |
 | VCC | 5 volt rail |
 | GND (Ground) | Ground rail |
-| CS (Chip Select) | D10 |
+| CS (Chip Select) | Any digital pin, other than the digital pin used for the BME680 |
 | MOSI (Master Out, Slave In) | D11 |
 | MISO (Master In, Slave Out) | D12 |
 | SCK (Serial Clock) | D13 |
 
-While your Arduino is powered off and disconnected from the 9V, plug your module in as shown above. The Arduino pins for this **DO** matter and cannot easily be changed, unlike the analog pins.
+<div class="primer-spec-callout danger" markdown="1">
+Remember that while you can connect the CS pin on both the SD logger and the BME680 to any digital pin, they should **NOT** connect to the same pin. 
+</div>
+
+While your Arduino is powered off and disconnected from the 9V, plug your module in as shown above. The Arduino pins (D11-D13) for this **DO** matter and cannot easily be changed, unlike the analog pins and the CS pin.
 
 <div class="primer-spec-callout info" markdown="1">
 Plug your microSD card into your computer and ensure that it is empty. If there are files on the card, delete them and empty the trash. You should always clear the card, empty the trash while the card is still inserted, and properly eject it before removing the card from your computer.
 </div>
 
-**Teams working in two separate groups can skip this paragraph.** Once everything is wired up, put your microSD card into the adapter module and plug in your Arduino. Upload the code found in File → Examples → ENGR100-950 → Lab3-SDtester. This script will throw an error statement in the serial monitor if the SD logger is not working properly. Once this script runs and appears to have worked for a few moments, go ahead and disconnect power, remove the SD card, and open the contents on your computer. You should see a file titled `DATALOG.CSV` which should be a CSV file with sample headers (names of the sensors we are using) and rows of data that are numbered 0-7 for each column. If this appears correct, then congratulations, you have successfully connected your SD logger.
+**Teams working in two separate groups can skip this paragraph.** Once everything is wired up and power is disconnected from the Arduino, put your microSD card into the adapter module, plug in your Arduino, and connect the 9V battery. Upload the code found in `File → Examples → ENGR100-950 → Lab3-SDtester`. This script will throw an error statement in the serial monitor if the SD logger is not working properly. Once this script runs and appears to have worked for a few moments, go ahead and disconnect power, remove the SD card, and open the contents on your computer. You should see a file titled `DATALOG.CSV` which should be a CSV file with sample headers (names of the sensors we are using) and rows of data that are numbered 0-7 for each column. If this appears correct, then congratulations, you have successfully connected your SD logger.
 
-At this point you should modify and upload the code found in File → Examples → ENGR100-950 → Lab3_SensorIntegration. Read through the code carefully and modify all of the "?" to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves you made previously, and pin numbering for your specific wiring. Run this code and ensure it's working as expected. There is a boolean statement that allows you to toggle the serial monitor printing on/off. If you are logging only to the sd card, turn this off to increase the sampling rate substantially. If you want to debug the system, set this to true.
+At this point you should modify and upload the code found in `File → Examples → ENGR100-950 → Lab3_SensorIntegration`. Read through the code carefully and modify all of the **"?"** to have accurate values relavent to your setup. This includes slope and intercept values from calibration curves you made previously, and pin numbering for your specific wiring. Run this code and ensure it's working as expected. There is a boolean variable that allows you to toggle the serial monitor printing on/off. If you are logging only to the SD card, turn this off by setting it to `false` to increase the sampling rate substantially. If you want to debug the system, set this to `true`.
 
-Please read through the comments of this file, as you will be adding additional sensors and modifying this file on your own in later labs.
+<div class="primer-spec-callout danger" markdown="1">
+**PLEASE READ THROUGH THE COMMENTS OF THIS FILE**, as you will be adding additional sensors and modifying this file on your own in later labs.
+</div>
 
 There is a delay statement at the end of the loop. Think about how many data points will be taken if you take data for 5 minutes.  Will you need data this often?  More often?  Less often?  Adjust the delay accordingly. The current default is set to read once every second (accounting for sampling delays that may occur), but you can set this to a simpler value, such as `delay(500);` to delay 500 ms before proceeding to the next iteration.
 
 <div class="primer-spec-callout info" markdown="1">
-Now that you have a completed circuit, take a picture of your setup and save this for your submission file. (Remember, wires and rails should follow "common practice" mentioned earlier.)
+Now that you have completed the circuit, take a picture of your setup and save this for your submission file. (Remember, wires and rails should follow "common practice" mentioned earlier.)
 </div>
 
-Note: The code used above, Lab3_SensorIntegration, is "heavier" than others we've used so far. To fully break it down, we've created a separate manual for this code linked below if you're curious or are experiencing difficulties and need to debug it.
+Note: The code used above, `Lab3_SensorIntegration`, is "heavier" than others we've used so far. To fully break it down, we've created a separate manual for this code linked below if you're curious or are experiencing difficulties and need to debug it.
 - [Link to Lab3_SensorIntegration Code Manual](/labs/lab3-sensorintegration)
 
 <div class="primer-spec-callout info" markdown="1">
 In order to run this code, make sure you install the "Adafruit BME680 Library" by Adafruit in the Arduino IDE Library. (Icon looks like a set of books on the left side of the screen).
 </div>
 
-### 7. Collecting Data
+### 8. Collecting Data
 
-With everything plugged into the 9V and running, unplug the Arduino from your computer. Enjoy the portability of your new breadboard and walk around the building a little bit. Get the temperature to change dramatically by putting your sensor board into the cold chamber.  Wait for about 1-2 minutes to allow the temperature to adjust. Try rotating your circuit in different orientations so that each axis experiences some acceleration due to gravity, and walk outside to watch humidity change. This should provide plenty of data for all of your sensors!
+With everything plugged into the 9V and running, unplug the Arduino from your computer. Enjoy the portability of your new breadboard and walk around the building a little bit. Get the temperature to change dramatically by putting your sensor board into the cold chamber or walking outside. Wait for about 1-2 minutes to allow the temperature to adjust. Try rotating your circuit in different orientations so that each axis experiences some acceleration due to gravity, and walk outside to watch humidity change. This should provide plenty of data for all of your sensors!
 
 <div class="primer-spec-callout warning" markdown="1">
-The code provided in Lab3-SensorIntegration allows for the creation of multiple datalog.csv files. The code checks the sd card for previous datalog.csv files, and then appends the sequential number following the highest file currently in the directory. For example, if there is already a datalog1.csv file present on the sd card, the new file will be named datalog2.csv, and so on. This occurs every time the Arduino is reset or power-cycled, meaning you can use this as a feature to track different inputs without having to remove the sd card every time. You can "reset" the code on the Arduino and force a new file to be made by pressing the white reset button on the top of the Arduino.
+The code provided in `Lab3-SensorIntegration` allows for the creation of multiple datalog.csv files. The code checks the sd card for previous datalog.csv files, and then appends the sequential number following the highest file currently in the directory. For example, if there is already a datalog1.csv file present on the sd card, the new file will be named datalog2.csv, and so on. This occurs every time the Arduino is reset or power-cycled, meaning you can use this as a feature to track different inputs without having to remove the sd card every time. You can "reset" the code on the Arduino and force a new file to be made by pressing the white reset button on the top of the Arduino.
 </div>
 
-Go back to the lab and unplug the 9V now (unplug the battery and leave the wires connected to your board). Carefully remove the microSD from the adapter module, and plug it into your computer. You should see a `DATALOG.CSV` file. If you do not, or the file seems corrupted or very small, delete the file, plug the microSD card back in, and watch what the Serial monitor on your computer says while running the code.
+Go back to the lab and unplug the 9V now (unplug the battery and leave the wires connected to your board). Carefully remove the microSD from the adapter module, and plug it into your computer. You should see a `DATALOG.CSV` file. If you do not, or the file seems corrupted or very small, delete the file, plug the microSD card back into the arduino, and watch what the Serial monitor on your computer says while running the code.
+
+<div class="primer-spec-callout info" markdown="1">
+If you are debugging, make sure to enable the Serial printing in the code.
+</div>
 
 Once you have a sufficiently long test (2-3 minutes) and can see that there are clear changes in the data in the file created, you are done with the hardware portion of this lab!
 
-Make sure you save your file(s) on your computer! Maybe even upload it and share it with team members so you have a backup!
+
+<div class="primer-spec-callout danger" markdown="1">
+Make sure you save your file(s) on your computer! Upload it and share it with team members so you have a backup!
+</div>
+
 
 Then, delete the datalog file and any other .csv files off of the microSD card so that other teams in future labs have to actually do the lab themselves, and don't just steal your data!
 
-### 8. Analyzing the Data in MATLAB
+### 9. Analyzing the Data in MATLAB
 
 You should have a MATLAB script saved from an in-class exercise. Use this MATLAB script to process and analyze the data you collected earlier in the lab. You should create plots for battery voltage, two temperature sensors, a humidity sensor, a pressure sensor, and each axis from the accelerometer. These plots should be titled, axes labeled, and calibration curves applied so that they contain the proper units. Make sure to use legends if you have more than one line on a single graph (such as if you put the temperature sensors together). Consider using subplots to organize the data better!
 

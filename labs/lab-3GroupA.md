@@ -83,22 +83,30 @@ Note that the values displayed in the serial monitor are rounded, and don't show
 
 ### 3. Adding the MicroSD Card Adapter Module
 
-Unlike the other sensors and modules we have used so far, the MicroSD module we are using uses the Arduino's digital pins. Luckily for us, there are libraries (that you should have installed when following the tutorial and initially setting up your Arduino IDE), that handle all the complicated digital interfacing for us. All we need to know is which pins to plug the adapter module into.
+The SD logger connects to the Arduino using the same pins as the BME680. This is ok to do since they both use a protocol called SPI. This is a very common protocol used to connect different digital chips together. SPI uses 3 pins to transfer data, and 1 pin to select which chip to communicate with, called chip select (CS for short). This CS pin tells the device (the SD logger or BME680) to either pay attention to the 3 data pins, or ignore them. Both the SD logger and the BME680 will connect the 3 data pins to the same 3 pins on the Arduino, however the CS pin for the BME680 will not connect to the same pin as the CS pin on the SD logger, it will instead connect to a different digital pin on the Arduino. The goal is for the Arduino to be able to "select" which chip it wants to communicate using the CS pins.
 
-| microSD Logger Pin | Arduino Nano Pin  |
+Wire the SD logger by following the below table.
+
+| microSD Logger Pin | Arduino Nano Every Pin  |
 | ---------- | -------- |
 | VCC | 5 volt rail |
 | GND (Ground) | Ground rail |
-| CS (Chip Select) | D10 |
+| CS (Chip Select) | Any digital pin, other than the digital pin used for the BME680 |
 | MOSI (Master Out, Slave In) | D11 |
 | MISO (Master In, Slave Out) | D12 |
 | SCK (Serial Clock) | D13 |
 
-While your Arduino is powered off and disconnected from the 9V, plug your module in as shown above. The Arduino pins for this **DO** matter and cannot easily be changed, unlike the analog pins.
+<div class="primer-spec-callout danger" markdown="1">
+Remember that while you can connect the CS pin on both the SD logger and the BME680 to any digital pin, they should **NOT** connect to the same pin. 
+</div>
 
+While your Arduino is powered off and disconnected from the 9V, plug your module in as shown above. The Arduino pins (D11-D13) for this **DO** matter and cannot easily be changed, unlike the analog pins and the CS pin.
+
+<div class="primer-spec-callout info" markdown="1">
 Plug your microSD card into your computer and ensure that it is empty. If there are files on the card, delete them and empty the trash. You should always clear the card, empty the trash while the card is still inserted, and properly eject it before removing the card from your computer.
+</div>
 
-While power is disconnected from the Arduino, go ahead and insert the microSD card into the adapter module. Plug in the Arduino (to USB), connect the 9V battery, and open the file at File → Examples → ENGR100-950 → Lab3-SDtester and upload/run it. This script will throw an error statement in the serial monitor if the SD logger is not working properly. Once this script runs and appears to have worked for a few moments, go ahead and disconnect power, remove the SD card, and open the contents on your computer. You should see a file titled `DATALOG.CSV` which should be a CSV file with sample headers (names of the sensors we are using) and rows of data that are numbered 0-7 for each column. If this appears correct, then congratulations, you have successfully connected your SD logger and you are ready to meet up with Group B once they have finished their part! Make sure to clear this SD card and empty the trash!
+Once everything is wired up and power is disconnected from the Arduino, put your microSD card into the adapter module, plug in your Arduino, and connect the 9V battery. Upload the code found in `File → Examples → ENGR100-950 → Lab3-SDtester`. This script will throw an error statement in the serial monitor if the SD logger is not working properly. Once this script runs and appears to have worked for a few moments, go ahead and disconnect power, remove the SD card, and open the contents on your computer. You should see a file titled `DATALOG.CSV` which should be a CSV file with sample headers (names of the sensors we are using) and rows of data that are numbered 0-7 for each column. If this appears correct, then congratulations, you have successfully connected your SD logger and you are ready to meet up with Group B once they have finished their part! Make sure to clear this SD card and empty the trash!
 
 <div class="primer-spec-callout warning" markdown="1">
 When Group B is ready to move on, take both of your breadboards and move all the jumpers running from their Arduino into the same pins on your Arduino, so that everything is wired into one microcontroller (you need not physically move the components, but rather just their jumpers, leaving two breadboards side by side. They can lock together!). Connecting these breadboards is best done by moving ONLY the analog/digital jumpers from Group B's Arduino to Group A's Arduino, and then connecting a jumper from the 5V rail of Group A to the 5V rail of Group B (do this for the 3.3V rail and the GND rails as well). Note that the numbering of the analog pins does NOT matter, but the digital pins MUST go into the same numbered ordered as before. As one last final check, Group B's original Arduino should have nothing plugged into it, so you can remove any jumpers remaining connecting it to power or GND. Once this is done, follow the link below to jump back into the normal lab manual together.
