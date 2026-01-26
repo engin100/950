@@ -161,6 +161,10 @@ Serial.print("I am in a new line because of println");
 //I am in a new line because of println|
 ```
 
+<div class="primer-spec-callout info" markdown="1">
+Feel free to look back at lab 2 if you do not remmeber how to program the TMP36!
+</div>
+
 Here is the wiring diagram again for your reference:
 
 [![TMP36 Pinout](https://cdn-learn.adafruit.com/assets/assets/000/000/471/large1024/temperature_tmp36pinout.gif?1447975787)](https://learn.adafruit.com/tmp36-temperature-sensor/overview)
