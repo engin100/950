@@ -217,14 +217,16 @@ The SD logger connects to the Arduino using the same pins as the BME680. This is
 
 Wire the SD logger by following the below table.
 
-| microSD Logger Pin | Arduino Nano Every Pin  |
-| ---------- | -------- |
-| VCC | 5 volt rail |
-| GND (Ground) | Ground rail |
-| CS (Chip Select) | Any digital pin, other than the digital pin used for the BME680 |
-| MOSI (Master Out, Slave In) | D11 |
-| MISO (Master In, Slave Out) | D12 |
-| SCK (Serial Clock) | D13 |
+| MicroSD module pin | Arduino pin |
+| :----------------: | :---------: |
+| CD | NC (Not connected) |
+| CS | Any digital pin, other than the digital pin used for the BME680 |
+| DI | 11 |
+| DO | 12 |
+| CLK | 13 |
+| GND | GND |
+| 3v | NC |
+| 5v | 5v |
 
 <div class="primer-spec-callout danger" markdown="1">
 Remember that while you can connect the CS pin on both the SD logger and the BME680 to any digital pin, they should **NOT** connect to the same pin. 
