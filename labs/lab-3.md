@@ -162,7 +162,7 @@ Serial.print("I am in a new line because of println");
 ```
 
 <div class="primer-spec-callout info" markdown="1">
-Feel free to look back at lab 2 if you do not remmeber how to program the TMP36!
+Feel free to look back at lab 2 if you do not remember how to program the TMP36!
 </div>
 
 Here is the wiring diagram again for your reference:
