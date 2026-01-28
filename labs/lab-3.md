@@ -315,8 +315,8 @@ On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 - [ ] A picture of your complete circuit with proper color conventions.
 - [ ] A screenshot of your datalog.csv file (screenshot of the file opened) once all sensors are printing values.
 - [ ] Exported images of the finished plots from MATLAB (with labels and calibrations!).
-- [ ] Screenshot of a schematic created in Altium of your entire completed circuit.
-  - Link to the required Altium libraries here: [https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD?usp=drive_link](https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD?usp=drive_link)
+- [ ] Screenshot of a schematic created in KiCAD of your entire completed circuit.
+  - Link to the required KiCAD libraries here: [link](https://drive.google.com/drive/folders/1rgl_aX9MQJvx8G1FlQenvKY04iy5qNv3?usp=share_link)
 
 To put said content into a PDF, it is suggested you create a new Google Doc ([docs.new](https://docs.new)) and paste your images and write any text in the document. Export/Download this document as a PDF and upload it. **DO NOT SUBMIT A GOOGLE DOC FILE OR SPREADSHEET FILES.**
 
