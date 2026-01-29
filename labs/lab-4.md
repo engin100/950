@@ -33,6 +33,7 @@ latex: true
 - [ ] A computer with the Arduino IDE [installed](/tutorials#arduino-ide-install) and [setup](/tutorials#arduino-library)
 - [ ] ENGR100-950 Arduino Library
 - [ ] Completed sensor board from Lab 3
+- [ ] ENGR 100 950 KiCAD [libary](https://drive.google.com/drive/folders/1rgl_aX9MQJvx8G1FlQenvKY04iy5qNv3?usp=share_link)
 
 ## Safety
 
@@ -140,7 +141,7 @@ On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 - [ ] A picture of your completed consolidated board.
 - [ ] A picture of your battery with the ends of wires safely taped so that they can not short.
 - [ ] A (complete) system-level block diagram of your completed system.  The color coding on your system-level block diagram should match the color coding on your board.  You should be able to look at your picture of your board and your system-level block diagram and understand what is going on with your board. Not every line needs to be drawn though (like ground lines should NOT be on the block diagram).
-- [ ] A (complete) schematic of your completed system (**IN ALTIUM**)
+- [ ] A (complete) schematic of your completed system (**IN KICAD**). Make sure to update your Arduino symbol to the new one in the libaries.
 - [ ] A screenshot of your (battery, 5V, and 3.3V) voltage readings from your Arduino (serial monitor) on your power board.
 - [ ] Nice plots that show data from your completed board going into the cold chamber for at least 5 minutes.  The data should be calibrated with plots in actual geophysical units, including time (in minutes). **For simplicity, any CSV files should print voltages, and MATLAB should perform the conversions to geophysical units.**
 - [ ] Discuss whether the battery voltages changed as it got colder. Is there any relationship between temperature and battery voltage?
