@@ -24,6 +24,7 @@ Walk-throughs on common issues or installations.
     - [Uploading Code](#uploading-code)
     - [Viewing Arduino Output](#viewing-arduino-output)
   - [KiCad Install](#kicad-install)
+  - [KiCad Net Labels and Power Labels](#kicad-net-labels-and-power-labels)
   - [Installing Omnissa Horizon Client](#installing-omnissa-horizon-client)
 
 ## Arduino IDE Install
@@ -164,6 +165,42 @@ Direct download links for version 9.0.7:
 - Windows x64 (9.0.7): [https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-x86_64.exe](https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-x86_64.exe)
 - Windows ARM64 (9.0.7): [https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-arm64.exe](https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-9.0.7-arm64.exe)
 - macOS universal (9.0.7): [https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-unified-universal-9.0.7.dmg](https://github.com/KiCad/kicad-source-mirror/releases/download/9.0.7/kicad-unified-universal-9.0.7.dmg)
+
+## KiCad Net Labels and Power Labels
+
+The schematic editor is essentially a connection guide for the PCB editor that comes later. Wires (the green lines) show direct connections, while **net labels** create the same underlying electrical connection without drawing the wire across the page. This keeps schematics clean and readable while still telling KiCad exactly how every pin must connect.
+
+Net labels may be useful when:
+- The same signal appears in multiple places (for example, `GND`, `VCC`, `3V3`, `MOSI`, `MISO`, `SCK`).
+- A connection would require long, messy wires that criss-cross the page.
+- You want repeated or standard connections to look consistent and easy to trace.
+- You are connecting across sheets (global or hierarchical labels).
+
+Use wires when:
+- The connection is local and short.
+- The wire itself helps communicate the flow of the circuit (e.g., a simple resistor-divider or op-amp feedback loop).
+
+### How net labels work
+- Any wires (or pins) that share **the exact same net label text** are connected electrically, even if there is no green wire drawn between them.
+- A net can only have one name. If you place multiple different labels on the same net, KiCad will flag it in ERC.
+- Labels have scope: **local labels** connect within a sheet, **global labels** connect across the entire schematic, and **hierarchical labels** connect between parent and child sheets in a hierarchical design.
+
+### Power labels (power symbols)
+Power labels are specialized net labels that use power symbols (like `GND`, `VCC`, `+5V`, `+3V3`). They behave like **global labels**: any matching power symbol connects to the same net everywhere in the project. This is why you can place `GND` symbols all over a schematic without drawing wires between them.
+
+### How to place a net label
+1. Click the **Net Label** tool (right toolbar) for same-sheet connections.
+2. Click on a wire end (or directly on a wire) and type the net name.
+3. Place the same label anywhere else that net should connect.
+
+Tip: the tiny square at the edge of a label shows the connection point. When it is snapped to a wire, the square disappears.
+
+### Examples (photos)
+Below are screenshots showing where the buttons are located for net labels
+
+![Net Labels Button](/media/net%20labels.png)
+
+![Power Symbols](/media/power%20symbols.png)
 
 ## Installing Omnissa Horizon Client
 The Windows Remote Desktop Service allows eligible individuals at Michigan Engineering to remotely access the CAEN Lab Software Environment (CLSE) for Windows. It is intended to provide the same experience as being in a CAEN computer lab.
