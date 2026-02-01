@@ -28,7 +28,6 @@ latex: true
 - [ ] 22 micro-Farad Capacitor
 - [ ] Resistors for voltage divider circuit
 - [ ] 9V Battery
-- [ ] 7.4V LiIon Rechargable Battery
 - [ ] 1 Programming Cable (and adapters if necessary)
 - [ ] A computer with the Arduino IDE [installed](/tutorials#arduino-ide-install) and [setup](/tutorials#arduino-library)
 - [ ] ENGR100-950 Arduino Library
@@ -39,7 +38,7 @@ latex: true
 
 This lab involves working with a power supply which can provide higher voltages/currents than the Arduinos! Read the following sections carefully to maintain your safety and the safety of the components we are using.
 
-It is very easy to accidentally short batteries when wires are connected to them. **When not using the 9V and 7.4 batteries, make sure that they have wire ends that are taped, so the battery can not be shorted!**
+It is very easy to accidentally short batteries when wires are connected to them. **When not using the 9V battery, make sure that they have wire ends that are taped/secured, so the battery can not be shorted!**
 
 ### Electrostatic Discharge
 
@@ -91,7 +90,7 @@ The figure below shows a lab **power supply.** This is a device we frequently us
 
 ![Power Supply](/media/power-supply.png)
 
-You will be using the power supply on your workbenches today to power portions on your circuit. Please do **NOT** connect the power supply to the board until looked at by one of the instructors. The power supply has been current-limited at 500 mA and can cause some serious damage if used improperly. Please call the instructor to have them examine the breadboard before connecting to power. Also, do not increase the power supply voltage above 7.4V.
+You will be using the power supply on your workbenches today to power portions on your circuit. Please do **NOT** connect the power supply to the board until looked at by one of the instructors. The power supply has been current-limited at 500 mA and can cause some serious damage if used improperly. Please call the instructor to have them examine the breadboard before connecting to power. Also, do not increase the power supply voltage above 10V.
 
 The wires to the power supply should already be connected (Red = positive and Black = negative). Connect the red wire to the positive rail located at the top of the breadboard, and the black wire to the blue rail located adjacent to it. Do not connect them in holes adjacent to one another; we want to remove any possibility of the two wires accidentally coming in contact and shorting the circuit. **Please do not turn on the power supply until your connections have been verified by an instructor.** Please do not adjust the wires connected to the power supply unless the supply is turned off. You can use this rail to power the components of your circuit as illustrated in Part 1 below.
 
@@ -113,7 +112,7 @@ Disconnect the power supply, and add an Arduino to your power board. Make two vo
 Note that the output lines of the 5V and 3.3V lines are now your main power rails.  The 5V LDO output line should be connected directly to the 5V line on the Arduino and there should be NO connections to the Vin pin on the Arduino.  The 3.3V line does NOT get connected to the 3.3V line on the Arduino!
 </div>
 
-Once you have verified that everything is hooked up as it should be, add a 7.4V, 500mA battery to the top rail of your bread-board to power your LDO circuit and power on your Arduino. When you connect your battery, everything should turn on and start reporting data (although you can’t see it, since your computer is not hooked up yet).  Hook up the USB to the Arduino and measure the battery voltage, 5V line voltage, and 3.3V line voltage using a program. **Take a screenshot that shows that you are measuring the proper voltages on the different lines!**
+Once you have verified that everything is hooked up as it should be, add a 9V, battery to the top rail of your bread-board to power your LDO circuit and power on your Arduino. When you connect your battery, everything should turn on and start reporting data (although you can’t see it, since your computer is not hooked up yet).  Hook up the USB to the Arduino and measure the battery voltage, 5V line voltage, and 3.3V line voltage using a program. **Take a screenshot that shows that you are measuring the proper voltages on the different lines!**
 
 **Take some pictures of this beautiful power board!**
 
@@ -139,9 +138,9 @@ On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 - [ ] A short description of your power supply tests with the cutoff voltages that you found.
 - [ ] A picture of your completed power board.
 - [ ] A picture of your completed consolidated board.
-- [ ] A picture of your battery with the ends of wires safely taped so that they can not short.
+- [ ] A picture of your battery with the ends of wires safely taped and secured so that they can not short.
 - [ ] A (complete) system-level block diagram of your completed system.  The color coding on your system-level block diagram should match the color coding on your board.  You should be able to look at your picture of your board and your system-level block diagram and understand what is going on with your board. Not every line needs to be drawn though (like ground lines should NOT be on the block diagram).
-- [ ] A (complete) schematic of your completed system (**IN KICAD**). Make sure to update your Arduino symbol to the new one in the libaries.
+- [ ] A (complete) schematic of your completed system (**IN KICAD**). Make sure to update your Arduino symbol to the new one in the libaries (We uploaded a new and improved Arduino Nano Every Symbol. You should be using this one instead of the default KiCAD one from now on).
 - [ ] A screenshot of your (battery, 5V, and 3.3V) voltage readings from your Arduino (serial monitor) on your power board.
 - [ ] Nice plots that show data from your completed board going into the cold chamber for at least 5 minutes.  The data should be calibrated with plots in actual geophysical units, including time (in minutes). **For simplicity, any CSV files should print voltages, and MATLAB should perform the conversions to geophysical units.**
 - [ ] Discuss whether the battery voltages changed as it got colder. Is there any relationship between temperature and battery voltage?
