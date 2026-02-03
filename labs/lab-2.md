@@ -5,6 +5,10 @@ latex: true
 
 # Lab 2: Temperature Sensing
 
+<div class="primer-spec-callout danger" markdown="1">
+You should work on this assignment in pairs, but you must **SUBMIT YOUR OWN INDIVIDUAL WORK**. Aside from hardware photos, all submitted content must be your original work and not copied from anyone else. Submissions that are not your own may result **IN POINT DEDUCTION OR A ZERO.**
+</div>
+
 ## Contents
 
 - [Lab 2: Temperature Sensing](#lab-2-temperature-sensing)
@@ -225,6 +229,10 @@ In addition to the pdf you will create as detailed in the submission below, you 
 For details about the memo see Canvas.
 
 ## Submission
+
+<div class="primer-spec-callout danger" markdown="1">
+Reminder: You should work on this assignment in pairs, but you must **SUBMIT YOUR OWN INDIVIDUAL WORK**. Aside from hardware photos, all submitted content must be your original work and not copied from anyone else. Submissions that are not your own may result **IN POINT DEDUCTION OR A ZERO.**
+</div>
 
 On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 
