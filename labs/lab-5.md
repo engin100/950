@@ -26,7 +26,7 @@ latex: true
 - [ ] Completed Circuit from Lab 3 and 4
 - [ ] Programming Cable (and adapters if necessary)
 - [ ] Computer with the Arduino IDE [installed](/tutorials#arduino-ide-install) and [setup](/tutorials#arduino-library)
-- [ ] ENGR100-950 Arduino Library (make sure this is updated!)
+- [ ] ENGR100-950 [libary](https://drive.google.com/drive/folders/1rgl_aX9MQJvx8G1FlQenvKY04iy5qNv3?usp=share_link)
 
 ## Introduction
 
@@ -135,7 +135,7 @@ On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 - [ ] Plots of the GPS location information
 - [ ] Google Maps screenshot of the GPS location information
 - [ ] Answers to the post lab questions (as part of the .pdf file)
-- [ ] A screenshot of your Altium schematic (entire circuit from lab 3/4 + GPS and level shifter)
+- [ ] A screenshot of your kiCAD schematic (entire circuit from lab 3/4 + GPS and level shifter). Make sure to swap out your Arduino for the updated symbol from our symbols libary.
 
 **TECH COMM NOTES:**
 - [ ] Print your MATLAB or Python figures to png or pdf, do not use screencaps.

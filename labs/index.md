@@ -37,13 +37,15 @@ Saving Arduino sensor data to a microSD card so that we can use it later, and po
 - [Link to lab 3 - Group A](/labs/lab-3GroupA)
 - [Link to lab 3 - Group B](/labs/lab-3GroupB)
 
-<!--
+
 ## Lab 4: Power and Calibrations
 
 Creating a voltage regulating circuit to handle the power from the battery, and calibrating our complete circuit with known values.
 
 [Link to lab 4](/labs/lab-4)
 
+
+<!--
 ## Lab 5: Adding GPS
 
 Adding a digital GPS component to our Arduino breadboard circuit.
@@ -72,3 +74,4 @@ Moving away from the breadboards and creating a custom PCB (Printed Circuit Boar
 [Powerboard assembly guide](/project/power-board)
 
 -->
+

@@ -7,8 +7,10 @@ latex: true
 
 Powering the Arduino, measuring battery voltage, and adding the MicroSD Card Adapter Module.
 
-<div class="primer-spec-callout danger" markdown="1">
-Oftentimes we will refer to "Common Practice", meaning the circuit will work if you don't follow this convention, but it may be harder to understand for an outsider, or in certain "edge cases" it might function differently than expected. A common practice we are requiring you to follow is color coding your jumper wires, as this makes debugging a complex circuit much easier. Additionally, please supply 5v to one red power rail on the breadboard, 3.3v to the other red rail, and GND the remaining two blue rails. Then you can connect any sensors to those rails without tracing wires over and over back to the Arduino pins.
+<div class="primer-spec-callout warning" markdown="1">
+Starting in this lab, you will be graded on your use of color coding when wiring breadboard circuits. Oftentimes we will refer to "Common Practice", meaning the circuit will work if you don't follow this convention, but it may be harder to understand for an outsider, or in certain "edge cases" it might function differently than expected. 
+A common practice we are requiring you to follow is color coding your jumper wires, as this makes debugging a complex circuit much easier.
+Please take careful note of the guidelines listed below!
 
 - **Red (or orange):** Power lines (5v, 3.3v, etc.)
 - **Black:** Ground
@@ -16,6 +18,8 @@ Oftentimes we will refer to "Common Practice", meaning the circuit will work if 
 - **Yellow:** Digital (Pins labeled with a D, most likely used to control things or with more complicated sensors)
 - **Left Red Rail:** 5v
 - **Right Red Rail:** 3.3v
+
+**Use of vertical breadboard rails:** Utilize the breadboard rails (blue and red) to run power and ground lines for easy access across the entire breadboard. Please supply 5v to one red power rail on the breadboard, 3.3v to the other red rail, and GND the remaining two blue rails. Then you can connect any sensors to those rails without tracing wires over and over back to the Arduino pins.
 </div>
 
 ## Contents 
@@ -87,14 +91,16 @@ The SD logger connects to the Arduino using the same pins as the BME680. This is
 
 Wire the SD logger by following the below table.
 
-| microSD Logger Pin | Arduino Nano Every Pin  |
-| ---------- | -------- |
-| VCC | 5 volt rail |
-| GND (Ground) | Ground rail |
-| CS (Chip Select) | Any digital pin, other than the digital pin used for the BME680 |
-| MOSI (Master Out, Slave In) | D11 |
-| MISO (Master In, Slave Out) | D12 |
-| SCK (Serial Clock) | D13 |
+| MicroSD module pin | Arduino pin |
+| :----------------: | :---------: |
+| CD | NC (Not connected) |
+| CS | Any digital pin, other than the digital pin used for the BME680 |
+| DI | 11 |
+| DO | 12 |
+| CLK | 13 |
+| GND | GND |
+| 3v | NC |
+| 5v | 5v |
 
 <div class="primer-spec-callout danger" markdown="1">
 Remember that while you can connect the CS pin on both the SD logger and the BME680 to any digital pin, they should **NOT** connect to the same pin. 
@@ -112,4 +118,4 @@ Once everything is wired up and power is disconnected from the Arduino, put your
 When Group B is ready to move on, take both of your breadboards and move all the jumpers running from their Arduino into the same pins on your Arduino, so that everything is wired into one microcontroller (you need not physically move the components, but rather just their jumpers, leaving two breadboards side by side. They can lock together!). Connecting these breadboards is best done by moving ONLY the analog/digital jumpers from Group B's Arduino to Group A's Arduino, and then connecting a jumper from the 5V rail of Group A to the 5V rail of Group B (do this for the 3.3V rail and the GND rails as well). Note that the numbering of the analog pins does NOT matter, but the digital pins MUST go into the same numbered ordered as before. As one last final check, Group B's original Arduino should have nothing plugged into it, so you can remove any jumpers remaining connecting it to power or GND. Once this is done, follow the link below to jump back into the normal lab manual together.
 </div>
 
-- [Groups A & B Lab Manual - Finishing Steps](/labs/lab-3#6-adding-the-microsd-card-adapter-module)
+- [Groups A & B Lab Manual - Finishing Steps](/labs/lab-3#7-adding-the-microsd-card-adapter-module)

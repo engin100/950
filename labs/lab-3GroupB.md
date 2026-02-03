@@ -7,8 +7,10 @@ latex: true
 
 Adding the BME680 4-in-1 sensor, temperature sensor, and accelerometer.
 
-<div class="primer-spec-callout danger" markdown="1">
-Oftentimes we will refer to "Common Practice", meaning the circuit will work if you don't follow this convention, but it may be harder to understand for an outsider, or in certain "edge cases" it might function differently than expected. A common practice we are requiring you to follow is color coding your jumper wires, as this makes debugging a complex circuit much easier. Additionally, please supply 5v to one red power rail on the breadboard, 3.3v to the other red rail, and GND the remaining two blue rails. Then you can connect any sensors to those rails without tracing wires over and over back to the Arduino pins.
+<div class="primer-spec-callout warning" markdown="1">
+Starting in this lab, you will be graded on your use of color coding when wiring breadboard circuits. Oftentimes we will refer to "Common Practice", meaning the circuit will work if you don't follow this convention, but it may be harder to understand for an outsider, or in certain "edge cases" it might function differently than expected. 
+A common practice we are requiring you to follow is color coding your jumper wires, as this makes debugging a complex circuit much easier.
+Please take careful note of the guidelines listed below!
 
 - **Red (or orange):** Power lines (5v, 3.3v, etc.)
 - **Black:** Ground
@@ -16,6 +18,8 @@ Oftentimes we will refer to "Common Practice", meaning the circuit will work if 
 - **Yellow:** Digital (Pins labeled with a D, most likely used to control things or with more complicated sensors)
 - **Left Red Rail:** 5v
 - **Right Red Rail:** 3.3v
+
+**Use of vertical breadboard rails:** Utilize the breadboard rails (blue and red) to run power and ground lines for easy access across the entire breadboard. Please supply 5v to one red power rail on the breadboard, 3.3v to the other red rail, and GND the remaining two blue rails. Then you can connect any sensors to those rails without tracing wires over and over back to the Arduino pins.
 </div>
 
 ## Contents 
@@ -77,7 +81,7 @@ Here is the wiring diagram again for your reference:
 Go to `File → Examples → Basics → AnalogReadSerial` and change the `analogRead()` function called in `loop()` to be the pin you plugged your TMP36 into. You know on the Arduino Nano this value will be between 0-1023, and that your max voltage, as reported by the Arduino, is 5V. Convert your raw value to the voltage outputted by the TMP36 by dividing it by 1023 and multiplying it by 5V. This is the voltage your Arduino recorded.
 
 <div class="primer-spec-callout info" markdown="1">
-Note that the values displayed in the serial monitor are rounded, and don't always show us as accurate of voltages as we would like. This is because the value is stored as an "int", or integer. To obtain decimal places, change this to a float, and when applying any calculations (such as converting from raw values to voltages) put .0 at the end to let the code know you are trying to obtain decimal values. Ex. "float voltage = rawValue * (10.0 / 1023.0);"
+Note that the values displayed in the serial monitor are rounded, and don't always show us as accurate of voltages as we would like. This is because the value is stored as an "int", or integer. To obtain decimal places, change this to a float, and when applying any calculations (such as converting from raw values to voltages) put .0 at the end to let the code know you are trying to obtain decimal values. Ex. "float voltage = rawValue * (5.0 / 1023.0);"
 </div>
 
 Once you have your TMP36 connected, it's time to make a calibration curve. You can do this in the same manner as in the last lab using the cold chamber or going outside. Enter these calibration curves into your Arduino code by modifying the temperature variables with a slope-intercept equation, and verify that the serial monitor is producing realistic temperature values. Save these calibration curves (slope and intercept values) somewhere for later use! **It may be less annoying to calibrate all of the sensors at the end once you have all the sensors connected but before you have the data logger plugged in. This is up to you! In whatever case, make sure to clearly record your slope and intercept values from the curves.**
@@ -141,4 +145,4 @@ Now update the code to print the new calibrated values in the same CSV format as
 When Group A is ready to move on, take both of your breadboards and move all the jumpers running from your Arduino into the same pins on their Arduino, so that everything is wired into one microcontroller (you need not physically move the components, but rather just their jumpers, leaving two breadboards side by side. They can lock together!). Connecting these breadboards is best done by moving ONLY the analog/digital jumpers from Group B's Arduino to Group A's Arduino, and then connecting a jumper from the 5V rail of Group A to the 5V rail of Group B (do this for the 3.3V rail and the GND rails as well). Note that the numbering of the analog pins does NOT matter, but the digital pins MUST go into the same numbered ordered as before. As one last final check, Group B's original Arduino should have nothing plugged into it, so you can remove any jumpers remaining connecting it to power or GND. Once this is done, follow the link below to jump back into the normal lab manual together.
 </div>
 
-- [Groups A & B Lab Manual - Finishing Steps](/labs/lab-3#6-adding-the-microsd-card-adapter-module)
+- [Groups A & B Lab Manual - Finishing Steps](/labs/lab-3#7-adding-the-microsd-card-adapter-module)

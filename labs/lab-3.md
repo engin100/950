@@ -5,6 +5,21 @@ latex: true
 
 # Lab 3: Creating a Standalone Arduino and Adding Sensors
 
+<div class="primer-spec-callout warning" markdown="1">
+Starting in this lab, you will be graded on your use of color coding when wiring breadboard circuits. Oftentimes we will refer to "Common Practice", meaning the circuit will work if you don't follow this convention, but it may be harder to understand for an outsider, or in certain "edge cases" it might function differently than expected. 
+A common practice we are requiring you to follow is color coding your jumper wires, as this makes debugging a complex circuit much easier.
+Please take careful note of the guidelines listed below!
+
+- **Red (or orange):** Power lines (5v, 3.3v, etc.)
+- **Black:** Ground
+- **Blue:** Analog (Pins labeled with an A, and most likely used with analogRead or sensor data)
+- **Yellow:** Digital (Pins labeled with a D, most likely used to control things or with more complicated sensors)
+- **Left Red Rail:** 5v
+- **Right Red Rail:** 3.3v
+
+**Use of vertical breadboard rails:** Utilize the breadboard rails (blue and red) to run power and ground lines for easy access across the entire breadboard. Please supply 5v to one red power rail on the breadboard, 3.3v to the other red rail, and GND the remaining two blue rails. Then you can connect any sensors to those rails without tracing wires over and over back to the Arduino pins.
+</div>
+
 <div class="primer-spec-callout danger" markdown="1">
 This is the first lab completed as a team! As such, the amount of work needed to complete it is slightly higher than previous labs. The completion of this lab will be made MUCH easier if you **carefully read** through this manual and complete it in steps. If you move too fast, you may miss a step and then be more confused!
 </div>
@@ -77,7 +92,7 @@ To start, we want to power our Arduino with the 9V battery. Plug your Arduino in
 Notice that one wire coming out of the battery is red, and one is black. Common practice says that red will be positive, in this case +9V, and the black will be what we connect to our Arduino's GND.
 
 <div class="primer-spec-callout danger" markdown="1">
-Oftentimes we will refer to "Common Practice", meaning the circuit will work if you don't follow this convention, but it may be harder to understand for an outsider, or in certain "edge cases" it might function differently than expected. A common practice we are requiring you to follow is color coding your jumper wires, as this makes debugging a complex circuit much easier. Additionally, please supply 5v to one red power rail on the breadboard, 3.3v to the other red rail, and GND the remaining two blue rails. Then you can connect any sensors to those rails without tracing wires over and over back to the Arduino pins.
+Reminder to color code your cables accordingly!
 
 - **Red (or orange):** Power lines (5v, 3.3v, etc.)
 - **Black:** Ground
@@ -85,6 +100,8 @@ Oftentimes we will refer to "Common Practice", meaning the circuit will work if 
 - **Yellow:** Digital (Pins labeled with a D, most likely used to control things or with more complicated sensors)
 - **Left Red Rail:** 5v
 - **Right Red Rail:** 3.3v
+
+**Use of vertical breadboard rails:** Utilize the breadboard rails (blue and red) to run power and ground lines for easy access across the entire breadboard. Please supply 5v to one red power rail on the breadboard, 3.3v to the other red rail, and GND the remaining two blue rails. Then you can connect any sensors to those rails without tracing wires over and over back to the Arduino pins.
 </div>
 
 Take these wires and plug them into your Arduino via your breadboard. Red should go to the Arduino's Vin, and black should go to any GND pin.
@@ -161,6 +178,10 @@ Serial.print("I am in a new line because of println");
 //I am in a new line because of println|
 ```
 
+<div class="primer-spec-callout info" markdown="1">
+Feel free to look back at lab 2 if you do not remember how to program the TMP36!
+</div>
+
 Here is the wiring diagram again for your reference:
 
 [![TMP36 Pinout](https://cdn-learn.adafruit.com/assets/assets/000/000/471/large1024/temperature_tmp36pinout.gif?1447975787)](https://learn.adafruit.com/tmp36-temperature-sensor/overview)
@@ -213,14 +234,16 @@ The SD logger connects to the Arduino using the same pins as the BME680. This is
 
 Wire the SD logger by following the below table.
 
-| microSD Logger Pin | Arduino Nano Every Pin  |
-| ---------- | -------- |
-| VCC | 5 volt rail |
-| GND (Ground) | Ground rail |
-| CS (Chip Select) | Any digital pin, other than the digital pin used for the BME680 |
-| MOSI (Master Out, Slave In) | D11 |
-| MISO (Master In, Slave Out) | D12 |
-| SCK (Serial Clock) | D13 |
+| MicroSD module pin | Arduino pin |
+| :----------------: | :---------: |
+| CD | NC (Not connected) |
+| CS | Any digital pin, other than the digital pin used for the BME680 |
+| DI | 11 |
+| DO | 12 |
+| CLK | 13 |
+| GND | GND |
+| 3v | NC |
+| 5v | 5v |
 
 <div class="primer-spec-callout danger" markdown="1">
 Remember that while you can connect the CS pin on both the SD logger and the BME680 to any digital pin, they should **NOT** connect to the same pin. 
@@ -292,8 +315,8 @@ On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 - [ ] A picture of your complete circuit with proper color conventions.
 - [ ] A screenshot of your datalog.csv file (screenshot of the file opened) once all sensors are printing values.
 - [ ] Exported images of the finished plots from MATLAB (with labels and calibrations!).
-- [ ] Screenshot of a schematic created in Altium of your entire completed circuit.
-  - Link to the required Altium libraries here: [https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD?usp=drive_link](https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD?usp=drive_link)
+- [ ] Screenshot of a schematic created in KiCAD of your entire completed circuit.
+  - Link to the required KiCAD libraries here: [link](https://drive.google.com/drive/folders/1rgl_aX9MQJvx8G1FlQenvKY04iy5qNv3?usp=share_link)
 
 To put said content into a PDF, it is suggested you create a new Google Doc ([docs.new](https://docs.new)) and paste your images and write any text in the document. Export/Download this document as a PDF and upload it. **DO NOT SUBMIT A GOOGLE DOC FILE OR SPREADSHEET FILES.**
 
