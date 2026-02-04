@@ -70,13 +70,21 @@ Make the circuit below on an (initially) empty breadboard. The power connection 
 
 ![Power Circuit](/media/power-circuit.jpg)
 
+<div class="primer-spec-callout info" markdown="1">
 NOTE 1: We have a variety of through-hole LDOs.  They may not match exactly what is specified in the diagram above.  **Google search for the LDOs that you have and verify their voltages and pin out configurations.  It is up to you to get these right!**
+</div>
 
+<div class="primer-spec-callout info" markdown="1">
 NOTE 2: **The longer lead of the capacitor is the positive end.** This means you should connect the longer lead to the side with a non-zero (non-ground) voltage, and the shorter lead to the ground line.
+</div>
 
+<div class="primer-spec-callout info" markdown="1">
 NOTE 3: Your system and your battery eventually need to share a common ground for you to get correct voltage measurements. **Electrically connect all GND pins together to the battery’s negative terminal.**
+</div>
 
+<div class="primer-spec-callout info" markdown="1">
 NOTE 4: **We are now going to disconnect power whenever we rewire components on our breadboard!**
+</div>
 
 Use a multimeter to measure the actual outputs of the 5V and 3.3V LDO lines. If the 5V line is not exactly 5V, it can cause errors on the conversions of the sensor data from voltage into actual ”geophysical” units (C, %, g, etc.) You may want to use the reading from the 5V LDO in your calibration calculations.
 
