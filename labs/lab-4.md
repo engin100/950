@@ -135,7 +135,7 @@ Once you have all of your sensors working and saving data to the SD card on one 
 
 **Take some pictures of your (nearly) complete system board!**
 
-Verify that your board runs and records data properly (including the battery voltage, but doesn't have to include the 5V or 3.3V lines).
+Verify that your board runs and records data properly (including the battery voltage, 5v line, and all of your sensor data).
 
 Put your completed board into the cold chamber for at least 5 minutes, recording data the entire time.  Make plots of the data using Matlab or some other software.
 
