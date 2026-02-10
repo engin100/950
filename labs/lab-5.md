@@ -91,6 +91,7 @@ Keep in mind which side of the Level-Shifter is the **low side** and which is th
     </div>
 
 <img width="937" height="627" alt="image" src="https://github.com/user-attachments/assets/b419b122-3ebb-49b2-9224-fbf57758aaf2" />
+
 This is a picture of the upward facing side of the antenna
 
 3. The problem with the above code is that it is 100% dedicated to the GPS. What we need to do is have the code so that it reads in the GPS data, stores it, and then outputs it. Then we can blend this code with the other sensor data, allowing us to read both the GPS and sensor data and outputting it all. This is a bit complicated, though. Download the read gps string.ino code that reads in the gps data into a c-character array (with a length of say 500 characters - `char gpsString[500];`), and then displays this array to the serial port using the print function. How to make this work:
