@@ -131,11 +131,11 @@ Once you have verified that everything is hooked up as it should be, add a 9V, b
 NOTE: We are now going to disconnect power whenever we rewire components on our breadboard!
 </div>
 
-Once you have all of your sensors working and saving data to the SD card on one breadboard, and your power system working on another breadboard, consolidate the breadboards.  You should then have battery supplied 5V and 3.3V rails (with grounds), a single Arduino, an SD Card writer, and a bunch of sensors.  You can have all of these systems across multiple breadboards.
+Once you have all of your sensors working and saving data to the SD card on one breadboard, and your power system working on another breadboard, consolidate the breadboards.  You should then have battery supplied 5V and 3.3V rails (with grounds), a single Arduino, an SD Card writer, and a bunch of sensors. Make sure all of your grounds are grounded to Arduino Ground. You can have all of these systems across multiple breadboards. For simplicity sake, we recommend 2 or less breadboards.
 
 **Take some pictures of your (nearly) complete system board!**
 
-Verify that your board runs and records data properly (including the battery voltage, but doesn't have to include the 5V or 3.3V lines).
+Verify that your board runs and records data properly (including the battery voltage, 5v line, and all of your sensor data).
 
 Put your completed board into the cold chamber for at least 5 minutes, recording data the entire time.  Make plots of the data using Matlab or some other software.
 
