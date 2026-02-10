@@ -19,37 +19,28 @@
         };
         var map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions);
  
-        var pinColorR = "FF6666";
-        var pinImageR = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColorR,
-           new google.maps.Size(21, 34),
-           new google.maps.Point(0,0),
-           new google.maps.Point(10, 34));
-
-        var pinColorG = "66FF66";
-        var pinImageG = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColorG,
+        var pinImage = new google.maps.MarkerImage("https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
            new google.maps.Size(21, 34),
            new google.maps.Point(0,0),
            new google.maps.Point(10, 34));
   
         var marker = new google.maps.Marker({
            position: new google.maps.LatLng(42.09,-85.3),
-           icon: pinImageR,
+           icon: pinImage,
            map: map
         });
 
         var marker = new google.maps.Marker({
            position: new google.maps.LatLng(42.19,-85.3),
-           icon: pinImageR,
            map: map
         });
         var marker = new google.maps.Marker({
            position: new google.maps.LatLng(42.29,-85.3),
-           icon: pinImageG,
+           icon: pinImage,
            map: map
         });
         var marker = new google.maps.Marker({
            position: new google.maps.LatLng(42.39,-85.3),
-           icon: pinImageG,
            map: map
         });
 
