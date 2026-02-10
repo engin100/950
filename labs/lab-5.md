@@ -85,6 +85,9 @@ Keep in mind which side of the Level-Shifter is the **low side** and which is th
     - Once it reads the character, it outputs each character to the Serial Monitor. If the `.available()` function returns a 0, that means that no new characters are in the buffer to read, so you shouldn’t read them or output anything. The baud rate should be 9600 on all ports. Your output might look garbled, like a series of commas with nothing in between them, but that’s simply because your GPS can’t collect data indoors. We call this condition ”not fixed.”
 
     - Take your board outside and see if you can get a GPS fix. This may take up to 10 minutes of waiting outside. Make sure you have the antenna facing upwards with a clear view. Try to stand far away from any buildings with a clear path to the southern sky to avoid multipath errors. Once you have a fix, your GPS module’s red light will start flashing in a different frequency and you should see more dense output on your Serial monitor. Once you get a fix, write down the latitude and longitude and come back inside. Put this latitude and longtitude into a map tool, and verify that it is pinging you at the CSRB before continuing.
+  <div class="primer-spec-callout info" markdown="1">
+    Take a screenshot of this google maps or other tool verifying you are at the CSRB for your post-lab submission
+    </div>
 
     - <img width="949" height="653" alt="image" src="https://github.com/user-attachments/assets/0bf99551-0a07-4c2e-8e69-c6f58a2315cc" /> This is a picture of the upward facing side of the antenna
 
@@ -118,7 +121,11 @@ Set a delay in your code for something like 5 seconds, so not too much data is o
 
 Go back outside with your board again and collect some gps data. Walk around the perimeter of the CSRB and the parking lot, recording the GPS data in your serial monitor. When you are done, copy and paste your data into a log file. **Save the code and the data, and submit it with your PostLab.**
 
-Write a matlab (or python or whatever) code that will read your GPS data. Grab the lines that start with $GPGGA. Parse these lines so that you can get the time, latitude, and longitude. (If it is too difficult to figure out how to do this you can do this later...), simply copy and paste the $GPGGA lines into a new file so that all of the lines in the file have $GPGGA lines. You should then be able to read this into Matlab (or python) with a CSV reader.
+Write a matlab (or python or whatever) code that will read your GPS data. Grab the lines that start with $GPGGA. Parse these lines so that you can get the time, latitude, and longitude. (If it is too difficult to figure out how to do this you can do this later...), simply copy and paste the $GPGGA lines into a new file so that all of the lines in the file have $GPGGA lines. You should then be able to read this into Matlab (or python) with a CSV reader. Then, you can use a variety of different matlab functions to plot those coordinates on a map.
+
+<div class="primer-spec-callout info" markdown="1">
+    This plot is also needed for your post-lab submission.
+    </div>
 
 <div class="primer-spec-callout warning" markdown="1">
 Note: latitude and longitude are not exactly the right units. Technically, they are given as DDMM.MMMMM (for latitude) and DDDMM.MMMMM (for longitude), where D is degrees and M is minutes.  See question 4 below.
@@ -154,16 +161,16 @@ On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 
 - [ ] All Arduino programs that were created for this lab (copy and paste into the PDF)
 - [ ] All (or if you took a lot, then a subset of) GPS data (copy and paste into the PDF)
-- [ ] Plots of the GPS location information
+- [ ] A plot of your path as you walked around the CSRB building
 - [ ] Google Maps screenshot of the GPS location information
 - [ ] Answers to the post lab questions (as part of the .pdf file)
-- [ ] A screenshot of your kiCAD schematic (entire circuit from lab 3/4 + GPS and level shifter). Make sure to swap out your Arduino for the updated symbol from our symbols libary.
+- [ ] A screenshot of your kiCAD schematic (entire circuit from lab 3/4 + GPS and level shifter). Make sure to swap out your Arduino and BME for the updated symbol from our symbols libary if you haven't already.
 
 **TECH COMM NOTES:**
-- [ ] Print your MATLAB or Python figures to png or pdf, do not use screencaps.
+- [ ] Print your MATLAB or Python figures to png or pdf, do not use screencaps/screenshots.
 - [ ] Include all necessary titles and axis labels.
 
-To put said content into a PDF, it is suggested you create a new Google Doc ([docs.new](https://docs.new)) and paste your images and write any text in the document. Export/Download this document as a PDF and upload it. **DO NOT SUBMIT A GOOGLE DOC FILE OR SPREADSHEET FILES.**
+To put said content into a PDF, it is suggested you create a new Google Doc ([docs.new](https://docs.new)) and paste your contents and write any text in the document. Export/Download this document as a PDF and upload it. **DO NOT SUBMIT A GOOGLE DOC FILE OR SPREADSHEET FILES.**
 
 <div class="primer-spec-callout danger" markdown="1">
 Submitting anything other than a single PDF may result in your work not being graded or your scores being heavily delayed.
