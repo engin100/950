@@ -125,9 +125,9 @@ Go back outside with your board again and collect some gps data. Walk around the
 
 Write a matlab (or python or whatever) code that will read your GPS data. Grab the lines that start with $GPGGA. Parse these lines so that you can get the time, latitude, and longitude. (If it is too difficult to figure out how to do this you can do this later...), simply copy and paste the $GPGGA lines into a new file so that all of the lines in the file have $GPGGA lines. You should then be able to read this into Matlab (or python) with a CSV reader. Then, you can use a variety of different matlab functions to plot those coordinates on a map.
 
-<div class="primer-spec-callout info" markdown="1">
+  <div class="primer-spec-callout info" markdown="1">
     This plot is also needed for your post-lab submission.
-    </div>
+  </div>
 
 <div class="primer-spec-callout warning" markdown="1">
 Note: latitude and longitude are not exactly the right units. Technically, they are given as DDMM.MMMMM (for latitude) and DDDMM.MMMMM (for longitude), where D is degrees and M is minutes.  See question 4 below.
