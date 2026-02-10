@@ -86,7 +86,7 @@ Keep in mind which side of the Level-Shifter is the **low side** and which is th
 
     - Take your board outside and see if you can get a GPS fix. This may take up to 10 minutes of waiting outside. Make sure you have the antenna facing upwards with a clear view. Try to stand far away from any buildings with a clear path to the southern sky to avoid multipath errors. Once you have a fix, your GPS module’s red light will start flashing in a different frequency and you should see more dense output on your Serial monitor. Once you get a fix, write down the latitude and longitude and come back inside. Put this latitude and longtitude into a map tool, and verify that it is pinging you at the CSRB before continuing.
   
-  <div class="primer-spec-callout info" markdown="1">
+    <div class="primer-spec-callout info" markdown="1">
     Take a screenshot of this google maps or other tool verifying you are at the CSRB for your post-lab submission
     </div>
 
