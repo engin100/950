@@ -189,7 +189,8 @@ This lab will be worth 20 points total in your grade and is graded as follows:
 On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 
 - [ ] All (or if you took a lot, then a subset of) GPS data (copy and paste into the PDF)
-- [ ] A plot of your path as you walked around the CSRB building
+- [ ] A plot of your path as you walked around the CSRB building (this is your latitude vs longtitude plot)
+- [ ] Plot of latitude vs time and longitude vs time
 - [ ] Google Maps screenshot of the GPS location information
 - [ ] Answers to the post lab questions (as part of the .pdf file)
 - [ ] A screenshot of both the `$PMTK001,886,3` and `✅ Balloon mode command received`
