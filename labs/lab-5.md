@@ -162,6 +162,10 @@ Now that you have tested the GPS isolated from everything else, it's time to com
 
 Go outside and get a lock for your GPS. Once your GPS has a lock, wait for around a minute to let data print onto the SD card. Afterwards check that the SD card has both GPS and sensor data and if it does, congrats, you are done!
 
+<div class="primer-spec-callout info" markdown="1">
+Take a screenshot of both GPS and sensor data from your preferred spreadsheet software (not you serial monitor). You will submit this! 
+</div>
+
 ## Post Lab Questions
 
 1. What does the .available() function do?
@@ -189,7 +193,7 @@ On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 - [ ] Google Maps screenshot of the GPS location information
 - [ ] Answers to the post lab questions (as part of the .pdf file)
 - [ ] A screenshot of both the `$PMTK001,886,3` and `✅ Balloon mode command received`
-- [ ] A screenshot of your GPS and sensor data from the SD card 
+- [ ] A screenshot of your GPS and sensor data from your preferred spreadsheet software 
 - [ ] A screenshot of your kiCAD schematic (entire circuit from lab 3/4 + GPS and level shifter). Make sure to swap out your Arduino and BME for the updated symbol from our symbols libary if you haven't already.
 
 **TECH COMM NOTES:**
