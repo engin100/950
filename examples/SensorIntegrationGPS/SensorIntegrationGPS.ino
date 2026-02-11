@@ -1,36 +1,32 @@
 /*
-  Sensor Integration
+  Sensor Integration GPS
 
-  Written by: Benjamen Miller, University of Michigan
-  Included in UMich ENGR 100.950 "Electronics for Atmospheric and Space Measurements" Public Library
+  Written by: Benjamen Miller & Ismael Enriquez, University of Michigan
+  Included in UMICH ENGR 100.950 "Electronics for Atmospheric and Space Measurements" Public Library
 
   This code integrates the following components:
-  Digital BME680 Temperature, Pressure, Humidity, VOCs sensor (Software SPI)
+  Digital BME680 Temperature, Pressure, Humidity, VOCs sensor (Hardware SPI)
   Digital MicroSD Card Logger (Hardware SPI)
-  Digital Adafruit Ultimate GPS Breakout
   Analog ADXL335 Accelerometer
   Analog TMP36 Temperature Sensor
+  Digital Ultimate GPS Breakout
 
-  Code includes commands for Software SPI, Hardware SPI, and analog communications.
+  Code includes commands for Hardware SPI and analog communications.
   Take note of the values in the section "BME680 Configuration" for data filtering and oversampling
+
+  These are the pins your MicroSD Card Adapter and BME680 will be connected to.
+  These pins are specific and should not change. You do not need to worry
+  about why these are the pins, just connect them as listed.
+  MOSI - pin 11
+  MISO - pin 12
+  CLK  - pin 13
 */
 
 #include <SPI.h>
 #include <SD.h>
-#include <Adafruit_BME680.h>
+#include <Adafruit_Sensor.h>
+#include "Adafruit_BME680.h"
 #include <SoftwareSerial.h>
-
-// --- Software SPI pins for BME680 ---
-#define BME_SCK   6
-#define BME_MISO  7
-#define BME_MOSI  8
-#define BME_CS    9
-
-// --- Hardware SPI pin for SD Card ---
-#define SD_CS     10
-
-// BME680 object constructor
-Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO, BME_SCK);
 SoftwareSerial gps(2, 3); // RX, TX
 
 bool isVerbose = true;
@@ -68,38 +64,83 @@ void read_gps() {
 
 }
 
-// ************************************************** NEEDS EDITING **************************************************
-const int vDivPin           = A?; // Voltage divider pin
-const int tmpPin            = A?; // TMP36 pin
-const int xAccelPin         = A?; // x-axis accelerometer pin
-const int yAccelPin         = A?; // y-axis accelerometer pin
-const int zAccelPin         = A?; // z-axis accelerometer pin
+//checks if gps returned confirmation string from balloon mode
+bool waitForConfirmation886(unsigned long timeout_ms) {
+  String line;
+  unsigned long t0 = millis();
 
-const float R1              = ???; // Ohms, R1 = sum of all resistances between Vin and Vout
-const float R2              = ???; // Ohms, R2 = sum of all resistances between Vout and GND
+  while (millis() - t0 < timeout_ms) {
+    while (gps.available()) {
+      char c = gps.read();
+      if (c == '\r') 
+        continue;
+
+      if (c == '\n') {
+        if (line.length() > 0) {
+          Serial.println(line);
+          if (line.startsWith("$PMTK001,886,3")) 
+            return true;
+        }
+        line = "";
+      } else {
+        if (line.length() < 120) 
+          line += c;
+        else 
+          line = "";
+      }
+    }
+  }
+  return false;
+}
+
+// ************************************************** NEEDS EDITING **************************************************
+// This is the CS pin that the SD Logger is connected to
+const int SDLoggerChipSelect = ??;
+
+// This is the CS pin that the BME680 is connected to
+const int BMEchipSelect = ??;
+
+// These are the pins your accelerometer lines are connected to
+const int xAccelPin = ??;
+const int yAccelPin = ??;
+const int zAccelPin = ??;
+
+// This is the pin your TMP36 is connected to 
+const int tmpPin = ??;
+
+// This is the pin your voltage divider is connected to
+const int vDivPin = ??;
+
+// Ohms, R1 = sum of all resistances between Vin and Vout
+const float R1 = ??;
+
+// Ohms, R2 = sum of all resistances between Vout and GND
+const float R2 = ??;
 
 // ***** Enable the following boolean to print raw voltages to the serial monitor for calibration of analog sensors *****
-bool calibration_setup      = ???; // True for calibration mode (slope = 1, intercept = 0), false for normal operation
+bool calibration_setup      = ??; // True for calibration mode (slope = 1, intercept = 0), false for normal operation
 
 // Note that you still need to fill in the slope and intercept values below to prevent an error from the question marks, this
 // just overrides those values for calibrating so you don't have to switch all of the pin declarations values back and forth.
 
-float tmpSlope              = ?; // Slope for TMP36 calibration curve
-float tmpIntercept          = ?; // Intercept for TMP36 calibration curve
+float tmpSlope              = ??; // Slope for TMP36 calibration curve
+float tmpIntercept          = ??; // Intercept for TMP36 calibration curve
 
-float xAccelSlope           = ?; // Slope for x-axis accelerometer calibration curve
-float xAccelIntercept       = ?; // Intercept for x-axis accelerometer calibration curve
-float yAccelSlope           = ?; // Slope for y-axis accelerometer calibration curve
-float yAccelIntercept       = ?; // Intercept for y-axis accelerometer calibration curve
-float zAccelSlope           = ?; // Slope for z-axis accelerometer calibration curve
-float zAccelIntercept       = ?; // Intercept for z-axis accelerometer calibration curve
+float xAccelSlope           = ??; // Slope for x-axis accelerometer calibration curve
+float xAccelIntercept       = ??; // Intercept for x-axis accelerometer calibration curve
+float yAccelSlope           = ??; // Slope for y-axis accelerometer calibration curve
+float yAccelIntercept       = ??; // Intercept for y-axis accelerometer calibration curve
+float zAccelSlope           = ??; // Slope for z-axis accelerometer calibration curve
+float zAccelIntercept       = ??; // Intercept for z-axis accelerometer calibration curve
 
-bool SerialPrint            = ???; // True to print, false for no serial monitor (defaults to true in calibration mode)
+bool SerialPrint            = ??; // True to print, false for no serial monitor (defaults to true in calibration mode)
 // ************************************************** END EDITING **************************************************
 
 // Filename placeholder
 char dataFileName[16];
 
+// BME680 object constructor
+Adafruit_BME680 bme(BMEchipSelect, &SPI);
 void setup() {
   Serial.begin(9600);
     if (calibration_setup) {
@@ -132,8 +173,8 @@ void setup() {
 
 
   // --- Initialize SD Card on hardware SPI ---
-  pinMode(SD_CS, OUTPUT);
-  if (!SD.begin(SD_CS)) {
+  pinMode(SDLoggerChipSelect, OUTPUT);
+  if (!SD.begin(SDLoggerChipSelect)) {
     if (SerialPrint) {
       Serial.println(F("SD initialization failed!"));
     }
@@ -199,6 +240,19 @@ void setup() {
   gps.listen();
   if (isVerbose) Serial.println("GPS is initialized!");  
 
+  // reduce noise to make sure gps hears command
+  gps.println("$PMTK314,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*28");
+
+  // send balloon mode command to gps
+  gps.print("$PMTK886,3*2B\r\n");
+  Serial.println("Sent command!");
+
+  // check to see if ballon mode was received and accepted
+  if (waitForConfirmation886(3000)) 
+    Serial.println("✅ Balloon mode command received");
+  else
+    Serial.println("⚠️ No command seen (check wiring/baud/command format/bad timing)");
+
   if (SerialPrint) {
     Serial.println(F("Setup complete."));
   }
@@ -243,7 +297,7 @@ void loop() {
   float zAccel       = (zAccelSlope * zAccelV) + zAccelIntercept;
 
   // Build the CSV line with a string
-  String dataString;
+  String dataString = "";
   dataString += String(millis());       
   dataString += ",";
   dataString += String(vDivVoltage);    
@@ -281,8 +335,7 @@ void loop() {
     Serial.println(dataString);
   }
 
-  auto elapsed = millis() - currentTime;
-  if (elapsed < 1000) {
-      delay(1000 - elapsed);
-  }
+  unsigned long elapsed = millis() - currentTime;
+  unsigned long delayTime = (1000 - (elapsed % 1000)) % 1000;
+  delay(delayTime);
 }

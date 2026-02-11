@@ -72,17 +72,35 @@ Keep in mind which side of the Level-Shifter is the **low side** and which is th
 **RX (Receive):** The pin that accepts incoming digital data into a device.
 </div>
 
-1. Connect the GPS to your Arduino, as described in the schematic above. You only need to connect to the GPS’s VIN (3.3V or 5V), GND, TX and RX pins. The GPS TX and RX need to go through the Level-Shifter, transfering from 3.3V TX on the GPS side to 5.0V RX on the Arduino side. Designate a port (D2 and D3) to take in data from the TX and RX pins from the GPS. 
+1. Connect the GPS to your Arduino, as described in the schematic above. You only need to connect to the GPS’s VIN (3.3V or 5V), GND, TX and RX pins. The GPS TX and RX need to go through the Level-Shifter, transferring from 3.3V TX on the GPS side to 5.0V RX on the Arduino side. Designate a port (D2 and D3) to take in data from the TX and RX pins from the GPS. 
 
     <div class="primer-spec-callout info" markdown="1">
     Remember that the TX pin on the GPS go to the RX pin (D2) on the Arduino and that the RX pin on the GPS go to the TX pin (D3) on the arduino. 
     </div>
 
-    We are going to send messages to the GPS because we want the GPS to enter **BALLOON MODE**.
+    We are going to need to send a message to the GPS because we want the GPS to enter **BALLOON MODE**. This is important because if we don't, after a certain altitude, the GPS will just shut off. See the below image to see the packet type that we will be sending to the GPS.
 
-2. Test your wiring by creating a new Arduino sketch. We have supplied a sample code called `read_gps_single_character.ino`. This code reads from your new Software- Serial port (D2) using the `.read()` function. If you aren’t familiar with the `.read()` function in the SoftwareSerial library, there’s a good reference for it [here](https://docs.arduino.cc/language-reference/en/functions/communication/serial/read/).
+    ![GPS Cutoff](/media/GPSModeExplanation.png)
+
+    <div class="primer-spec-callout info" markdown="1">
+    Note the return string `$PMTK001,886,3*36`. This is important because we expect to received this if the GPS was successfully put in balloon mode. 
+    </div>
+
+2. Test your wiring by creating a new Arduino sketch. We have supplied a sample code called `read_gps_single_character.ino`. This code reads from your new Software-Serial port (D2 and D3) using the `.read()` function. If you aren’t familiar with the `.read()` function in the SoftwareSerial library, there’s a good reference for it [here](https://docs.arduino.cc/language-reference/en/functions/communication/serial/read/).
 
     - Once it reads the character, it outputs each character to the Serial Monitor. If the `.available()` function returns a 0, that means that no new characters are in the buffer to read, so you shouldn’t read them or output anything. The baud rate should be 9600 on all ports. Your output might look garbled, like a series of commas with nothing in between them, but that’s simply because your GPS can’t collect data indoors. We call this condition ”not fixed.”
+
+    - We send the balloon mode packet `$PMTK001,886,3*36` to the arduino by simply printing it to the GPS. Then, the `waitForConfirmation886()` function checks to see if the GPS received. If the GPS has successfully received it and executed the command, you should see the return string `$PMTK001,886,3` followed by `✅ Balloon mode command received`.
+
+    <div class="primer-spec-callout warning" markdown="1">
+    Make sure to take a screenshot of both confirmation strings, `$PMTK001,886,3` and `✅ Balloon mode command received`, as you will be submitting this.
+
+    If the Serial Monitor is scrolling too quickly to capture a screenshot and you can’t scroll up because it keeps jumping back to the newest output, turn off Autoscroll. Click the two downward arrows in the top-right corner of the Serial Monitor pane (not the top-right of the entire Arduino IDE window). With Autoscroll disabled, you can scroll up to find both confirmation strings and then take your screenshot.
+    </div>
+
+    <div class="primer-spec-callout danger" markdown="1">
+    If the GPS doesn’t respond within 3000 ms, the sketch will print: `⚠️ No ACK seen (check wiring/baud/command format/bad timing)`. In that case, try resetting the Arduino to resend the command. This usually works because the GPS may have been busy (or the serial link was momentarily noisy) when the command was sent, causing the module to miss or ignore it.
+    </div>
 
     - Take your board outside and see if you can get a GPS fix. This may take up to 10 minutes of waiting outside. Make sure you have the antenna facing upwards with a clear view. Try to stand far away from any buildings with a clear path to the southern sky to avoid multipath errors. Once you have a fix, your GPS module’s red light will start flashing in a different frequency and you should see more dense output on your Serial monitor. Once you get a fix, write down the latitude and longitude and come back inside. Put this latitude and longtitude into a map tool, and verify that it is pinging you at the CSRB before continuing.
   
@@ -94,7 +112,7 @@ Keep in mind which side of the Level-Shifter is the **low side** and which is th
 
     This is a picture of the upward facing side of the antenna
 
-3. The problem with the above code is that it is 100% dedicated to the GPS. What we need to do is have the code so that it reads in the GPS data, stores it, and then outputs it. Then we can blend this code with the other sensor data, allowing us to read both the GPS and sensor data and outputting it all. This is a bit complicated, though. Download the read gps string.ino code that reads in the gps data into a c-character array (with a length of say 500 characters - `char gpsString[500];`), and then displays this array to the serial port using the print function. How to make this work:
+3. The problem with the above code is that it is 100% dedicated to the GPS. What we need to do is have the code so that it reads in the GPS data, stores it, and then outputs it. Then we can blend this code with the other sensor data, allowing us to read both the GPS and sensor data and outputting it all. This is a bit complicated, though. Open up the `read_gps string.ino` example which reads in the gps data into a c-character array (with a length of say 500 characters - `char gpsString[500];`), and then displays this array to the serial port using the print function. How to make this work:
 
     - The buffer between the gps and the Arduino is only 64 bytes long, while the gps string is often much longer than 64 bytes. What that means is that the buffer fills up, then gets overwritten, then empties out. So, if you start reading from the buffer at a random time, it may be halfway through the gps buffer. We don’t want that.
 
@@ -139,6 +157,11 @@ Take some of the latitude and longitude output from the GPS (at least 4 points) 
 
 **Submit these with your postlab.**
 
+## Complete Circuit
+Now that you have tested the GPS isolated from everything else, it's time to combine everything and make sure it works! Open up the `SensorIntegrationGPS.ino` example code, update all of the variables, and see your complete circuit work!
+
+Go outside and get a lock for your GPS. Once your GPS has a lock, wait for around a minute to let data print onto the SD card. Afterwards check that the SD card has both GPS and sensor data and if it does, congrats, you are done!
+
 ## Post Lab Questions
 
 1. What does the .available() function do?
@@ -161,11 +184,12 @@ This lab will be worth 20 points total in your grade and is graded as follows:
 
 On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 
-- [ ] All Arduino programs that were created for this lab (copy and paste into the PDF)
 - [ ] All (or if you took a lot, then a subset of) GPS data (copy and paste into the PDF)
 - [ ] A plot of your path as you walked around the CSRB building
 - [ ] Google Maps screenshot of the GPS location information
 - [ ] Answers to the post lab questions (as part of the .pdf file)
+- [ ] A screenshot of both the `$PMTK001,886,3` and `✅ Balloon mode command received`
+- [ ] A screenshot of your GPS and sensor data from the SD card 
 - [ ] A screenshot of your kiCAD schematic (entire circuit from lab 3/4 + GPS and level shifter). Make sure to swap out your Arduino and BME for the updated symbol from our symbols libary if you haven't already.
 
 **TECH COMM NOTES:**
