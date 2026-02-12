@@ -42,25 +42,23 @@ The preliminary design review should cover the following topics:
 
 4. Requirements flowdown chart
 
-5. Your extra sensor and its characteristics
+5. System-level block diagram - Very much like your schematic, but simplified and with connections (5V, 3.3V, analog, digital)
 
-6. System-level block diagram - Very much like your schematic, but simplified and with connections (5V, 3.3V, analog, digital)
+6. PCB design. This should have some sort of indication of the size of the PCB. Pull from Altium; photo of actual PCB.
 
-7. PCB design. This should have some sort of indication of the size of the PCB. Pull from Altium; photo of actual PCB.
+7. Preliminary structure design with some list of materials that you will need.
 
-8. Preliminary structure design with some list of materials that you will need.
+8. How your design was shaped by the requirements.
 
-9. How your design was shaped by the requirements.
+9. A data budget - spreadsheet!
 
-10. A data budget - spreadsheet!
+10. A power budget - spreadsheet!
 
-11. A power budget - spreadsheet!
+11. A mass budget - spreadsheet!
 
-12. A mass budget - spreadsheet!
+12. Testing strategies that you have come up with.
 
-13. Testing strategies that you have come up with.
-
-14. Any test results that you have at this point.
+13. Any test results that you have at this point.
 
 
 ## Go / No-Go Tests
