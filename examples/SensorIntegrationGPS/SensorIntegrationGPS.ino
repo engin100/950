@@ -9,7 +9,7 @@
   Digital MicroSD Card Logger (Hardware SPI)
   Analog ADXL335 Accelerometer
   Analog TMP36 Temperature Sensor
-  Digital Ultimate GPS Breakout
+  Digital Adafruit Ultimate GPS Breakout
 
   Code includes commands for Hardware SPI and analog communications.
   Take note of the values in the section "BME680 Configuration" for data filtering and oversampling
@@ -62,35 +62,6 @@ void read_gps() {
     delay(1);
   }
 
-}
-
-//checks if gps returned confirmation string from balloon mode
-bool waitForConfirmation886(unsigned long timeout_ms) {
-  String line;
-  unsigned long t0 = millis();
-
-  while (millis() - t0 < timeout_ms) {
-    while (gps.available()) {
-      char c = gps.read();
-      if (c == '\r') 
-        continue;
-
-      if (c == '\n') {
-        if (line.length() > 0) {
-          Serial.println(line);
-          if (line.startsWith("$PMTK001,886,3")) 
-            return true;
-        }
-        line = "";
-      } else {
-        if (line.length() < 120) 
-          line += c;
-        else 
-          line = "";
-      }
-    }
-  }
-  return false;
 }
 
 // ************************************************** NEEDS EDITING **************************************************
@@ -239,19 +210,6 @@ void setup() {
   // set the gps port to listen:
   gps.listen();
   if (isVerbose) Serial.println("GPS is initialized!");  
-
-  // reduce noise to make sure gps hears command
-  gps.println("$PMTK314,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*28");
-
-  // send balloon mode command to gps
-  gps.print("$PMTK886,3*2B\r\n");
-  Serial.println("Sent command!");
-
-  // check to see if ballon mode was received and accepted
-  if (waitForConfirmation886(3000)) 
-    Serial.println("✅ Balloon mode command received");
-  else
-    Serial.println("⚠️ No command seen (check wiring/baud/command format/bad timing)");
 
   if (SerialPrint) {
     Serial.println(F("Setup complete."));
