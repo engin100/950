@@ -27,6 +27,7 @@ latex: true
 - [ ] Programming Cable (and adapters if necessary)
 - [ ] Computer with the Arduino IDE [installed](/tutorials#arduino-ide-install) and [setup](/tutorials#arduino-library)
 - [ ] ENGR100-950 [libary](https://drive.google.com/drive/folders/1rgl_aX9MQJvx8G1FlQenvKY04iy5qNv3?usp=share_link)
+- [ ] 1.3.5 Arduino Library Scripts (if 1.3.5 isn't currently showing in Arduino IDE) [Examples](https://drive.google.com/drive/folders/1R5OuXANC2wznDLSxXvS9l9fOxD-r-WHX?usp=sharing)
 
 ## Introduction
 
