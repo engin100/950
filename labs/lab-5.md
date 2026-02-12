@@ -46,7 +46,7 @@ IMPORTANT: We recommend saving intermediate Arduino codes, so that if something 
 IMPORTANT: When we are dealing with serial communication and loading the Arduino with a lot of memory, which we are doing today, our Arduinos can sometimes ”freakout”, and become stuck. The way that we often solve this problem is to unplug the Arduino, and load the ”blink.ino” program into the Arduino IDE. We then plug in the Arduino and quickly try to load the blink code (make sure the right port is selected, since when you unplug and plug in the Arduino, your computer can change the port). This often stops the Arduino from misbehaving, and we can try to upload the other code.
 </div>
 
-![GPS Schematic](/media/GPS_Schematic_Lab5.jpg)
+![GPS Schematic](/media/GPS-layout.png)
 
 Schematic for the connections between the Arduino and GPS shown above.
 
