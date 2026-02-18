@@ -46,8 +46,8 @@ For the temperature trials, we will use the cold chamber to simulate the tempera
 Using 3 different insulations at your disposal (possibilities include hard foam, cotton balls, fluff, etc.), complete the following steps three times, once for each material.
 
 - Insulate your box, ensuring the insulation covers all sides of the rocket board.
-- Attach the battery to your rocket board and, using your retrofitted programs, record TMP36 data on your SD for 4 minutes.
-- Plot the data and make sure the TMP36 reaches a constant temperature. If it doesn't, repeat the trial for a longer period of time.
+- Attach the battery to your rocket board and, using your retrofitted programs, record BME Temp data on your SD for 4 minutes.
+- Plot the data and make sure the BME Temp reaches a constant temperature. If it doesn't, repeat the trial for a longer period of time.
 
 <div class="primer-spec-callout info" markdown="1">
 After you've completed 3 trials, you will plot all three data sets on the same graph, making sure to label each line appropriately (legends!). Add the plot to your post-lab questions doc at the end.
@@ -72,7 +72,7 @@ Repeat these steps once for each material:
 On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 
 - [ ] Using your gathered data, what would you use to insulate/protect your payload (a combination of materials is allowed if their combination is functional and realistic)? Explain why!
-- [ ] All three TMP36 trials for the three insulations plotted on 1 plot. Include labels for each axis, and label the three lines as each trial respectively. Make sure to include which trial is for which insulation in the caption/legend.
+- [ ] All three BME temp trials for the three insulations plotted on 1 plot. Include labels for each axis, and label the three lines as each trial respectively. Make sure to include which trial is for which insulation in the caption/legend.
 - [ ] 3 accelerometer plots, one for each trial. Make sure to include appropriate labels for each plot.
 - [ ] A plot showing the impact on mass by each insulating material.
 
