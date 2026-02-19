@@ -66,8 +66,11 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
      - You will now make the shape of your PCB
 - Go to the Edge Cuts layer
   <img width="204" height="332" alt="image" src="https://github.com/user-attachments/assets/21c94458-92db-413b-a7d4-91f6c69e9c14" />
-- Then, use these tools here to draw any shape you want your PCB to be in <img width="41" height="97" alt="image" src="https://github.com/user-attachments/assets/13b182f6-dd76-4609-982a-0c4d63587185" />
-       - Now, if you go to the 3D viewer, you can visualize the shape of your PCB
+  
+- Then, use these tools here to draw any shape you want your PCB to be in
+  <img width="41" height="97" alt="image" src="https://github.com/user-attachments/assets/13b182f6-dd76-4609-982a-0c4d63587185" />
+  
+  - Now, if you go to the 3D viewer, you can visualize the shape of your PCB
 
 
 ### Traces
@@ -76,6 +79,7 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
 - Make sure you know which layer of the board you are on
     - We are using a two layer so the only two layers traces should be on are “Top Layer” and “Bottom Layer”. These are by default named F.cu and B.cu
     - <img width="255" height="100" alt="image" src="https://github.com/user-attachments/assets/7cb89909-80c7-43e1-a82d-70036ca1e7ed" />
+  
 - Can adjust layer of trace after placing on board by right clicking on the trace -> properties -> Layer
 - Pressing V when tracing allows you to place a Via
     - A Via allows you to swtich to the other side of the board
