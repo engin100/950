@@ -12,14 +12,15 @@ latex: true
   - [Resources](#resources)
   - [Procedure](#procedure)
     - [Onwards and Upwards (Upwards = to PCB Design)](#onwards-and-upwards-upwards--to-pcb-design)
+    - [Design Rules](#design-rules)
+    - [Design Rule Check](#design-rule-check)
     - [PCB General View and Sizing](#pcb-general-view-and-sizing)
     - [Editing Part Placement on PCB](#editing-part-placement-on-pcb)
     - [Traces](#traces)
     - [Layers to Worry About](#layers-to-worry-about)
     - [Polygon Ground Pour](#polygon-pour)
-    - [Design Rule Check](#design-rule-check)
     - [Trace Width Guidelines](#trace-width-guidelines)
-    - [Design Rules](#design-rules)
+    - 
   - [Submission](#submission)
 
 ## Resources
@@ -43,6 +44,28 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
 - Go to PCB editor
 - Tools -> Update PCB from schematic
 - Now the fun begins!
+
+
+### Design Rule Check
+
+- Ensure you are achieving mechanical specs set by the manufacturer based on the fidelity of their equipment
+- To edit a Design Rule, File -> Board Set Up -> Design Rules
+- Enter the value (and units) that is specified and click OK
+- Once you have all rules edited per the guidelines, click on Inspect > Design Rule Check to run the DRC
+    - Click on Run Design Rule Check on bottom left
+- You need ZERO errors and warnings before you can manufacture the design, we will require it as part of your final submission (unless it is a silkscreen error, those are just aesthetics)
+
+
+
+### Design Rules
+
+- All below are minimum values
+- 0.15 mm clearance (minimum solder mask sliver)
+- 0.15 mm trace width
+- 0.33 mm min through hole size
+- 0.18 mm mil annular width
+
+
 
 ### PCB General View and Sizing
 
@@ -112,17 +135,6 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
     - Every single time you adjust components from now on, you'd need to press B to repour the polygon afterwards
 - You can use vias to connect your Surface Mount Components to the Ground pour, or do a ground pour on both the top and bottom layer. That will cover the surface mount components.
 
-### Design Rule Check
-
-- Ensure you are achieving mechanical specs set by the manufacturer based on the fidelity of their equipment
-- To edit a Design Rule, click Design -> Rules
-- On the left bar, search the different sections till you find the specific rule you need to change (most rules are under Manufacturing)
-    - Can double click to edit
-- Enter the value (and units) that is specified and click “Apply” followed by “OK”
-    - Values to edit are above the diagram in blue
-- Once you have all rules edited per the guidelines, click on Tools -> Design Rule Check to run the DRC
-    - Click on Run Design Rule Check on bottom left
-- You need ZERO errors before you can manufacture the design, we will require it as part of your final submission
 
 ### Trace Width Guidelines
 
@@ -131,15 +143,6 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
 - All other traces = 15 mil
 - NOTE: The other traces can be thinner if needed, but keep the power lines as thick as possible to ensure excessive current doesn’t burn them off.
 
-### Design Rules
-
-- All below are minimum values
-- 6 mil trace clearance (minimum solder mask sliver)
-- 6 mil trace width
-    - Under Routing
-- 13 mil drill size (hole size)
-- 7 mil annular ring
-    - You might need to create a New Rule for this one
 
 ## Submission
 
