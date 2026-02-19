@@ -7,7 +7,7 @@ latex: true
 
 ## Contents 
 
-- [Lab 7 Prelab: Altium Schematic to PCB](#lab-7-prelab-altium-schematic-to-pcb)
+- [Lab 7 Prelab: KiCad Schematic to PCB](#lab-7-prelab-kicad-schematic-to-pcb)
   - [Contents](#contents)
   - [Resources](#resources)
   - [Procedure](#procedure)
@@ -25,17 +25,17 @@ latex: true
 ## Resources
 
 - [ ] A computer running latest version of KiCAD
-- [ ] [KiCAD Power Board libraries .zip file](https://umich.instructure.com/courses/819667/files/folder/Power%20Board%20Library) (you will need to unzip before using)
+- [ ] [KiCAD Power Board libraries .zip file](https://drive.google.com/file/d/1-PR87u7RzkhpizaJybwOJ49HODIKl4W9)
 - [ ] [Youtube Tutorial](https://www.youtube.com/watch?v=NHHwZCHNMq8)
 <!--
- Spreadsheet of Footprints - https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing
- Second Spreadsheet of Footprints - https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq/view?usp=sharing
+ [Spreadsheet of Footprints](https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8)
+ [Second Spreadsheet of Footprints](https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq)
 note these are outdated footprints which do not have the BME sensor.
 -->
 
 ## Procedure
 
-This is the second part of the introduction to KiCAD. In this assignment, you will draw a schematic for a power board and then turn that schematic into a PCB. There has been a video created that walks through all of the steps of making the schematic and then making a PCB. It is a relatively long process (the video is about one hour and fifteen minutes), but it really shows you all of the steps of going through the process. [The video is here.](https://www.youtube.com/watch?v=NHHwZCHNMq8)
+This is the second part of the introduction to KiCAD. In this assignment, you will draw a schematic for a power board and then turn that schematic into a PCB. There has been a video created that walks through all of the steps of making the schematic and then making a PCB. It is a relatively long process (the video is about an hour), but it really shows you all of the steps of going through the process. [The video is here.](https://www.youtube.com/watch?v=NHHwZCHNMq8)
 
 ### Onwards and Upwards (Upwards = to PCB Design)
 
@@ -43,7 +43,6 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
 - Go to PCB editor
 - Tools -> Update PCB from schematic
 - Now the fun begins!
-
 
 ### Design Rule Check
 
@@ -54,8 +53,6 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
     - Click on Run Design Rule Check on bottom left
 - You need ZERO errors and warnings before you can manufacture the design, we will require it as part of your final submission (unless it is a silkscreen error, those are just aesthetics)
 - You will also need some pre-defined sizes. These are listed below in Design Rules
-
-
 
 ### Design Rules
 
@@ -78,9 +75,6 @@ Make sure when you are placing traces or vias, that you are selecting these pred
 <img width="604" height="165" alt="image" src="https://github.com/user-attachments/assets/35e237e2-7fe1-4e3d-9b0a-cac2cde7e882" />
 </div>
 
-
-
-
 ### PCB General View and Sizing
 
 - Pressing option + 3 will show the 3D viewer of the board
@@ -88,7 +82,6 @@ Make sure when you are placing traces or vias, that you are selecting these pred
     - Rotating in 3D viewer using your Left Mouse Button
 - Use the tool shown here to view and select different layers
 - <img width="262" height="173" alt="image" src="https://github.com/user-attachments/assets/5c0098a8-7e3f-4db0-b0b6-25ed41e1a063" />
-
 
 ### Editing Part Placement on PCB
 
@@ -131,8 +124,8 @@ Make sure when you are placing traces or vias, that you are selecting these pred
 
 ### Polygon Pour
 
-- A very common industry standard is to use a polygon pour so you don't have to connect things to ground and or power
-- A pour that is usually used is a GND over the entire bottom layer
+- A very common industry standard is to use a polygon pour so you don't have to run a lot of lines to ground and/or power
+- A pour that is usually used is a (ground) GND over the entire bottom layer
 - For example, if you add a Polygon pour for the GND net for the entire bottom layer, then all components that have GND pins in the bottom layer will all be connected and you do not need traces to connect them
 - Make sure you have selected the layer you want to place your polygon pour (F.cu or B.cu)
  <img width="200" height="101" alt="image" src="https://github.com/user-attachments/assets/c03d753e-82f8-4259-b1e6-0cccb52bc62c" />
@@ -146,7 +139,7 @@ Make sure when you are placing traces or vias, that you are selecting these pred
 - Under layer, select the layer you’d like this pour to be on
 - Click okay, and click around until you are satisfied with the shape, then click “Esc” to have your pour, then click B to fill your pour.
     - You can adjust dimensions of the pour later if need be.
-    - Every single time you adjust components from now on, you'd need to press B to repour the polygon afterwards
+    - Every single time you adjust components from now on, you'd need to press B to repour the polygon afterwards (thisis why you may want to wait until the end to do the pour).
 - You can use vias to connect your Surface Mount Components to the Ground pour, or do a ground pour on both the top and bottom layer. That will cover the surface mount components.
 
 
@@ -155,7 +148,6 @@ Make sure when you are placing traces or vias, that you are selecting these pred
 - Power lines to the input of the LDO’s = 0.8 mm
 - Output of LDO’s to electrolytic capacitors and Status LED’s = 0.6 mm
 - All other traces = 0.4 mm
-- NOTE: The other traces can be thinner if needed, but keep the power lines as thick as possible to ensure excessive current doesn’t burn them off.
 
 
 ## Submission
@@ -163,7 +155,7 @@ Make sure when you are placing traces or vias, that you are selecting these pred
 On Canvas, you will submit ***ONE PDF*** that will include all of the following:
 
 - [ ] A screenshot of the schematic you made
-- [ ] A screenshot of the PCB you made (**Both sides**)
+- [ ] Screenshots of the PCB you made (**Both sides**)
 - [ ] Screenshot(s) of the PCB passing all design rule checks
 
 Export/Download this document as a PDF and upload it. **DO NOT SUBMIT A GOOGLE DOC FILE**.
