@@ -54,16 +54,27 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
 - Once you have all rules edited per the guidelines, click on Inspect > Design Rule Check to run the DRC
     - Click on Run Design Rule Check on bottom left
 - You need ZERO errors and warnings before you can manufacture the design, we will require it as part of your final submission (unless it is a silkscreen error, those are just aesthetics)
+- You will also need some pre-defined sizes. These are listed below in Design Rules
 
 
 
 ### Design Rules
 
 - All below are minimum values
-- 0.15 mm clearance (minimum solder mask sliver)
+- 0.25 mm miminum clearance
 - 0.15 mm trace width
+- 0.25 mm copper to hole clearance
 - 0.33 mm min through hole size
 - 0.18 mm mil annular width
+- 1 mm copper to edge clearance
+- **Predefined sizes**
+     - Tracks - 0.4 mm and 0.5 mm
+        - (0.5 mm traces will be used for power)
+     - Vias - Diameter 0.6 mm, Hole 0.3 mm
+Make sure when you are placing traces or vias, that you are selecting these predefined sizes. (I know the video doesn't go over this). Here's what that looks like
+<img width="604" height="165" alt="image" src="https://github.com/user-attachments/assets/35e237e2-7fe1-4e3d-9b0a-cac2cde7e882" />
+
+
 
 
 
