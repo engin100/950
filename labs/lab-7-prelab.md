@@ -20,7 +20,6 @@ latex: true
     - [Layers to Worry About](#layers-to-worry-about)
     - [Polygon Ground Pour](#polygon-pour)
     - [Trace Width Guidelines](#trace-width-guidelines)
-    - 
   - [Submission](#submission)
 
 ## Resources
