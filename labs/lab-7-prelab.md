@@ -74,6 +74,7 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
 
 <div class="primer-spec-callout danger" markdown="1">
 Make sure when you are placing traces or vias, that you are selecting these predefined sizes. (I know the video doesn't go over this). Here's what that looks like
+  
 <img width="604" height="165" alt="image" src="https://github.com/user-attachments/assets/35e237e2-7fe1-4e3d-9b0a-cac2cde7e882" />
 </div>
 
