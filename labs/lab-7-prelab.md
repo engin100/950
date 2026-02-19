@@ -16,7 +16,7 @@ latex: true
     - [Editing Part Placement on PCB](#editing-part-placement-on-pcb)
     - [Traces](#traces)
     - [Layers to Worry About](#layers-to-worry-about)
-    - [Polygon Pour](#polygon-pour)
+    - [Polygon Ground Pour](#polygon-pour)
     - [Design Rule Check](#design-rule-check)
     - [Trace Width Guidelines](#trace-width-guidelines)
     - [Design Rules](#design-rules)
@@ -56,40 +56,55 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
 ### Editing Part Placement on PCB
 
 - Click on part to drag it
-- You can rotate the part by pressing the spacebar while clicking/dragging the component
-- You can switch the component between top and bottom layers by toggling the L key while selecting the component
+- You can rotate the part by pressing R while clicking/dragging the component
+- You can switch the component between top and bottom layers by toggling the F key while selecting the component
 - HIGHLY HIGHLY suggest placing all the parts before you start connecting them
-- Don’t worry if the gray lines are intersecting; traces can be drawn around them if needed
+- Don’t worry if the cyan guide lines are intersecting; traces can be drawn around them if needed
 - You can move parts around after you start connecting them if needed, just have a general idea of where they will all be on the board
+- If you move parts after placing a ground pour, make sure to press B to repour the polygon, we will talk about polygons and ground planes later
+- After placing all the parts in a desired location
+     - You will now make the shape of your PCB
+- Go to the Edge Cuts layer
+  <img width="204" height="332" alt="image" src="https://github.com/user-attachments/assets/21c94458-92db-413b-a7d4-91f6c69e9c14" />
+- Then, use these tools here to draw any shape you want your PCB to be in <img width="41" height="97" alt="image" src="https://github.com/user-attachments/assets/13b182f6-dd76-4609-982a-0c4d63587185" />
+       - Now, if you go to the 3D viewer, you can visualize the shape of your PCB
+
 
 ### Traces
 
-- Route -> Interactive Routing to place the trace
+- Route -> Route Single Track to place the trace, or use the hotkey X
 - Make sure you know which layer of the board you are on
-    - We are using a two layer so the only two layers traces should be on are “Top Layer” and “Bottom Layer”
-- Can adjust layer of trace after placing on board by double clicking on the trace -> Layer -> Select Layer
-- Once you see a larger circle around your pointer you know you’ve established an electrical connection
+    - We are using a two layer so the only two layers traces should be on are “Top Layer” and “Bottom Layer”. These are by default named F.cu and B.cu
+    - <img width="255" height="100" alt="image" src="https://github.com/user-attachments/assets/7cb89909-80c7-43e1-a82d-70036ca1e7ed" />
+- Can adjust layer of trace after placing on board by right clicking on the trace -> properties -> Layer
+- Pressing V when tracing allows you to place a Via
+    - A Via allows you to swtich to the other side of the board
 - Trace Guidelines are provided at end of presentation
 
 ### Layers To Worry About
 
-- Top Layer - Top of the board electrical connections
-- Bottom Layer - Bottom of the board for electrical connections
-- Top Overlay - Your silkscreen for the top layer, can edit labels and add any text
-- Bottom Overlay - Your silkscreen for the bottom layer, can edit labels and add any text
-- You will use Mechanical 1, Keep Out and a couple of other layers later, but don’t worry about them right now
+- Top Layer - Top of the board electrical connections (F.cu)
+- Bottom Layer - Bottom of the board for electrical connections (B.cu)
+- F.silkscreen - Your silkscreen for the top layer, can edit labels and add any text
+- B.silkscreen - Your silkscreen for the bottom layer, can edit labels and add any text
 
 ### Polygon Pour
 
-- Can be used to remove the need for too many traces all over the board
+- A very common industry standard is to use a polygon pour so you don't have to connect things to ground and or power
 - A pour that is usually used is a GND over the entire bottom layer
 - For example, if you add a Polygon pour for the GND net for the entire bottom layer, then all components that have GND pins in the bottom layer will all be connected and you do not need traces to connect them
-- Place -> Polygon pour
+- Make sure you have selected the layer you want to place your polygon pour (F.cu or B.cu)
+ <img width="200" height="101" alt="image" src="https://github.com/user-attachments/assets/c03d753e-82f8-4259-b1e6-0cccb52bc62c" />
+- Use the draw filled zones tool (option + z)
+<img width="200" height="66" alt="image" src="https://github.com/user-attachments/assets/e99fe28d-0ec8-43da-9bc4-4dbe93c1749e" />
+- Click one corner of the PCB to start, it does not matter which corner.
 - Under Net Options, select the net you’d like to connect to
-    - The net should have been defined in your schematic
-- Under Properties, select the layer you’d like this pour to be on
-- Click okay, and click around until you are satisfied with the shape, then click “Esc” to have your pour
+    - The net should have been defined in your schematic (i.e. GND, 5V, BAT, 3.3V)
+- Under layer, select the layer you’d like this pour to be on
+- Click okay, and click around until you are satisfied with the shape, then click “Esc” to have your pour, then click B to fill your pour.
     - You can adjust dimensions of the pour later if need be.
+    - Every single time you adjust components from now on, you'd need to press B to repour the polygon afterwards
+- You can use vias to connect your Surface Mount Components to the Ground pour, or do a ground pour on both the top and bottom layer. That will cover the surface mount components.
 
 ### Design Rule Check
 
