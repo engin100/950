@@ -3,7 +3,7 @@ layout: spec
 latex: true
 ---
 
-# Lab 7 Prelab: Altium Schematic to PCB
+# Lab 7 Prelab: KiCAD Schematic to PCB
 
 ## Contents 
 
@@ -24,9 +24,9 @@ latex: true
 
 ## Resources
 
-- [ ] A CAEN computer, or a computer running UofM VMWare to access Altium software.
-- [ ] [Altium libraries .zip file](https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD?usp=drive_link) (you will need to unzip before using)
-- [ ] [Youtube Tutorial](https://www.youtube.com/watch?v=t0okf__stjg)
+- [ ] A computer running latest version of KiCAD
+- [ ] [KiCAD Power Board libraries .zip file](https://umich.instructure.com/courses/819667/files/folder/Power%20Board%20Library) (you will need to unzip before using)
+- [ ] [Youtube Tutorial](https://www.youtube.com/watch?v=NHHwZCHNMq8)
 <!--
  Spreadsheet of Footprints - https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8/view?usp=sharing
  Second Spreadsheet of Footprints - https://drive.google.com/file/d/1LVTbnMMa6W0KI2mwZwTfUbNu1QJWeqjq/view?usp=sharing
@@ -35,31 +35,23 @@ note these are outdated footprints which do not have the BME sensor.
 
 ## Procedure
 
-This is the second part of the introduction to Altium. In this assignment, you will draw a schematic for a power board and then turn that schematic into a PCB. There has been a video created that walks through all of the steps of making the schematic and then making a PCB. It is a relatively long process (the video is about one hour and fifteen minutes), but it really shows you all of the steps of going through the process. [The video is here.](https://www.youtube.com/watch?v=t0okf__stjg)
+This is the second part of the introduction to KiCAD. In this assignment, you will draw a schematic for a power board and then turn that schematic into a PCB. There has been a video created that walks through all of the steps of making the schematic and then making a PCB. It is a relatively long process (the video is about one hour and fifteen minutes), but it really shows you all of the steps of going through the process. [The video is here.](https://www.youtube.com/watch?v=NHHwZCHNMq8)
 
 ### Onwards and Upwards (Upwards = to PCB Design)
 
-- Save your PCB (it will ask you to rename the file)
-- Go to your PCB document (.PcbDoc)
-- Design -> Import Changes from (..)
-- Under “Add Rooms”, untick the Add box
-- Click Execute Changes
-- Click Close
-- Component footprints should appear on the screen
-    - They will appear to the left of the board, you can drag across the screen by holding down on right click and moving your mouse
+- Save your schematic document
+- Go to PCB editor
+- Tools -> Update PCB from schematic
 - Now the fun begins!
 
 ### PCB General View and Sizing
 
-- Pressing 1 will show the board size and shape
-    - Can use to adjust the dimensions of the board
-    - Design -> Edit Board Shape
-- Pressing 2 will show the board and components as a 2-D model
-    - Ideal for actually building your PCB
-- Pressing 3 will show the board and components as a 3-D model
-    - Ideal for getting a visual idea of how your PCB will look
-    - Not ideal for actually moving parts and traces
-    - Can use a combination of Ctrl and Shift keys along with the mouse to investigate the board further
+- Pressing option + 3 will show the 3D viewer of the board
+    - Good to see your board in 3D and see components/traces on the top/bottom
+    - Rotating in 3D viewer using your Left Mouse Button
+- Use the tool shown here to view and select different layers
+- <img width="262" height="173" alt="image" src="https://github.com/user-attachments/assets/5c0098a8-7e3f-4db0-b0b6-25ed41e1a063" />
+
 
 ### Editing Part Placement on PCB
 
