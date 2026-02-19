@@ -152,9 +152,9 @@ Make sure when you are placing traces or vias, that you are selecting these pred
 
 ### Trace Width Guidelines
 
-- Power lines to the input of the LDO’s = 30 mil
-- Output of LDO’s to electrolytic capacitors and Status LED’s = 25 mil
-- All other traces = 15 mil
+- Power lines to the input of the LDO’s = 0.8 mm
+- Output of LDO’s to electrolytic capacitors and Status LED’s = 0.6 mm
+- All other traces = 0.4 mm
 - NOTE: The other traces can be thinner if needed, but keep the power lines as thick as possible to ensure excessive current doesn’t burn them off.
 
 
