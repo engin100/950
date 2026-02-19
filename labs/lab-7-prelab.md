@@ -64,8 +64,9 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
 - 0.25 mm miminum clearance
 - 0.15 mm trace width
 - 0.25 mm copper to hole clearance
-- 0.33 mm min through hole size
-- 0.18 mm mil annular width
+- 0.3 mm min through hole size
+- 0.45 mm hole to hole clearance
+- 0.15 mm mil annular width
 - 1 mm copper to edge clearance
 - **Predefined sizes**
      - Tracks - 0.4 mm and 0.5 mm
