@@ -72,6 +72,3 @@ Moving away from the breadboards and creating a custom PCB (Printed Circuit Boar
 
 ## Project
 [Powerboard assembly guide](/project/power-board)
-
--->
-
