@@ -60,7 +60,6 @@ The preliminary design review should cover the following topics:
 
 13. Any test results that you have at this point.
 
-
 ## Go / No-Go Tests
 
 In order to launch, your board needs to pass the following tests:
@@ -80,3 +79,19 @@ In order to launch, your board needs to pass the following tests:
 7. Elevator test - Find building that is at least 10 floors.  Place payload on floor of elevator. ascend all 10 floors, stopping twice at different floors. Show pressure converted to altitude vs time + acceleration vs time.
 
 
+## EXTRAS
+
+15 points are mandatory, but you can do up to 30 points (where 15 points would then be extra credit).
+
+1. Extra LEDs:
+- GPS Fix (can be right off GPS) - 1 point
+- SD Card Detect (can be off sd card writer) - 1 point
+- GPS in balloon mode (digital pin) - 2 points 
+- Data being taken (eg, in the loop turn LED on and off - digital pin)  - 2 points
+2. Put (all) LEDs and TMP36 on PCB outside of payload: 5 points
+3. Smaller PCB (points go up as PCB gets smaller): (16sqin - area)/2 points (5 max)
+4. Mass of payload (points go up as mass goes down): (16oz - weight)/2 points (5 max)
+5. Style points for design (class votes on each): 1-5 points
+6. Better timing for taking data (not "just" 1s data): 1-5 points, depending on complexity
+7. Above and beyond data analysis: 1-5 points, depending on complexity (e.g. Skew-T diagram, plots of GPS satellite locations, etc.) 
+8. Individual / Team Video: 10 points for 2 minutes / person
