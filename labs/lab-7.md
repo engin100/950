@@ -27,6 +27,13 @@ latex: true
 
 In this lab, you will be designing a PCB using KiCad, an industry-standard PCB design tool. It's crucial to focus on creating a high-quality design, as changes cannot be made to a PCB after the design is sent off to be manufactured. There is no post-lab for this lab (besides turning in your final design), but you will be reviewing each other's PCBs. Focus on making sure your design is good, and everything about your board works.
 
+<div class="primer-spec-callout warning" markdown="1">
+
+**Required KiCad Library:**  
+[Final Project Library Folder](https://drive.google.com/drive/folders/1gzB8r_jQqfqcvdIvM8kyhk7KWFfNFwsK?usp=sharing)
+
+</div>
+
 ## Participation
 
 Working at a computer can easily become a one-person activity. It is important to avoid this during the lab. Our goal is for all students in this course to learn the basics of KiCad. When you are working on your PCBs, have at least one person spotting the person at the computer. This will help you share the work that goes into creating the PCB and eliminate mistakes that can render your finished product useless. It is important that no team member works alone, even during office hours.
@@ -61,14 +68,14 @@ For additional reference, here is the schematic you made following Lab 1:
 
 _Figure 3: The schematic completed in the Postlab 1 assignment_
 
-Note that each component is defined with its own individual symbol. Capacitors, resistors, and transistors (Q1 and Q2), and some connectors (P1) are standardized and thus have pre-loaded symbols in the software, but for most of our components, that is not the case. We have additional libraries custom made by ENGR100 staff with our components pre-loaded, so as we will discuss in the procedure, you can simply drag and drop them into place.  See link above.
+Note that each component is defined with its own individual symbol. Capacitors, resistors, and transistors (Q1 and Q2), and some connectors (P1) are standardized and thus have pre-loaded symbols in the software, but for most of our components, that is not the case. We have additional libraries custom made by ENGR100 staff with our components pre-loaded, so as we will discuss in the procedure, you can simply drag and drop them into place. Use only the Final Project Library linked above.
 
 
 ### Your Schematic Contents
 
 Obviously, the functionality we're trying to put on a PCB is the ability to record data from your sensor board, so starting your schematic off by adding your full Lab 3, 4, and 5 circuits is a good starting point.
 
-We have made a power board that provides you the LDOs and battery connector.  This is included in the provided ENGR100 library.
+We have made a power board that provides you the LDOs and battery connector. This is included in the provided Final Project Library.
 
 LEDs are also useful when diagnosing software bugs without a computer, telling you if the board is on or off, and also making cool light patterns.
 
@@ -102,7 +109,7 @@ In summary, your schematic (and the PCB) must have:
 
 If your extra sensor uses I2C communication protocols, you must connect it to the analog pins pre-set for I2C communications. In the Arduino Nano, these are A4 (SDA pin) and A5 (SCL pin). See more on connecting I2C devices (Google search "connecting I2C devices to an Arduino Nano"). Be sure you read through your extra sensor's documentation and/or hookup guide to understand whether it is I2C and if you will need the A4 and A5 I2C hookup pins. You can Google search for the extra sensor datasheet.
 
-If you choose to use the GUVA sensor, use the Humidity sensor in the ENGR100 library, and relabel the pins (and labels) to be the appropriate type (you need to swap the GND and 5V pins).
+If you choose to use the GUVA sensor, use the Humidity sensor in the Final Project Library, and relabel the pins (and labels) to be the appropriate type (you need to swap the GND and 5V pins).
 
 If you choose to use a heater, we will use a generic MOSFET, using the [wiring diagram here.](https://adam-meyer.com/arduino/images/2012/03/rfp30n06le-arduino-solenoid.png) In this diagram, the MOSFET has pins 1 - G, 2 - D, and 3 - S. You can use a generic resistor to represent the heater, since it will just be soldered into place.
 
@@ -114,7 +121,7 @@ If you choose to use a heater, we will use a generic MOSFET, using the [wiring d
 
 #### Procedure: Starting Your Design and Creating A Schematic
 
-1. Download the updated "Final Project Library" folder. [Here is the library.](https://drive.google.com/drive/folders/1gzB8r_jQqfqcvdIvM8kyhk7KWFfNFwsK?usp=sharing)
+1. Download the updated "Final Project Library" folder from the link above.
 
 2. Open KiCad on your computer. Navigate to **File -> New Project...**
 
