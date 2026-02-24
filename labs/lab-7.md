@@ -43,14 +43,6 @@ The walkthrough on creating a schematic and turning the schematic into a PCB is 
 
 Broadly, the workflow in KiCad is divided up into three steps: Schematic, PCB, and Design Rule Check. The Schematic step is where you lay out the electrical schematic of your board. Using all the components, you define how they connect to each other, ground, and power. The PCB step is where you make the physical layout of those components on the board. The electrical connections you set up in the schematic are shown for your reference, and you lay them down on your PCB physically as traces. That is, each trace you set corresponds to an electrical connection you outlined in your Schematic. The Design Rule Check step is when the software looks over your work and makes sure you aren't committing any errors or contradictions. This is inevitably the most frustrating part of using KiCad, because you think you've done everything right, and the software is here to tell you that you haven't. It is important to note that design rule checks do not check whether you laid out your board the way you wanted, they will not notice if you accidentally connected your temperature sensor to your pressure sensor instead of the Arduino (if that is what you did in your schematic). You must double check this yourself. The design rule checks only check if your design rules are violating the physical and electrical laws associated with making a PCB.
 
-To get started:
-- Download the updated "Final Project Library" folder. [Here is the library.](https://drive.google.com/drive/folders/1gzB8r_jQqfqcvdIvM8kyhk7KWFfNFwsK?usp=sharing)
-- In KiCad, select **File -> New Project**. Choose a place to save the project, and select the option to create a new folder with the same name. The name should make sense. Include your team number in the name.
-- In your computer's file directory, find the location of the new folder you just made. Inside of this folder, create another folder called "Libraries" and drag the Symbols, Footprints, and 3D Models libraries you just downloaded to this location.
-- On the open landing page for KiCad (where it shows the project directory), select "Preferences" > "Manage Symbol Libraries". Open "Project Specific Libraries" and then select the folder icon on the bottom left (between a + icon and an up arrow). Navigate to your new "Libraries" folder, then to "Symbols", and then select all of the .kicad_sym files shown there. Click open. You should now see all of the components loaded into this window with proper names. Click OK. You may be greeted with an error relating to other components, if it isn't related to a component we are using for this project, feel free to click through the warning and move on.
-- Similarly, on the main landing page again, select "Preferences" > "Manage Footprint Libraries". Same as before, click the folder icon on the bottom left, navigate to "Libraries" then "Footprints", and then select all of the folders inside of this location. Yes, they should all be folders you are selecting this time, and they all end in .pretty. Click OK and navigate out of this window.
-- You are now ready to build a schematic.
-
 ## Schematic
 
 ### Background
@@ -122,17 +114,21 @@ If you choose to use a heater, we will use a generic MOSFET, using the [wiring d
 
 #### Procedure: Starting Your Design and Creating A Schematic
 
-1. Download KiCad libraries, which have been made [available here](https://drive.google.com/drive/folders/1xbLYc9cKcAC849FKSp_E7lV7I2cPHg0T?usp=share_link).
+1. Download the updated "Final Project Library" folder. [Here is the library.](https://drive.google.com/drive/folders/1gzB8r_jQqfqcvdIvM8kyhk7KWFfNFwsK?usp=sharing)
 
 2. Open KiCad on your computer. Navigate to **File -> New Project...**
 
-3. The "Folder" field allows you to choose where this folder is created. You are going to zip this folder and share it with others. The folder should have your team number in it.
+3. The "Folder" field allows you to choose where this folder is created. You are going to zip this folder and share it with others. The folder should have your team number in it. Make sure to select the "create a new folder" option when naming and creating your project.
 
 4. Name your project with your team number and an appropriate name (e.g., Team05_Project_PCB_V1.0), and click "Save".
 
-5. Now you should add the libraries we have given you. You will need to add both symbol libraries and footprint libraries. Once they are added, save the project.
+5. In your computer's file directory, find the location of the new folder you just made. Inside of this folder, create another folder called "Libraries" and drag the Symbols, Footprints, and 3D Models libraries you just downloaded to this location.
 
-6. You should be able to click on the "Schematic Editor" and start making your schematic. Some notes:
+6. On the open landing page for KiCad (where it shows the project directory), select "Preferences" > "Manage Symbol Libraries". Open "Project Specific Libraries" and then select the folder icon on the bottom left (between a + icon and an up arrow). Navigate to your new "Libraries" folder, then to "Symbols", and then select all of the .kicad_sym files shown there. Click open. You should now see all of the components loaded into this window with proper names. Click OK. You may be greeted with an error relating to other components, if it isn't related to a component we are using for this project, feel free to click through the warning and move on.
+
+7. Similarly, on the main landing page again, select "Preferences" > "Manage Footprint Libraries". Same as before, click the folder icon on the bottom left, navigate to "Libraries" then "Footprints", and then select all of the folders inside of this location. Yes, they should all be folders you are selecting this time, and they all end in .pretty. Click OK and navigate out of this window.
+
+8. You should be able to click on the "Schematic Editor" and start making your schematic. Some notes:
 
     * Watch the [youtube video](https://www.youtube.com/watch?v=NHHwZCHNMq8) to figure some things out.
     
