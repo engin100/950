@@ -157,29 +157,38 @@ The PCB is designed as a separate document with the extension **.PcbDoc.** We ca
 
 Note the white lines that connect each of the footprints in Figure 3. These represent what pins on each part that should be connected via traces. This should be done manually, similar to how wires were drawn in the schematic. One notable difference is that physical traces should never be drawn at right angles - instead, they should be at obtuse angles. This is to minimize field leakage and reflection at corners.  
 
-![Fig. 3](/labs/media/lab-7_figures/fig3.jpg)
-
-_Figure 3: The PCB Layout in KiCad_
-
 #### Procedure: Designing the PCB
 
-_Pressing 1 on your keyboard takes you to the board design view. Pressing 2 takes you to the component layout screen. Pressing 3 takes you to the cartoon mockup screen. You should do your layout work (e.g. most of the work) in mode 2._
+You can switch to the PCB editor in a couple of ways, such as pushing the "Switch to PCB Editor" button, which should be the right-most button on the top of the schematic editor.
 
-1. To create a new PCB file, right click your project name under your Projects tab, click New -> Add New to Project -> PCB.
+You can then bring in changes from your schematic, by clicking "Tools -> Update PCB from Schematic..."  This will open a window with a lot of text, where it is importing things.  It will tell you if there are warnings or errors.  If there are errors, you need to fix them.  For example, if something doesn't have a footprint, it will give you an error. Go back to the schematic and fix any errors that you have. You may manually have to assign footprints.
 
-2. Import your schematic components. Go to Design -> Import Changes from Project name (or Design -> Update PCB Document). Validate your changes, make sure you see only green check marks next to each change. Then execute them.
+Once you get to the PCB window, you will have a big cluster of components that you can drop towards the center of the layout window. You should be able to move each of the components around by clicking on part of the component (not the text labels, which you can move independently of the component!) and moving it. You can rotate the component by pressing "r".  All components will show up on the top layer (the red layer).
 
-3. By zooming in and out on your board (by pressing the mouse scroll button and moving around), you should see a big red box containing all of the components. You can drag and drop them onto the board, which is the black rectangle. If you want to rotate a component, click and hold on it and then press the spacebar. Another option is to click it and press M, which will bring up a menu for moving components. One of these menu options is the 'rotate selection' feature. This is better if you want to rotate it a specific amount and not in increments of 90 degrees.
+KiCad uses **layers**, both on the PCB and in the software.  On the PCB, there is the top layer (red) and the bottom layer (blue).  In the software, these layers show up on the right side of KiCad as a list.  The top two are "F.Cu", which is the top layer of the PCB, and "B.Cu", which is the bottom layer of the PCB.  You can toggle back and forth between putting things on the top layer and bottom layer by clicking on which layer you would like to be active.
 
-4. Now we should adjust the size of our board.
-- Edit -> Origin -> Set, then select the lower left corner of your board.
-- Press "1" to go into board planning mode
-- Navigate to Design -> Edit Board Shape.
-- The board should be no bigger than 4 inches by 4 inches. You can toggle between Imperial and Metric units by pressing Q. [This shows you how to do that.](https://resources.altium.com/p/layout-guide-changing-board-sizes-altium-designer)
+Another key layer that we care about is the "Edge.Cuts" layer.  This allows us to size the PCB.  You can select this layer and draw a box around all of the PCB components.  The box should be (maximum) 100 mm x 100 mm in size.  Once you draw this box, you can always make it smaller by switching back to the "Edge.Cuts" layer, and adjusting the size of the box.
 
-5. Make sure to press "2" to get back into the mode where you can move stuff around.
+Layout your components neatly on the board. Be sure to place your Arduino and Data Logger in such a way that you do not obstruct the port for the uploading cable or the SD Card opening.
 
-6. We will add some design rules. Press 2 on your keyboard to ensure that you are on the component layout screen. Navigate to Design -> Rules. A PCB rules window should pop up. Set the following design rules:
+Place capacitors very close to the component that they are assigned to. The point of the capacitor is to decrease high-frequency noise.  If you have too much wire between the capacitor and the component, the wire can act as an antenna and get high-frequency noise back into it.  This is why we have SO MANY capacitors on the board.
+
+The light-cyan lines indicate which vias and pads should be connected to each other. Some of the lines are "unique", such as an analog pin on the accelerometer going to an analog pin on the arduino.  Some of them are not unique, such as the 5V pin on the GPS connected to **any other** 5V pin.  The cyan lines for non-unique pins will jump around as you move the component, since the lines connect the closest component that is on the same "rail".  There are a **lot** of ground pins, so the cyan lines for these will keep jumping around a lot.
+
+Rotate components so that the cyan lines don't cross each other as much (it is impossible for them to not really touch).
+
+To draw a wire on the PCB, it is called "routing", so select "Route -> Route Single Track" (or just press X). You can now just connecting things together.
+
+**Don't bother routing the ground pins at this point, since we will draw a ground pour at the end!**
+
+You can place routes on both the top and bottom layers.  Any thru-hole component can be connected together on the bottom or top layer.  Any surface-mount component will need a via next to it with a wire to connect to the other layer.  You can switch to routing on the other layer by clicking on the other layer in the list of layers.  If you are routing and the wire is blue, you are on the bottom layer, if it is red, you are on the top layer.
+
+Vias connect the layers together.
+
+
+
+
+We will add some design rules. Go to "File -> Board Setup". There is a "Design Rules" section. (I need to figure these out)
     * Electrical -> Clearance = 10 mil
     * Routing -> Width
         - Minimum Width = 6 mil
@@ -188,9 +197,6 @@ _Pressing 1 on your keyboard takes you to the board design view. Pressing 2 take
     * Manufacturing -> Hole Size = 13 mil (min) and 125 mil (max)
     * Manufacturing -> Minimum Annular Ring = 7 mil
 
-7. Layout your components neatly on the board. Be sure to place your Arduino and Data Logger in such a way that you do not obstruct the port for the uploading cable or the SD Card opening.
-
-8. To connect traces to your different components, choose Place -> Trace. When you are placing a trace press 3 to toggle between your min, preferred, and max trace width as set in the design rules (the vast majority should be your preferred, so you don't have to change this very often).
 
 9. When routing, all traces should default to 15mil if you implemented the Design Rules correctly. However, you should manually thicken the traces from the power connections to the GPS, Arduino, and SD Card reader to 20mil in order to compensate for the increased current flow through them. For the heater, use 30mil traces!
 
