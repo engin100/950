@@ -44,13 +44,12 @@ The walk through on creating a schematic and turning the schematic into the PCB 
 Broadly, the workflow in KiCad is divided up into three steps: Schematic, PCB, and Design Rule Check. The Schematic step is where you lay out the electrical schematic of your board. Using all the components, you define how they connect to each other, ground, and power. The PCB step is where you make the physical layout of those components on the board. The electrical connections you set up in the schematic are shown for your reference, and you lay them down on your PCB physically as traces. That is, each trace you set corresponds to an electrical connection you outlined in your Schematic. The Design Rule Check step is when the software looks over your work and makes sure you aren't committing any errors or contradictions. This is inevitably the most frustrating part of using KiCad, because you think you've done everything right, and the software is here to tell you that you haven't. It is important to note that design rule checks do not check whether you laid out your board the way you wanted, they will not notice if you accidentally connected your temperature sensor to your pressure sensor instead of the Arduino (if that is what you did in your schematic). You must double check this yourself. The design rule checks only check if your design rules are violating the physical and electrical laws associated with making a PCB.
 
 To get started:
-- Downloaded the new e100_libraries zip file. [Here is the library.](https://drive.google.com/drive/folders/1hEMXx6rBtbnSW5AzhhSkubN2ptC8kDTD?usp=drive_link)
-- Uncompress it.
-- In KiCad, select new project. Choose a folder to save the project. The name should make sense!  Include team number in the name!
-- 
-- Click back on "home"
-- All of the libraries may be dumped into the general space and not into your project.  If they are, drag and drop all of the source documents individually into your project.  You should then be able to see everything in your project under Libraries.
-- Make a schematic of your project
+- Download the updated "Final Project Library folder. [Here is the library.](https://drive.google.com/drive/folders/1gzB8r_jQqfqcvdIvM8kyhk7KWFfNFwsK?usp=sharing)
+- In KiCad, select new project. Choose a place to save the project, and select the option to create a new folder with the same name. The name should make sense!  Include your team number in the name.
+- In your computer's file directory, find the location of the new folder you just made. Inside of this folder, create another folder called "Libraries" and drag the Symbols, Footprints, and 3D Models libraries you just downloaded to this location.
+- On the open landing page for KiCad (where it shows the project directory), select "Preferences" > "Manage Symbol Libraries". Open "Project Specific Libraries" and then select the folder icon on the bottom left (between a + icon and an up arrow). Navigate to your new "Libraries" folder, then to "Symbols", and then select all of the .kicad_sym files shown there. Click open. You should now see all of the components loaded into this window with proper names. Click OK. You may be greeted with an error relating to other components, if it isn't related to a component we are using for this project, feel free to click through the warning and move on.
+- Similarly, on the main landing page again, select "Preferences" > "Manage Footprint Libraries". Same as before, click the folder icon on the bottom left, navigate to "Libraries" then "Footprints", and then select all of the folders inside of this location. Yes, they should all be folders you are selecting this time, and they all end in .pretty. Click OK and navigate out of this window.
+- You are now ready to build a schematic.
 
 ## Schematic
 
