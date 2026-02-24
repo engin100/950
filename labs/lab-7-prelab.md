@@ -3,7 +3,7 @@ layout: spec
 latex: true
 ---
 
-# Lab 7 Prelab: KiCAD Schematic to PCB
+# Lab 7 Prelab: KiCad Schematic to PCB
 
 ## Contents 
 
@@ -24,8 +24,8 @@ latex: true
 
 ## Resources
 
-- [ ] A computer running latest version of KiCAD
-- [ ] [KiCAD Power Board libraries .zip file](https://drive.google.com/file/d/1-PR87u7RzkhpizaJybwOJ49HODIKl4W9)
+- [ ] A computer running the latest stable version of KiCad
+- [ ] [KiCad Power Board libraries .zip file](https://drive.google.com/file/d/1-PR87u7RzkhpizaJybwOJ49HODIKl4W9)
 - [ ] [Youtube Tutorial](https://www.youtube.com/watch?v=NHHwZCHNMq8)
 <!--
  [Spreadsheet of Footprints](https://drive.google.com/file/d/1tsC8cM-wiYfIB25BBM7o7ymhQ4F3gtD8)
@@ -35,7 +35,7 @@ note these are outdated footprints which do not have the BME sensor.
 
 ## Procedure
 
-This is the second part of the introduction to KiCAD. In this assignment, you will draw a schematic for a power board and then turn that schematic into a PCB. There has been a video created that walks through all of the steps of making the schematic and then making a PCB. It is a relatively long process (the video is about an hour), but it really shows you all of the steps of going through the process. [The video is here.](https://www.youtube.com/watch?v=NHHwZCHNMq8)
+This is the second part of the introduction to KiCad. In this assignment, you will draw a schematic for a power board and then turn that schematic into a PCB. There has been a video created that walks through all of the steps of making the schematic and then making a PCB. It is a relatively long process (the video is about an hour), but it really shows you all of the steps of going through the process. [The video is here.](https://www.youtube.com/watch?v=NHHwZCHNMq8)
 
 ### Onwards and Upwards (Upwards = to PCB Design)
 
@@ -47,9 +47,9 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
 ### Design Rule Check
 
 - Ensure you are achieving mechanical specs set by the manufacturer based on the fidelity of their equipment
-- To edit a Design Rule, File -> Board Set Up -> Design Rules
+- To edit a design rule, go to **File -> Board Setup -> Design Rules**
 - Enter the value (and units) that is specified and click OK
-- Once you have all rules edited per the guidelines, click on Inspect > Design Rule Check to run the DRC
+- Once you have all rules edited per the guidelines, click **Inspect -> Design Rules Checker** to run the DRC
     - Click on Run Design Rule Check on bottom left
 - You need ZERO errors and warnings before you can manufacture the design, we will require it as part of your final submission (unless it is a silkscreen error, those are just aesthetics)
 - You will also need some pre-defined sizes. These are listed below in Design Rules
@@ -57,12 +57,12 @@ This is the second part of the introduction to KiCAD. In this assignment, you wi
 ### Design Rules
 
 - All below are minimum values
-- 0.25 mm miminum clearance
+- 0.25 mm minimum clearance
 - 0.15 mm trace width
 - 0.25 mm copper to hole clearance
 - 0.3 mm min through hole size
 - 0.45 mm hole to hole clearance
-- 0.15 mm mil annular width
+- 0.15 mm annular width
 - 1 mm copper to edge clearance
 - **Predefined sizes**
      - Tracks - 0.4 mm and 0.5 mm
@@ -77,9 +77,9 @@ Make sure when you are placing traces or vias, that you are selecting these pred
 
 ### PCB General View and Sizing
 
-- Pressing option + 3 will show the 3D viewer of the board
+- In the PCB editor, use **View -> 3D Viewer** to see your board in 3D
     - Good to see your board in 3D and see components/traces on the top/bottom
-    - Rotating in 3D viewer using your Left Mouse Button
+    - Rotate in the 3D viewer using your left mouse button
 - Use the tool shown here to view and select different layers
 - <img width="262" height="173" alt="image" src="https://github.com/user-attachments/assets/5c0098a8-7e3f-4db0-b0b6-25ed41e1a063" />
 
@@ -91,7 +91,7 @@ Make sure when you are placing traces or vias, that you are selecting these pred
 - HIGHLY HIGHLY suggest placing all the parts before you start connecting them
 - Don’t worry if the cyan guide lines are intersecting; traces can be drawn around them if needed
 - You can move parts around after you start connecting them if needed, just have a general idea of where they will all be on the board
-- If you move parts after placing a ground pour, make sure to press B to repour the polygon, we will talk about polygons and ground planes later
+- If you move parts after placing a ground pour, make sure to refill the zone afterward, we will talk about zones and ground planes later.
 - After placing all the parts in a desired location
      - You will now make the shape of your PCB
 - Go to the Edge Cuts layer
@@ -111,16 +111,16 @@ Make sure when you are placing traces or vias, that you are selecting these pred
     - <img width="255" height="100" alt="image" src="https://github.com/user-attachments/assets/7cb89909-80c7-43e1-a82d-70036ca1e7ed" />
   
 - Can adjust layer of trace after placing on board by right clicking on the trace -> properties -> Layer
-- Pressing V when tracing allows you to place a Via
-    - A Via allows you to swtich to the other side of the board
+- While routing, use the via tool to place a via (keyboard shortcut 'V')
+    - A via allows you to switch to the other side of the board
 - Trace Guidelines are provided at end of presentation
 
 ### Layers To Worry About
 
 - Top Layer - Top of the board electrical connections (F.cu)
 - Bottom Layer - Bottom of the board for electrical connections (B.cu)
-- F.silkscreen - Your silkscreen for the top layer, can edit labels and add any text
-- B.silkscreen - Your silkscreen for the bottom layer, can edit labels and add any text
+- F.Silkscreen - Your silkscreen for the top layer; edit labels and add any text
+- B.Silkscreen - Your silkscreen for the bottom layer; edit labels and add any text
 
 ### Polygon Pour
 
@@ -130,23 +130,23 @@ Make sure when you are placing traces or vias, that you are selecting these pred
 - Make sure you have selected the layer you want to place your polygon pour (F.cu or B.cu)
  <img width="200" height="101" alt="image" src="https://github.com/user-attachments/assets/c03d753e-82f8-4259-b1e6-0cccb52bc62c" />
  
-- Use the draw filled zones tool (option + z)
+- Use the Add Filled Zone tool from the right toolbar (or Place -> Add Filled Zone)
 <img width="200" height="66" alt="image" src="https://github.com/user-attachments/assets/e99fe28d-0ec8-43da-9bc4-4dbe93c1749e" />
 
 - Click one corner of the PCB to start, it does not matter which corner.
 - Under Net Options, select the net you’d like to connect to
     - The net should have been defined in your schematic (i.e. GND, 5V, BAT, 3.3V)
 - Under layer, select the layer you’d like this pour to be on
-- Click okay, and click around until you are satisfied with the shape, then click “Esc” to have your pour, then click B to fill your pour.
-    - You can adjust dimensions of the pour later if need be.
-    - Every single time you adjust components from now on, you'd need to press B to repour the polygon afterwards (thisis why you may want to wait until the end to do the pour).
+- Click OK, then click around until you are satisfied with the shape, then press Esc to finish the outline. Use the **Fill All Zones** tool (or the toolbar button) to fill the zone.
+    - You can adjust dimensions of the zone later if needed.
+    - Every single time you adjust components from now on, you'll need to refill the zone afterward (this is why you may want to wait until the end to do the zone).
 - You can use vias to connect your Surface Mount Components to the Ground pour, or do a ground pour on both the top and bottom layer. That will cover the surface mount components.
 
 
 ### Trace Width Guidelines
 
-- Power lines to the input of the LDO’s = 0.8 mm
-- Output of LDO’s to electrolytic capacitors and Status LED’s = 0.6 mm
+- Power lines to the input of the LDOs = 0.8 mm
+- Output of LDOs to electrolytic capacitors and status LEDs = 0.6 mm
 - All other traces = 0.4 mm
 
 
