@@ -176,17 +176,12 @@ Place capacitors very close to the component that they are assigned to. The poin
 The light-cyan lines indicate which vias and pads should be connected to each other. Some of the lines are "unique", such as an analog pin on the accelerometer going to an analog pin on the arduino.  Some of them are not unique, such as the 5V pin on the GPS connected to **any other** 5V pin.  The cyan lines for non-unique pins will jump around as you move the component, since the lines connect the closest component that is on the same "rail".  There are a **lot** of ground pins, so the cyan lines for these will keep jumping around a lot.
 
 Rotate components so that the cyan lines don't cross each other as much (it is impossible for them to not really touch).
-<!--
-To draw a wire on the PCB, it is called "routing", so select "Route -> Route Single Track" (or just press X). You can now just connecting things together.
 
 **Don't bother routing the ground pins at this point, since we will draw a ground pour at the end!**
 
 You can place routes on both the top and bottom layers.  Any thru-hole component can be connected together on the bottom or top layer.  Any surface-mount component will need a via next to it with a wire to connect to the other layer.  You can switch to routing on the other layer by clicking on the other layer in the list of layers.  If you are routing and the wire is blue, you are on the bottom layer, if it is red, you are on the top layer. Vias connect the layers together.
 
--->
-
-
-1. Before we trace, we need to set some design rules. To edit a Design Rule, File -> Board Set Up -> Design Rules
+Before we trace, we need to set some design rules. To edit a Design Rule, File -> Board Set Up -> Design Rules
   - Enter the value (and units) that is specified and click OK
   - All below are minimum values
     - 0.25 mm miminum clearance
@@ -210,45 +205,27 @@ Make sure when you are placing traces or vias, that you are selecting these pred
 </div>
 
    
-<!--
-    * Electrical -> Clearance = 10 mil
-    * Routing -> Width
-        - Minimum Width = 6 mil
-        - Preferred Width = 15 mil
-        - Maximum Width = 30 mil
-    * Manufacturing -> Hole Size = 13 mil (min) and 125 mil (max)
-    * Manufacturing -> Minimum Annular Ring = 7 mil
--->
-
-2. To draw a wire on the PCB, it is called "routing", so select "Route -> Route Single Track" (or just press X). You can now just connect things together. When routing, all traces should default to 0.4 mm or 0.5 mm if you implemented the Design Rules correctly. For the power connections to the GPS, Arduino, and SD Card reader, make sure to use to 0.5 mm tracks in order to compensate for the increased current flow through them. For the heater (if you are using a heater), use 0.8 mm traces! You can select a pre-exisitn trace, and edit the width in properties.
-  - Power lines to the input of the LDO’s = 0.8 mm
-  - Output of LDO’s to electrolytic capacitors and Status LED’s = 0.6 mm
-  - All other traces = 0.4 mm
+To draw a wire on the PCB, it is called "routing", so select "Route -> Route Single Track" (or just press X). You can now just connect things together. When routing, all traces should default to 0.4 mm or 0.5 mm if you implemented the Design Rules correctly. For the power connections to the GPS, Arduino, and SD Card reader, make sure to use to 0.5 mm tracks in order to compensate for the increased current flow through them. For the heater (if you are using a heater), use 0.8 mm traces! You can select a pre-exisitn trace, and edit the width in properties. All other traces can be 0.4 mm.
     
-**Don't bother routing the ground pins at this point, since we will draw a ground pour at the end!**
+**AGAIN, Don't bother routing the ground pins at this point, since we will draw a ground pour at the end!**
 
 You can place routes on both the top and bottom layers.  Any thru-hole component can be connected together on the bottom or top layer.  Any surface-mount component will need a via next to it with a wire to connect to the other layer.  You can switch to routing on the other layer by clicking on the other layer in the list of layers.  If you are routing and the wire is blue, you are on the bottom layer, if it is red, you are on the top layer. Vias connect the layers together.
 
-3. Recall from lecture that your board contains two copper layers. These layers are referred to as the top and bottom layers, and are colored red and blue. You can route traces on either side of the board.  You need to escape out of placing traces, then switch layers (by clicking on the layer that you want), the go back to placing traces. The layers that are important to use are listed below
+Recall from lecture that your board contains two copper layers. These layers are referred to as the top and bottom layers, and are colored red and blue. You can route traces on either side of the board.  You need to escape out of placing traces, then switch layers (by clicking on the layer that you want), the go back to placing traces. The layers that are important to use are listed below
   - Top Layer - Top of the board electrical connections (F.cu)
   - Bottom Layer - Bottom of the board for electrical connections (B.cu)
   - F.silkscreen - Your silkscreen for the top layer, can edit labels and add any text
   - B.silkscreen - Your silkscreen for the bottom layer, can edit labels and add any text
 
-4. Route all traces except the ground traces. We will route those later to our polygon pour ground plane, which we make last.
+When routing, you may notice obvious conflicts (lots of traces need to cross).  You can play with the design by rotating components, moving components, or rearranging your components to ease these conflicts.  You may have to do this a few times, so when you place a trace the first time, don't think of it as the final time - think of this as a sketch that you are refining as you go.  **It is ok (and expected!) to delete traces, move things and retrace!** Use both layers of the board to trace! Remember that through hole components are connected on both sides of the board, so you can trace on either side!
 
-5. When routing, you may notice obvious conflicts (lots of traces need to cross).  You can play with the design by rotating components, moving components, or rearranging your components to ease these conflicts.  You may have to do this a few times, so when you place a trace the first time, don't think of it as the final time - think of this as a sketch that you are refining as you go.  **It is ok (and expected!) to delete traces, move things and retrace!** Use both layers of the board to trace! Remember that through hole components are connected on both sides of the board, so you can trace on either side!
+You can also use Vias to have a trace go from the top layer to the bottom layer or bottom to the top layer. You can use this technique when you have to cross another trace.  Most trace crossings can be avoided with some thinking about placement of components, orientation of the different components, or tracing using different routes.  Routes should not be too long, though! **Don't have super long traces to avoid crossing.**
 
-6. You can also use Vias to have a trace go from the top layer to the bottom layer or bottom to the top layer. Make sure to select your pre-defined Via size of 0.6/0.3 mm. You can use this technique when you have to cross another trace.  Most trace crossings can be avoided with some thinking about placement of components, orientation of the different components, or tracing using different routes.  Routes should not be too long, though! **Don't have super long traces to avoid crossing.** 
+When placing a via, you may have to assign it to a net. If you just randomly place a via, kicad probably won't allow you to just randomly connect a wire to it.  If you need to connect something to it, look at one of the locations where you are connecting it from/too.  There will be tiny letters that say something like "Net - (A1-A3)" or something like that.  You can double click on the via, which brings up the properties.  Unclick the "Automatically update via nets" button.  Then to the left of that, you can assign it to the net that you want to connect it to.  If you did it right, kicad will let you connect the via to the component.
 
-<!--
-14. When placing a Via, you have to assign it to a "Net".  For example, if you want to ground a surface mount pad, create a Via (place -> Via), double click on it (to get to Properties, and then select the net "GND".  Now, KiCad knows that it should be grounded.
--->
+You can place labels (technically, you Place -> String) on your PCB to help you remember things. Because LEDs are directional, you may want to indicate which sides are positive by adding a "+" label near the high voltage side. Labels are good. Note that this is different from "Net labels" **You MUST label your board with your team number and name** as well as the date and your names if you would like.
 
-
-7. You can place labels (technically, you Place -> String) on your PCB to help you remember things. Because LEDs are directional, you may want to indicate which sides are positive by adding a "+" label near the high voltage side. Labels are good. Note that this is different from "Net labels" **You MUST label your board with your team number and name** as well as the date and your names if you would like.
-
-8. A very common industry standard is to use a polygon pour so you don't have to run a lot of lines to ground and/or power
+A very common industry standard is to use a polygon pour so you don't have to run a lot of lines to ground and/or power
     - A pour that is usually used is a (ground) GND over the entire bottom layer
     - For example, if you add a Polygon pour for the GND net for the entire bottom layer, then all components that have GND pins in the bottom layer will all be connected and you do not need traces to connect them
     - Make sure you have selected the layer you want to place your polygon pour (F.cu or B.cu)
@@ -266,7 +243,7 @@ You can place routes on both the top and bottom layers.  Any thru-hole component
     - Every single time you adjust components from now on, you'd need to press B to repour the polygon afterwards (thisis why you may want to wait until the end to do the pour).
     - You can use vias to connect your Surface Mount Components to the Ground pour, or do a ground pour on both the top and bottom layer. That will cover the surface mount components.
 
-Finally, we have a completed board! KiCad creates a cartoon (Figure 4) that we can view before moving on to the final stage: Design Rule Check.
+Finally, we have a completed board! In KiCad, you can view the 3D model of the PCB, by clicking "View -> 3D Viewer" (like Figure 4) that we can view before moving on to the final stage: Design Rule Check.
 
 ![Fig. 4](/labs/media/lab-7_figures/Assembly.gif)
 
