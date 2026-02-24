@@ -102,11 +102,12 @@ In summary, your schematic (and the PCB) must have:
 - [ ] Level shifter
 - [ ] SD Card writer
 - [ ] LEDs with resistors from 3.3V, 5.0V, and battery voltage lines to ground
-- [ ] Any extra sensors you choose to use
+<!-- - [ ] Any extra sensors you choose to use -->
 - [ ] The power daughter board (which includes battery connection, RBF pin, LDOs, and capacitors)
 - [ ] 0.22 micro-F capacitors from the input voltage line on the GPS to ground, the SD card input voltage to ground, and the Arduino 5V pin to ground (3 capacitors).
 - [ ] 0.22 micro-F capacitors from input line to ground close to TMP36, BME680, and accelerometer (3 more capacitors).
 
+<!--
 If your extra sensor uses I2C communication protocols, you must connect it to the analog pins pre-set for I2C communications. In the Arduino Nano, these are A4 (SDA pin) and A5 (SCL pin). See more on connecting I2C devices (Google search "connecting I2C devices to an Arduino Nano"). Be sure you read through your extra sensor's documentation and/or hookup guide to understand whether it is I2C and if you will need the A4 and A5 I2C hookup pins. You can Google search for the extra sensor datasheet.
 
 If you choose to use the GUVA sensor, use the Humidity sensor in the Final Project Library, and relabel the pins (and labels) to be the appropriate type (you need to swap the GND and 5V pins).
@@ -118,6 +119,7 @@ If you choose to use a heater, we will use a generic MOSFET, using the [wiring d
 - If you use the **photo-cells** or a **thermistor**, you can use generic resistors, since these will be soldered with wires, so the connection type doesn't really matter much. Both a photo-cell and a thermistor act as resistors, so you will be creating a voltage divider circuit, with a resistor in series with the photo-cell/thermistor, with the analog line coming off the wire in between the resistor and photo-cell/thermistor.
 
 ![Photo-cells with MUX Schematic](/media/Light_sensor_mux.png)
+-->
 
 #### Procedure: Starting Your Design and Creating A Schematic
 
