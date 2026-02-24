@@ -294,7 +294,7 @@ Each student will peer review three PCBs with rubrics provided on Canvas.
 
 The zip file must:
 * Contain all information so that another person can unzip the file, open KiCad, and see you schematic and PCB. 
-* Be named with the following template: team_xx_altium.zip, which xx is your team number expressed as two digits (e.g., 01, 02, 10, 11, etc.)
+* Be named with the following template: team_xx_kiCAD.zip, which xx is your team number expressed as two digits (e.g., 01, 02, 10, 11, etc.)
 
 
 ## Peer Review
