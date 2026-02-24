@@ -273,13 +273,13 @@ The DRC, or Design Rule Check, is a way to check the validity of your PCB with r
 
 ## Final Deliverable
 
-Each team must upload a single zip file containing **all project files and a screenshot showing all DRCs passed** to this designated Google Drive folder (linked in the Canvas assignment) by the date and time specified on the Canvas assignment.
+Each team must upload a single zip file containing **all project files, project libraries, and a screenshot showing all DRCs passed** to this designated Google Drive folder (linked in the Canvas assignment) by the date and time specified on the Canvas assignment.
 
 Each student will peer review three PCBs with rubrics provided on Canvas. 
 
 The zip file must:
-* Contain all information so that another person can unzip the file, open KiCad, and see your schematic and PCB.
-* Be named with the following template: team_xx_kicad.zip, where xx is your team number expressed as two digits (e.g., 01, 02, 10, 11, etc.)
+* Contain all information so that another person can unzip the file, open KiCad, and see your schematic and PCB. (Make sure to include the 'Libraries' folder, formatted as required above).
+* Be named with the following template: teamXX_PCB_initial.zip or teamXX_PCB_final.zip, where XX is your team number expressed as two digits (e.g., 01, 02, 10, 11, etc.)
 
 
 ## Peer Review
