@@ -225,25 +225,29 @@ When placing a via, you may have to assign it to a net. If you just randomly pla
 
 You can place labels (technically, you Place -> String) on your PCB to help you remember things. Because LEDs are directional, you may want to indicate which sides are positive by adding a "+" label near the high voltage side. Labels are good. Note that this is different from "Net labels" **You MUST label your board with your team number and name** as well as the date and your names if you would like.
 
-A very common industry standard is to use a polygon pour so you don't have to run a lot of lines to ground and/or power
-    - A pour that is usually used is a (ground) GND over the entire bottom layer
-    - For example, if you add a Polygon pour for the GND net for the entire bottom layer, then all components that have GND pins in the bottom layer will all be connected and you do not need traces to connect them
-    - Make sure you have selected the layer you want to place your polygon pour (F.cu or B.cu)
+A very common industry standard is to use a polygon pour so you don't have to run a lot of lines to ground and/or power. A pour that is usually used is a (ground) GND over the entire bottom layer, which is how we will use this. If you add a Polygon pour for the GND net for the entire bottom layer, then all components that have GND pins in the bottom layer will all be connected and you do not need traces to connect them. To do this:
+
+ 1. Make sure you have selected the layer you want to place your polygon pour (F.cu or B.cu)
 
      <img width="200" height="101" alt="image" src="https://github.com/user-attachments/assets/c03d753e-82f8-4259-b1e6-0cccb52bc62c" />
  
-    - Use the draw filled zones tool (option + z)
+2. Use the draw filled zones tool (option + z)
     
     <img width="200" height="66" alt="image" src="https://github.com/user-attachments/assets/e99fe28d-0ec8-43da-9bc4-4dbe93c1749e" />
 
-    - Click one corner of the PCB to start, it does not matter which corner.
-    - Under Net Options, select the net you’d like to connect to
-    - The net should have been defined in your schematic (i.e. GND, 5V, BAT, 3.3V)
-    - Under layer, select the layer you’d like this pour to be on
-    - Click okay, and click around until you are satisfied with the shape, then click “Esc” to have your pour, then click B to fill your pour.
-    - You can adjust dimensions of the pour later if need be.
-    - Every single time you adjust components from now on, you'd need to press B to repour the polygon afterwards (thisis why you may want to wait until the end to do the pour).
-    - You can use vias to connect your Surface Mount Components to the Ground pour, or do a ground pour on both the top and bottom layer. That will cover the surface mount components.
+3. Click one corner of the PCB to start, it does not matter which corner.
+
+4. Under Net Options, select the net you’d like to connect to
+
+5. The net should have been defined in your schematic (i.e. GND, 5V, BAT, 3.3V)
+
+6. Under layer, select the layer you’d like this pour to be on
+
+7. Click okay, and click around until you are satisfied with the shape, then click “Esc” to have your pour, then click B to fill your pour.
+
+You can adjust dimensions of the pour later if need be. **Every single time you adjust components from now on, you'd need to press B to repour the polygon afterwards (thisis why you may want to wait until the end to do the pour). **
+
+You can use vias to connect your Surface Mount Components to the Ground pour, or do a ground pour on both the top and bottom layer. That will cover the surface mount components.
 
 Finally, we have a completed board! In KiCad, you can view the 3D model of the PCB, by clicking "View -> 3D Viewer" (like Figure 4) that we can view before moving on to the final stage: Design Rule Check.
 
