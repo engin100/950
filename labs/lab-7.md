@@ -229,9 +229,11 @@ A very common industry standard is to use a polygon pour so you don't have to ru
     - A pour that is usually used is a (ground) GND over the entire bottom layer
     - For example, if you add a Polygon pour for the GND net for the entire bottom layer, then all components that have GND pins in the bottom layer will all be connected and you do not need traces to connect them
     - Make sure you have selected the layer you want to place your polygon pour (F.cu or B.cu)
+
      <img width="200" height="101" alt="image" src="https://github.com/user-attachments/assets/c03d753e-82f8-4259-b1e6-0cccb52bc62c" />
  
     - Use the draw filled zones tool (option + z)
+    
     <img width="200" height="66" alt="image" src="https://github.com/user-attachments/assets/e99fe28d-0ec8-43da-9bc4-4dbe93c1749e" />
 
     - Click one corner of the PCB to start, it does not matter which corner.
