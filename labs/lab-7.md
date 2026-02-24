@@ -237,18 +237,18 @@ You can place routes on both the top and bottom layers.  Any thru-hole component
 
 4. Route all traces except the ground traces. We will route those later to our polygon pour ground plane, which we make last.
 
-13. When routing, you may notice obvious conflicts (lots of traces need to cross).  You can play with the design by rotating components, moving components, or rearranging your components to ease these conflicts.  You may have to do this a few times, so when you place a trace the first time, don't think of it as the final time - think of this as a sketch that you are refining as you go.  **It is ok (and expected!) to delete traces, move things and retrace!** Use both layers of the board to trace! Remember that through hole components are connected on both sides of the board, so you can trace on either side!
+5. When routing, you may notice obvious conflicts (lots of traces need to cross).  You can play with the design by rotating components, moving components, or rearranging your components to ease these conflicts.  You may have to do this a few times, so when you place a trace the first time, don't think of it as the final time - think of this as a sketch that you are refining as you go.  **It is ok (and expected!) to delete traces, move things and retrace!** Use both layers of the board to trace! Remember that through hole components are connected on both sides of the board, so you can trace on either side!
 
-5. You can also use Vias to have a trace go from the top layer to the bottom layer or bottom to the top layer. Make sure to select your pre-defined Via size of 0.6/0.3 mm. You can use this technique when you have to cross another trace.  Most trace crossings can be avoided with some thinking about placement of components, orientation of the different components, or tracing using different routes.  Routes should not be too long, though! **Don't have super long traces to avoid crossing.** 
+6. You can also use Vias to have a trace go from the top layer to the bottom layer or bottom to the top layer. Make sure to select your pre-defined Via size of 0.6/0.3 mm. You can use this technique when you have to cross another trace.  Most trace crossings can be avoided with some thinking about placement of components, orientation of the different components, or tracing using different routes.  Routes should not be too long, though! **Don't have super long traces to avoid crossing.** 
 
 <!--
 14. When placing a Via, you have to assign it to a "Net".  For example, if you want to ground a surface mount pad, create a Via (place -> Via), double click on it (to get to Properties, and then select the net "GND".  Now, KiCad knows that it should be grounded.
 -->
 
 
-6. You can place labels (technically, you Place -> String) on your PCB to help you remember things. Because LEDs are directional, you may want to indicate which sides are positive by adding a "+" label near the high voltage side. Labels are good. Note that this is different from "Net labels" **You MUST label your board with your team number and name** as well as the date and your names if you would like.
+7. You can place labels (technically, you Place -> String) on your PCB to help you remember things. Because LEDs are directional, you may want to indicate which sides are positive by adding a "+" label near the high voltage side. Labels are good. Note that this is different from "Net labels" **You MUST label your board with your team number and name** as well as the date and your names if you would like.
 
-7. A very common industry standard is to use a polygon pour so you don't have to run a lot of lines to ground and/or power
+8. A very common industry standard is to use a polygon pour so you don't have to run a lot of lines to ground and/or power
     - A pour that is usually used is a (ground) GND over the entire bottom layer
     - For example, if you add a Polygon pour for the GND net for the entire bottom layer, then all components that have GND pins in the bottom layer will all be connected and you do not need traces to connect them
     - Make sure you have selected the layer you want to place your polygon pour (F.cu or B.cu)
