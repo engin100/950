@@ -106,6 +106,8 @@ In summary, your schematic (and the PCB) must have:
 - [ ] The power daughter board (which includes battery connection, RBF pin, LDOs, and capacitors)
 - [ ] 0.1 uF (micro-F) capacitors from the input voltage line on the GPS to ground, the SD card input voltage to ground, and the Arduino 5V pin to ground (3 capacitors).
 - [ ] 0.1 uF (micro-F) capacitors from input line to ground close to TMP36, BME680, and accelerometer (3 more capacitors).
+- [ ] A voltage divider running off of the battery line
+- [ ] A voltage divider running off of the 5v line
 
 If your extra sensor uses I2C communication protocols, you must connect it to the analog pins pre-set for I2C communications. In the Arduino Nano, these are A4 (SDA pin) and A5 (SCL pin). See more on connecting I2C devices (Google search "connecting I2C devices to an Arduino Nano"). Be sure you read through your extra sensor's documentation and/or hookup guide to understand whether it is I2C and if you will need the A4 and A5 I2C hookup pins. You can Google search for the extra sensor datasheet.
 
