@@ -89,9 +89,10 @@ In order to launch, your board needs to pass the following tests:
 - GPS in balloon mode (digital pin) - 2 points 
 - Data being taken (eg, in the loop turn LED on and off - digital pin)  - 2 points
 2. Put (all) LEDs and TMP36 on PCB outside of payload: 5 points
-3. Smaller PCB (points go up as PCB gets smaller): (16sqin - area)/2 points (5 max)
-4. Mass of payload (points go up as mass goes down): (16oz - weight)/2 points (5 max)
-5. Style points for design (class votes on each): 1-5 points
-6. Better timing for taking data (not "just" 1s data): 1-5 points, depending on complexity
-7. Above and beyond data analysis: 1-5 points, depending on complexity (e.g. Skew-T diagram, plots of GPS satellite locations, etc.) 
-8. Individual / Team Video: 10 points for 2 minutes / person
+3. Add an extra sensor (e.g., heater, GUVA, light sensor, etc): 5 points
+4. Smaller PCB (points go up as PCB gets smaller): (16sqin - area)/2 points (5 max)
+5. Mass of payload (points go up as mass goes down): (16oz - weight)/2 points (5 max)
+6. Style points for design (class votes on each): 1-5 points
+7. Better timing for taking data (not "just" 1s data): 1-5 points, depending on complexity
+8. Above and beyond data analysis: 1-5 points, depending on complexity (e.g. Skew-T diagram, plots of GPS satellite locations, etc.) 
+10. Individual / Team Video: 10 points for 2 minutes / person
