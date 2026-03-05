@@ -5,30 +5,57 @@ latex: true
 
 # Powerboard Assembly Guide
 
-## Required Components
-All **power specific** components, including the PCBs, can be found in the two small teal cases in the soldering room. Each case is identical, so you can take all of your components out of either one. 
-
-The only components not found in those two containers are the LEDs and resistors. There's a container of small LEDs on that same table, and resistors from the soldering challenge can be used. 
-
 <div class="primer-spec-callout danger" markdown="1">
-While you could grab all components at once then get to soldering, it may be best to grab the components one at a time, so that things don't get lost or mixed up. 
+While you could grab all components at once then get to soldering, it is best to grab the components ONE at a time, so that things don't get lost or mixed up.
 </div>
 
 ## Procedure
-1. Grab a PCB and some resistors. Solder them in. 
-![Step 1](/media/powerboard-guide-figures/IMG_4046.JPG)
+1. Take your PCB and solder on your 3v3 LDO.
 
-2. Next up, solder in the capacitors. **It is critical that the capacitors go in the correct location. Check your orientation with the photo below before soldering.**
-![Step 2](/media/powerboard-guide-figures/IMG_4048.JPG)
+<div class="primer-spec-callout danger" markdown="1">
+Double and triple check that you 3v3 LDO is in the correct spot and is not in the 5v LDO spot. Have an instructor check after you finish this step.
+</div>
 
-3. Diode time! Solder in your LEDs and protection diodes. **Check the orientations!!!** When you're done, you'll have something like this: 
-![Step 3](/media/powerboard-guide-figures/IMG_4049.JPG)
+![Step 1](/media/powerboard-guide-figures/power-board-3v3.jpeg)
 
-4. The penultimate step: connectors. **Make sure the battery connector is oriented such that when plugged in, the red wire is on the same side as the J1 label. 
-![Step 4](/media/powerboard-guide-figures/IMG_4050.JPG)
+2. Next, solder on your 5v LDO.
+![Step 2](/media/powerboard-guide-figures/power-board-5v.jpeg)
 
-5. Last but most important: the LDOs! Make sure they're in the correct spots **(U1 = 5V, U2 = 3.3V)** and that the heatsinks face each other. 
-![Step 5](/media/powerboard-guide-figures/IMG_4051.JPG)
+3. Now, solder the two 1uF capacitors. **Note that they go on the left of the LDOs**
+![Step 3](/media/powerboard-guide-figures/power-board-1uf.jpeg)
 
+4. Solder the two 4.7uF capacitors on the other side of the LDOs:
+![Step 4](/media/powerboard-guide-figures/power-board-47uf.jpeg)
 
-And you're done! 
+Now, you can choose whether to add the surface mount LED or through hole LED. Since they
+both indicate battery power, there is no need to have both on the board. You can also
+choose to have the SMD installed on the board and then run wires from the through hole out
+to an LED visible from the outside of your payload.
+
+5. If you chose to install the surface mount LED, solder both the surface mount LED and resistor.
+![Step 5](/media/powerboard-guide-figures/power-board-smd-led.jpeg)
+
+6. If you chose the install the through hole LED, solder both the through hole LED and
+   resistor. **Note that this photo has the power connector installed, ignore this until
+   the step that asks you to install it.**
+![Step 6](/media/powerboard-guide-figures/power-board-tht-led.jpeg)
+
+7. Next, solder the diode. Be careful bending the leads on the diode since they're thick
+   and potentially easy to break.
+![Step 7](/media/powerboard-guide-figures/power-board-diode.jpeg)
+
+8. Solder the RBF jack:
+![Step 8](/media/powerboard-guide-figures/power-board-rbf.jpeg)
+
+9. Finally, solder the power connector, insert your RBF plug, and you have a functioning
+   power board!
+![Step 9](/media/powerboard-guide-figures/power-board-complete.jpeg)
+
+<div class="primer-spec-callout danger" markdown="1">
+Have an instructor check your board and test it before moving on.
+</div>
+
+The final step before you can use your power board to supply your payload PCB is to solder
+the 4-pin header. How this is done will depend on how you designed your PCB to fit the
+power board, so it is recommended to wait until your main PCB is soldered to test fit and
+solder the pin header.
