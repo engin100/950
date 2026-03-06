@@ -35,7 +35,7 @@ to an LED visible from the outside of your payload.
 5. If you chose to install the surface mount LED, solder both the surface mount LED and resistor.
 ![Step 5](/media/powerboard-guide-figures/power-board-smd-led.jpeg)
 
-6. If you chose the install the through hole LED, solder both the through hole LED and
+6. If you chose to install the through hole LED, solder both the through hole LED and
    resistor. **Note that this photo has the power connector installed, ignore this until
    the step that asks you to install it.**
 ![Step 6](/media/powerboard-guide-figures/power-board-tht-led.jpeg)
