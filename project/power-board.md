@@ -12,9 +12,9 @@ While you could grab all components at once then get to soldering, it is best to
 ## Procedure
 1. Take your PCB and solder on your 3v3 LDO.
 
-<div class="primer-spec-callout danger" markdown="1">
-Double and triple check that you 3v3 LDO is in the correct spot and is not in the 5v LDO spot. Have an instructor check after you finish this step.
-</div>
+   <div class="primer-spec-callout danger" markdown="1">
+   Double and triple check that you 3v3 LDO is in the correct spot and is not in the 5v LDO spot. Have an instructor check after you finish this step.
+   </div>
 
 ![Step 1](/media/powerboard-guide-figures/power-board-3v3.jpeg)
 
