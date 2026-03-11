@@ -29,13 +29,16 @@ While you could grab all components at once then get to soldering, it is best to
 4. Solder the two 4.7uF capacitors on the other side of the LDOs:
 
    ![Step 4](/media/powerboard-guide-figures/power-board-47uf.jpeg)
+
+   <div class="primer-spec-callout info" markdown="1">
    Now, you can choose whether to add the surface mount LED or through hole LED. Since they
    both indicate battery power, there is no need to have both on the board. You can also
    choose to have the SMD installed on the board and then run wires from the through hole out
    to an LED visible from the outside of your payload.
+   </div>
 
 5. If you chose to install the surface mount LED, solder both the surface mount LED and resistor.
-   
+
    ![Step 5](/media/powerboard-guide-figures/power-board-smd-led.jpeg)
 
 6. If you chose to install the through hole LED, solder both the through hole LED and
