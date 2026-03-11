@@ -34,10 +34,11 @@ While you could grab all components at once then get to soldering, it is best to
    Now, you can choose whether to add the surface mount LED or through hole LED. Since they
    both indicate battery power, there is no need to have both on the board. You can also
    choose to have the SMD installed on the board and then run wires from the through hole out
-   to an LED visible from the outside of your payload.
+   to an LED visible from the outside of your payload (or if you have an external board that has a power LED).
    </div>
 
-5. If you chose to install the surface mount LED, solder both the surface mount LED and resistor.
+5. If you chose to install the surface mount LED, solder both the surface mount LED and
+   resistor. **Watch the polarity of the SMD LED**
 
    ![Step 5](/media/powerboard-guide-figures/power-board-smd-led.jpeg)
 
